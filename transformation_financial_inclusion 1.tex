@@ -1,0 +1,3374 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+  \usepackage{amssymb}
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Transformation of Microfinance Institutions and Financial Inclusion in Africa},
+  pdfauthor={John Karuitha \& Kalu Ojah},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{pdflscape}
+\newcommand{\blandscape}{\begin{landscape}}
+\newcommand{\elandscape}{\end{landscape}}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\title{Transformation of Microfinance Institutions and Financial
+Inclusion in Africa}
+\author{John Karuitha \& Kalu Ojah}
+\date{Tuesday December 08, 2020}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{abstract}{%
+\section{\texorpdfstring{\textbf{Abstract}}{Abstract}}\label{abstract}}
+
+\begin{quote}
+The shift from the not-for-profit microfinance has seen the rise of
+commercial MFIs ranging from commercial banks to rural banks to credit
+unions in addition to non-governmental organizations (NGOs). The shift
+arose partly due to neo-liberalism and the need for microfinance
+institutions (MFIs) to sustainably reach the financially excluded. In
+this article, we examine how the shift has affected financial inclusion
+in Africa. We utilise data from the Microfinance Information Exchange
+(MIX). The analysis shows that the shift from NGO model to the
+commercial models could negatively affect the depth of financial
+outreach given that NGOs have better outreach to women and advance
+smaller loans on average. Also, NGOs have higher breadth of outreach
+compared to other legal forms except for credit unions/ cooperatives.
+The results are robust after removing outliers and controlling for
+factors that affect the ability of MFIs to offer financial services to
+the poor.
+\end{quote}
+
+\hypertarget{background}{%
+\section{\texorpdfstring{\textbf{Background}}{Background}}\label{background}}
+
+In 1992, PRODEM, a micro-finance institution (MFI) in Bolivia converted
+from a non-governmental organization (NGO) to a commercial bank,
+adopting the name BANCOSOL. In the nearly almost three decades that have
+passed numerous NGO MFIs across the globe have adopted the commercial
+approach (Table 1). In this article, we examine how the conversion of
+MFIs to the commercial model affects financial inclusion in terms of
+outreach to the financially excluded. Specifically, we examine the way
+the conversion typically affects outreach to women, average loan sizes,
+and gross loans.The study focuses on Africa, a continent that is the
+epicentre of financial exclusion despite remarkable economic progress in
+the last 4 decades (Beck and Cull 2014; Allen, Otchere, and Senbet
+2011). Evaluating the effects of transformation using global metrics is
+likely to mask regional heterogeneity given that these effects could
+manifest differently in varying settings (D'Espallier et al. 2017).
+
+\begin{longtable}[]{@{}llll@{}}
+\caption{Sample of transformed MFIs across the globe (selected
+cases)}\tabularnewline
+\toprule
+Institution & Country & Year & Converted\_to\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Institution & Country & Year & Converted\_to\tabularnewline
+\midrule
+\endhead
+Finansol & Colombia & 1993 & Commercial Finance Company\tabularnewline
+OIBM & Malawi & 2002 & NBFI\tabularnewline
+PRIDE & Tanzania & 2009 & NBFI\tabularnewline
+Kenya Women Finance Trust & Kenya & 2010 & NBFI\tabularnewline
+Faulu & Kenya & 2010 & NBFI\tabularnewline
+OI-SASL & Ghana & 2013 & NBFI\tabularnewline
+\bottomrule
+\end{longtable}
+
+Most pioneer microfinance institutions adopted a not-for-profit model
+(Dichter 1996), operating mainly as non-governmental organizations
+(NGOs). However, neo-liberalism has seen many donors scale back and push
+MFIs to strive for financial sustainability (Bateman 2010). The
+arguments for the commercial approach to microfinance revolve around
+sustainability. Financial sustainability school posits that MFIs can
+best serve the financially excluded when they have a degree of financial
+self-sufficiency (Kodongo and Kendi 2013).
+
+For instance, profit-oriented MFIs could serve the relatively well-off
+at market rates and use the proceeds to subsidize services to the poor
+sustainably, causing mission expansion (Mersland and Strøm 2010; Louis,
+Seret, and Baesens 2013). Also, donor funds are volatile and subject to
+prevailing political and economic conditions (Garmaise and Natividad
+2013; D'Espallier, Hudon, and Szafarz 2017). As a case in point, Frank
+et al.~(2008), found that adopting a commercial model led to a higher
+client outreach, higher growth in the loan portfolio, and higher product
+diversification. More importantly, they established that conversion
+allowed more women customers to access services, although the overall
+percentage of women receiving the services declined. Subsequent research
+by supports this position (Bos and Millone 2015; D'Espallier, Hudon, and
+Szafarz 2013; Hartarska and Mersland 2012).
+
+The proponents point to the possibility of mission drift where MFI
+reduce focus on providing financial services to the financially excluded
+in favour of making profits which some researchers have found to be the
+case (Louis, Seret, and Baesens 2013). The theory underlying mission
+drift is the profit-incentive theory arising from the agency
+relationship between managers and providers of capital, chiefly,
+shareholders. Agency theory postulates that managers act in their
+self-interest to the detriment of shareholders which forces shareholders
+to undertake actions to safeguard their interests. In the presence of a
+third objective like social performance, it is likely that managers
+could focus on meeting their interests while satisfying the requirements
+of the shareholders, meaning that social performance would suffer. The
+assumption is that shareholders prioritize financial gain over the
+social performance of the MFIs where they have invested the funds. The
+assumption fails where we have investors who also give weight to social
+performance as is the case with blended finance investors- private
+financial investment for social good.
+
+As noted, research on the effects of the transformation of microfinance
+institutions is mixed. () plausibly argues that if commercial MFIs could
+sustainably achieve both financial sustainability while also reaching
+the poor, then NGOs would not exist. The most important question relates
+to the way the transformation of MFIs would affect their core mission of
+providing financial services to the financially excluded. The issue is
+important not only due to the legitimacy that MFIs derive from serving
+the financially excluded but also because financial inclusion is central
+to alleviating poverty and achieving inclusive growth and is a key
+dimension of financial development. In this article, we use data from
+the Microfinance Information Exchange (MIX) to evaluate the way
+transformation of MFIs affects financial inclusion in Africa.
+
+We capture the extent of financial inclusion of Africa using three
+metrics; the percent of female borrowers, average loan balance per
+borrower and gross loan portfolio to assets of the MFI. The first two
+proxy the depth of outreach with greater outreach to women an indicator
+of more depth. Higher average loan balance per borrower corresponds to
+lower depth of outreach. The presumption is that financially excluded
+people usually borrow in smaller denominations which has drawn
+reservations from some researchers who argue poor people could
+progressively demand bigger loans as they get better off. Also, MFIs
+regularly use progressive lending where people who successfully pay off
+loans qualify for a higher loan. We have organized the rest of the study
+as follows. Section 2 presents a summary of the results, followed by the
+methodology. Next, in section 4, we presents the methods adopted in the
+study. We then present the results and conclude.
+
+\hypertarget{theory-and-empirical-literature}{%
+\section{\texorpdfstring{\textbf{Theory and Empirical
+Literature}}{Theory and Empirical Literature}}\label{theory-and-empirical-literature}}
+
+\hypertarget{summary-of-results}{%
+\section{\texorpdfstring{\textbf{Summary of
+Results}}{Summary of Results}}\label{summary-of-results}}
+
+Overall, we find that the conversion from NGO, not-for-profit model in
+Africa is harmful to both the depth and breadth of outreach. NGOs
+consistently outperform the commercial oriented MFIs regarding the
+outreach to women borrowers. Additionally, NGOs have the lowest average
+loan balance per borrower, an indicator that they reach out to the
+poorest, presumably more financially excluded people. Turning to gross
+loans to assets, NGOs come second to credit unions/ cooperatives. The
+trend indicates that MFIs that are profit oriented do suffer a degree of
+mission drift. Noting that serving poor, financially excluded people is
+costly, and given that profit orientation implies the presence of
+interest on debt and dividends on equity, the results are no surprise.
+What is odd is that NGOs could be lending more in terms of gross loans
+than most commercial oriented MFIs, though it turns out the both
+cooperatives and NGOs hold the fewest assets relative to other legal
+types. The other important drivers of financial inclusion are age of
+MFI, operating expense to assets ratio, donations to assets ratio,
+capital-assets ratio, asset structure, size, education and profit
+margin. In the next section, we highlight the results of the study.
+
+\hypertarget{method}{%
+\section{\texorpdfstring{\textbf{Method}}{Method}}\label{method}}
+
+We run fixed and random effects models dependent on the results of the
+Hausmann Tests. Specifically, we fit the following model.
+
+\(y_{it} = \hat{a} + \hat{b}x_{it} + e_{it}\) \textless equation
+1\textgreater{}
+
+Where \(y_{it}\) is the independent variable; one of percent of female
+borrowers, average loan balance per borrower, and gross loan portfolio
+to total assets. The first two metrics capture financial depth while
+gross loans captures the breadth of outreach. \(x_{it}\) is a matrix of
+independent variables. The variable of interest in our case is the
+current legal status that enters the model as a dummy representing NGOs,
+NBFIs, commercial banks, rural banks and credit unions/ cooperatives.
+The other control variables include age dummy, a dummy for region,
+operating expenses to assets ratio, donations to assets ratio, equity
+capital to assets ratio, asset structure, size (logarithm of total
+assets), education, and profit margin. \(e_{it}\) is the error term. In
+the next section, we present the results.
+
+\hypertarget{results}{%
+\section{\texorpdfstring{\textbf{Results}}{Results}}\label{results}}
+
+In this section, we begin by visualizing the variables followed by
+summary statistics for the data. We then run and discuss the results of
+the regression model.
+
+\hypertarget{data-visualization}{%
+\subsection{\texorpdfstring{\textbf{Data
+Visualization}}{Data Visualization}}\label{data-visualization}}
+
+We start by visualizing the numeric variables against the current legal
+status of MFIs. We use the median of the variables to stand for the
+variables. Figure () shows that NGOs exhibit the highest median
+operating expense to assets ratio followed by NBFIs while credit unions
+trail. As we see later in the analysis, operating expenses positively
+relate with the depth of outreach- percent of female borrowers and depth
+of outreach in terms of gross loans to assets. As expected NGOs receive
+the highest share of donations followed by, surprisingly, credit unions
+and NGOs while commercial banks receive the least donations. The result
+is not surprising given that NGOs have a rooting in the welfare model of
+microfinance and that most donors are likely to channel their funds to
+MFIs that place social performance over profits.
+
+Donations do not prevent NGOs and NBFIs from raising capital as they
+have the highest capital to assets ratio- which captures equity
+injections. Commercial banks, credit unions and rural banks follow in
+that order. However, the equity capital NGOs may attract may be
+preferential in terms of expected returns, as is the case with blended
+finance. For asset structure (tangibility), credit unions lead followed
+by commercial banks, NGOs, NBFIs, and rural banks. We capture the size
+of MFI by the logarithm of assets. Commercial banks have the highest
+asset base, followed by NBFIs while NGOs and cooperatives come last.
+Finally, NGOs fare worst in profitability while rural banks and
+commercial banks lead.
+
+Overall, the pattern indicates that while NGOs spend the most in
+operating expense to reach the financially excluded, these efforts come
+at the expense of profitability. on the contrary, profit-oriented MFIs
+are keen to manage expenses which improves profitability, presumably at
+the expense of outreach to the financially excluded. It is worth noting
+that NGOs have a relatively low asset base and hold relatively fewer
+non-current assets to total assets. The observation could mean that NGOs
+do not invest heavily in brick and mortar branches or serve a relatively
+limited geographic range. Finally, despite the push towards commercial
+capital, NGOs have the highest capital (equity) to asset ratio- of which
+much could be from investors keen on social performance and not profits.
+
+We now turn to figure (). The first graph shows that commercial banks
+are the largest in terms of total assets, while NGOs and cooperatives
+are the smallest in that order. Banks tend to have a much broader
+geographic presence and hence attract more clients which, in turn means
+more assets. Again, capital adequacy requirements by central banks have
+implications on the assets that banks hold. Turning to profitability, we
+find that rural banks and commercial banks post the highest median
+profits, while NBFIs and NGOs trail. The result probably partially
+illustrates the emphasis on social performance versus financial
+perfromance that management take- with NGOs more likely to favor the
+social aspect.
+
+Turning to gross loans, commercial banks have the highest while NBFIs
+and NGOs trail. The argument is that a smaller average loan size is
+indicative of better depth of outreach, a position that is contested. In
+this case, it means that banks tend to reach relatively well off clients
+that are unlikely to be financially excluded leaving NBFIs and NGOs to
+serve the marginalized. After commercial banks, the other legal forms
+that exhibit highest average loan balances are credit unions and rural
+banks, respectively. Lastly, NGOs appear to have the highest median
+gross loans, which is surprising given their relatively smaller size. On
+the other hand, banks and rural banks, respectively have the lowest
+gross loans to assets meaning they are less efficienct in converting
+their assets into credit. Again, it goes to show, at least in the case
+of Africa that breadth and depth of financial outreach are not always
+mutually exclusive.
+
+Figure () shows the relationships between the numeric variables. First,
+there is high skewness exhibited by donations to assets ratio, average
+loan balance per borrower and gross loans to assets ratio. It means that
+relatively few firms account for a huge chunk of the donations received,
+in this case among NGOs, cooperatives and NBFIs. The highest correlation
+exists between operating expenses to assets ratio and donations to
+assets ratio, meaning that donor funded MFIs have more operating
+expenses probably because they are less constrained by profit/ interest
+seeking shareholders and debt holders. Taken together, this observation
+may imply that if it is expensive to administer and monitor small loans,
+then the profit oriente model is not good for financial inclusion as it
+constrains the ability to spend. The summary statistics in Table 2,
+Table 3, and Table 4 highlight the discussed issues but offer a wider
+array of statistical measures inclusing the mean, standard deviation and
+the quantiles.
+
+\newpage
+\blandscape
+
+\begin{center}\includegraphics[width=10in]{transformation_financial_inclusion_files/figure-latex/unnamed-chunk-9-1} \end{center}
+
+\newpage
+
+\begin{center}\includegraphics[width=10in]{transformation_financial_inclusion_files/figure-latex/unnamed-chunk-10-1} \end{center}
+
+\newpage
+
+\begin{center}\includegraphics[width=10in]{transformation_financial_inclusion_files/figure-latex/plots2-1} \end{center}
+
+\newpage
+
+\hypertarget{descriptive-statistics}{%
+\subsection{\texorpdfstring{\textbf{Descriptive
+Statistics}}{Descriptive Statistics}}\label{descriptive-statistics}}
+
+\begin{longtable}[]{@{}llrrrrrrr@{}}
+\caption{Summary Statistics for Dependent Variables}\tabularnewline
+\toprule
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+Variable\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+currentlegalstatus\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+Mean\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+SD\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+Min\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+Q1\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+Median\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+Q3\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+Max\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+Variable\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+currentlegalstatus\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+Mean\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+SD\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+Min\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+Q1\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+Median\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+Q3\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+Max\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+percent\_of\_female\_borrowers\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+NGO\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.73\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+0.23\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.60\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.77\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.94\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+1.00e+00\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+percent\_of\_female\_borrowers\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.52\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+0.20\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.04\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.37\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.52\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.60\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+1.00e+00\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+percent\_of\_female\_borrowers\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+NBFI\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.56\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+0.23\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.40\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.55\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.72\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+1.00e+00\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+percent\_of\_female\_borrowers\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+Credit Union/ Cooperative\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.46\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+0.24\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.28\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.43\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.61\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+1.00e+00\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+percent\_of\_female\_borrowers\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+Rural Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.50\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+0.19\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.13\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.37\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.50\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.60\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+1.00e+00\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+average\_loan\_balance\_per\_borrower\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+NGO\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+286.23\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+391.15\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+96.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+174.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+316.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+4.19e+03\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+average\_loan\_balance\_per\_borrower\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+1573.01\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+2801.56\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+275.25\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+712.50\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+1584.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+3.40e+04\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+average\_loan\_balance\_per\_borrower\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+NBFI\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+819.69\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+1443.97\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+130.75\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+338.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+897.25\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+1.99e+04\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+average\_loan\_balance\_per\_borrower\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+Credit Union/ Cooperative\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+1316.29\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+13562.13\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+250.75\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+490.50\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+933.25\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+4.01e+05\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+average\_loan\_balance\_per\_borrower\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+Rural Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+410.19\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+302.19\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+15.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+210.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+351.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+561.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+1.88e+03\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+gross\_loan\_portfolio\_to\_total\_assets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+NGO\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.72\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+0.43\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.59\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.72\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.83\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+1.22e+01\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+gross\_loan\_portfolio\_to\_total\_assets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.57\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+0.27\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.45\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.58\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.70\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+3.28e+00\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+gross\_loan\_portfolio\_to\_total\_assets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+NBFI\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.71\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+0.99\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.55\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.69\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.81\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+2.50e+01\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+gross\_loan\_portfolio\_to\_total\_assets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+Credit Union/ Cooperative\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.61\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+0.76\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.47\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.62\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.73\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+2.74e+01\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.32}}\raggedright
+gross\_loan\_portfolio\_to\_total\_assets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.22}}\raggedright
+Rural Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.40\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+0.23\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedleft
+0.07\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.28\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedleft
+0.39\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedleft
+0.50\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedleft
+1.87e+00\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}lrl@{}}
+\caption{Summary Statistics for Categrical Independent
+Variables}\tabularnewline
+\toprule
+Variable & Completeness & Counts\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Variable & Completeness & Counts\tabularnewline
+\midrule
+\endhead
+currentlegalstatus & 1 & Cre: 1427, NBF: 1318, NGO: 1280, Ban:
+619\tabularnewline
+age & 1 & Mat: 2558, New: 1200, You: 1024\tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+
+\begin{longtable}[]{@{}lllllllll@{}}
+\caption{Summary Statistics for Continous Independent
+Variables}\tabularnewline
+\toprule
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+Variable\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+currentlegalstatus\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+Mean\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+SD\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+Min\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+Q1\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+Median\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+Q3\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+Max\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+Variable\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+currentlegalstatus\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+Mean\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+SD\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+Min\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+Q1\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+Median\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+Q3\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+Max\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+operating\_expense\_assets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NGO\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.29\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.24\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.15\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.23\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.37\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+2.52\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+operating\_expense\_assets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.23\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.16\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.12\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.20\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.30\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+2.21\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+operating\_expense\_assets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NBFI\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.26\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.21\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.13\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.20\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.31\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+1.98\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+operating\_expense\_assets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Credit Union/ Cooperative\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.16\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.11\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.10\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.13\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.18\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+1.19\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+operating\_expense\_assets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Rural Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.15\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.04\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.08\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.12\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.14\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.17\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.25\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+donations\_assets\_ratio\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NGO\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.10\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.23\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.01\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.09\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+2.60\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+donations\_assets\_ratio\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.09\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+1.30\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+donations\_assets\_ratio\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NBFI\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.04\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.13\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+1.71\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+donations\_assets\_ratio\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Credit Union/ Cooperative\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.08\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.01\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+1.62\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+donations\_assets\_ratio\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Rural Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.01\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.08\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+capital\_asset\_ratio\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NGO\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.42\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.76\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+-18.35\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.22\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.38\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.64\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+12.15\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+capital\_asset\_ratio\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.31\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.23\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+-0.57\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.15\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.24\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.39\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+1.70\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+capital\_asset\_ratio\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NBFI\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.39\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.48\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+-1.78\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.18\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.32\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.57\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+9.05\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+capital\_asset\_ratio\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Credit Union/ Cooperative\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.20\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.67\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+-14.82\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.11\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.21\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.36\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+11.27\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+capital\_asset\_ratio\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Rural Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.18\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.24\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+-0.13\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.10\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.14\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.16\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+1.98\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+asset\_structure\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NGO\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.08\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.08\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.03\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.06\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.10\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.75\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+asset\_structure\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.08\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.09\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.03\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.06\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.10\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.86\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+asset\_structure\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NBFI\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.07\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.07\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.03\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.05\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.09\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.55\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+asset\_structure\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Credit Union/ Cooperative\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.08\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.07\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.04\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.07\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.11\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.60\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+asset\_structure\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Rural Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.06\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.04\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.03\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.04\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.07\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.21\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+lassets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NGO\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+6.31\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.93\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.00\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+5.76\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+6.29\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+6.87\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+9.93\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+lassets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+7.07\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+1.24\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+2.50\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+6.08\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+7.19\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+7.89\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+9.98\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+lassets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NBFI\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+6.62\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.82\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+2.39\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+6.13\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+6.64\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+7.19\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+8.68\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+lassets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Credit Union/ Cooperative\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+6.28\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.98\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+1.30\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+5.58\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+6.21\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+6.93\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+9.33\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+lassets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Rural Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+6.52\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.55\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+4.48\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+6.25\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+6.61\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+6.86\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+7.43\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+education\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NGO\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.42\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.16\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.07\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.29\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.42\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.50\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+1.05\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+education\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.41\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.15\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.08\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.28\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.46\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.51\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.96\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+education\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NBFI\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.38\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.14\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.10\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.26\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.36\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.48\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.96\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+education\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Credit Union/ Cooperative\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.34\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.12\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.12\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.25\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.31\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.44\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.60\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+education\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Rural Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.48\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.04\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+0.46\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.46\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.47\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.49\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.69\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+profit\_margin\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NGO\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+-0.51\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+3.43\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+-49.12\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+-0.30\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.03\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.17\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+3.62\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+profit\_margin\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+-70.78\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+1584.24\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+-35495.62\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+-0.07\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.11\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.23\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.81\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+profit\_margin\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+NBFI\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+-0.36\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+1.99\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+-45.36\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+-0.26\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.04\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.18\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+3.56\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+profit\_margin\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Credit Union/ Cooperative\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+-0.35\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+2.36\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+-50.43\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+-0.23\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.05\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.21\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+6.20\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.25}}\raggedright
+profit\_margin\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.26}}\raggedright
+Rural Bank\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.16\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.08}}\raggedright
+0.23\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.10}}\raggedright
+-1.89\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.14\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.07}}\raggedright
+0.19\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.05}}\raggedright
+0.25\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 8\tabcolsep) * \real{0.06}}\raggedright
+0.43\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\elandscape
+\newpage
+
+\newpage
+
+\hypertarget{regression-analysis}{%
+\subsection{\texorpdfstring{\textbf{Regression
+Analysis}}{Regression Analysis}}\label{regression-analysis}}
+
+In this section, we run the Hausmann test for the choice between fixed
+effects and random effects model.Also, we check for the choice between
+pooled OLS and random effects models. Finally, we present the output
+from the regression analysis.
+
+\hypertarget{the-hausmann-test}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{The Hausmann
+Test}}}{The Hausmann Test}}\label{the-hausmann-test}}
+
+Table () shows the results of the Hausmann test. The test favours the
+fixed effects model given that the null hypothesis is the random
+effects.
+
+\begin{longtable}[]{@{}lrrrl@{}}
+\caption{Results of the Hausmann Test for Fixed versus Random
+Effects}\tabularnewline
+\toprule
+Dependent\_variable & Statistic & P.value & Parameter &
+Alternative\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Dependent\_variable & Statistic & P.value & Parameter &
+Alternative\tabularnewline
+\midrule
+\endhead
+Percent of Female Borrowers & 61.9 & 0 & 30 & one model is
+inconsistent\tabularnewline
+Average Loan Balance per Borrower & 239.1 & 0 & 30 & one model is
+inconsistent\tabularnewline
+Gross Loan Portfolio to Total Assets & 429.1 & 0 & 30 & one model is
+inconsistent\tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+\blandscape
+
+\begin{longtable}[]{@{}llllllllll@{}}
+\caption{Schedule of Fixed Effects Regressions}\tabularnewline
+\toprule
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+Variables\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+Percent\_female\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+Percent\_female\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+Percent\_female\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+Average\_loan\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+Average\_loan\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+Average\_loan\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+Gross\_loans\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+Gross\_loans\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+Gross\_loans\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+Variables\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+Percent\_female\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+Percent\_female\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+Percent\_female\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+Average\_loan\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+Average\_loan\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+Average\_loan\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+Gross\_loans\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+Gross\_loans\strut
+\end{minipage} &
+\begin{minipage}[b]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+Gross\_loans\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+Full data\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+\textgreater=3 years\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+\textgreater= 5 years\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+Full data\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+\textgreater=3 years\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+\textgreater= 5 years\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+Full data\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+\textgreater=3 years\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+\textgreater= 5 years\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(1)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(2)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(3)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(4)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(5)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(6)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(7)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(8)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(9)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+Legal\_status: Credit Union\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.099\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.099\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.098\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+1654.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+1657.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+1768.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.052\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.052\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.065\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.124)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.124)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.127)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(1520.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(1568.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(1856.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.248)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.252)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.254)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+Age: Young\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-0.009\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-0.009\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-0.010\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-1,138.000***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-1,143.000***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-1,238.000***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.117***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.118***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.131***\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.013)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.013)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.014)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(347.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(350.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(387.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.031)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.031)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.034)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+Age: Mature\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-0.005\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-0.005\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-0.005\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-1,533.000**\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-1,537.000**\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-1,657.000**\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.163***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.164***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.176***\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.018)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.018)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.019)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(600.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(607.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(648.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.040)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.040)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.044)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+Operating expense to assets\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.067*\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.067*\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.072*\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+1,775.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+1,787.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+2,205.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.279***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.280***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.306***\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.036)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.036)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.037)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(1,844.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(1,872.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(1,978.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.090)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.091)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.097)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+Donations to assets ratio\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-0.012\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-0.012\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-0.016\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+1663.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+1662.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+1478.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+-0.315***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+-0.316***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+-0.324***\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.031)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.032)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.034)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(1,227.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(1,237.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(1,338.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.100)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.101)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.105)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+Capital to assets ratio\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-0.004\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-0.004\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-0.007\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+797.000***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+797.000***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+1,049.000***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+1.100***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+1.100***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+1.260***\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.007)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.007)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.010)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(244.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(247.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(339.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.034)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.035)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.047)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+Asset structure\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.081\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.083\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.076\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+478.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+558.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-1,137.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+-0.730***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+-0.722***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+-1.050***\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.081)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.081)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.088)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(3,930.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(4,074.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(4,311.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.218)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.226)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.250)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+Size (Lassets)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.011\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.011\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.012\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+7,398.000***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+7,412.000***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+7,832.000***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+-0.087***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+-0.088***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+-0.047\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.014)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.014)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.015)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(868.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(877.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(945.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.034)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.034)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.037)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+Education\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.192**\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.193**\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.205**\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-2,370.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-2,355.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-2,604.000\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.008\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.007\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+-0.029\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.090)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.090)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.093)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(3,472.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(3,506.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(3,708.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.189)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.191)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.212)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+Profit Margin\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+0.03\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-159.000***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-160.000***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-160.000***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.015***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.016***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.014***\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.002)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.002)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+(0.002)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(39.500)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(40.000)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+(39.900)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.004)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.004)\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+(0.004)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+r.squared\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+4.26e-02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+4.27e-02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+4.47e-02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+7.52e-02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+7.54e-02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+7.97e-02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.517\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.518\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.527\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+adj.r.squared\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-8.83e-02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-8.33e-02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+-6.31e-02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-5.68e-02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-5.03e-02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+-2.61e-02\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.444\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.451\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+0.473\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+statistic\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+4.23***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+4.21***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+4.13***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+8.02***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+7.98***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+7.84***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+108.395***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+106.966***\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+101.779***\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.19}}\raggedright
+nobs\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+3240\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+3210\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.10}}\raggedright
+2950\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+3380\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+3340\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.09}}\raggedright
+3030\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+3497\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+3405\strut
+\end{minipage} &
+\begin{minipage}[t]{(\columnwidth - 9\tabcolsep) * \real{0.08}}\raggedright
+3056\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+\elandscape
+
+\newpage
+\blandscape
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-21}Schedule of the Random Effects Models and the Pooled OLS}
+\centering
+\begin{tabular}[t]{l|l|l|l|l|l|l}
+\hline
+Variables & Percent\_female & Percent\_female & Average\_loan & Average\_loan & Gross\_loans & Gross\_loans\\
+\hline
+ & Random Effects & Pooled OLS & Random Effects & Pooled OLS & Random Effects & Pooled OLS\\
+\hline
+ & (1) & (2) & (3) & (4) & (5) & (6)\\
+\hline
+Legal status: Bank & -0.214*** & -0.182*** & 276.000 & 276.000 & -0.013 & -0.061\\
+\hline
+ & (0.044) & (0.043) & (585.000) & (585.000) & (0.053) & (0.046)\\
+\hline
+Legal status: NBFI & -0.181*** & -0.178*** & 152.000 & 152.000 & 0.027 & -0.008\\
+\hline
+ & (0.030) & (0.029) & (379.000) & (379.000) & (0.038) & (0.034)\\
+\hline
+Legal statusCredit Union & -0.260*** & -0.236*** & 872.000** & 872.000** & 0.088** & 0.043\\
+\hline
+ & (0.030) & (0.030) & (388.000) & (388.000) & (0.039) & (0.035)\\
+\hline
+Legal status: Rural Bank & -0.241*** & -0.214*** & 112.000 & 112.000 & -0.119 & -0.185**\\
+\hline
+ & (0.061) & (0.050) & (570.000) & (570.000) & (0.078) & (0.073)\\
+\hline
+Age: Young & -0.010 & -0.011 & -314.000 & -314.000 & 0.077*** & 0.049*\\
+\hline
+ & (0.012) & (0.017) & (305.000) & (305.000) & (0.028) & (0.029)\\
+\hline
+Age: Mature & -0.010 & -0.024 & -641.000* & -641.000* & 0.117*** & 0.077**\\
+\hline
+regionAfrica & 0.098* & 0.088 & 456.000 & 456.000 & -0.060 & -0.034\\
+\hline
+ & (0.054) & (0.059) & (650.000) & (650.000) & (0.081) & (0.068)\\
+\hline
+Operating expense/assets & 0.098*** & 0.295*** & 403.000 & 403.000 & 0.208*** & 0.121\\
+\hline
+ & (0.034) & (0.062) & (1,083.000) & (1,083.000) & (0.070) & (0.076)\\
+\hline
+Donations/assets\_ratio & -0.007 & 0.028 & 374.000 & 374.000 & -0.383*** & -0.474***\\
+\hline
+ & (0.032) & (0.053) & (619.000) & (619.000) & (0.094) & (0.099)\\
+\hline
+Capital/asset\_ratio & 0.002 & 0.048*** & 95.400 & 95.400 & 0.924*** & 0.777***\\
+\hline
+ & (0.007) & (0.015) & (154.000) & (154.000) & (0.029) & (0.028)\\
+\hline
+Asset\_structure & 0.035 & -0.168 & 1,901.000 & 1,901.000 & -0.787*** & -0.828***\\
+\hline
+ & (0.077) & (0.131) & (1,387.000) & (1,387.000) & (0.164) & (0.168)\\
+\hline
+Size(lassets) & -0.001 & -0.022 & 1,013.000*** & 1,013.000*** & -0.024 & -0.005\\
+\hline
+ & (0.011) & (0.014) & (197.000) & (197.000) & (0.017) & (0.017)\\
+\hline
+Education & 0.188*** & 0.172** & 305.000 & 305.000 & 0.115 & 0.128\\
+\hline
+ & (0.071) & (0.079) & (962.000) & (962.000) & (0.094) & (0.089)\\
+\hline
+Profit\_margin & 0.002 & 0.001 & -31.200 & -31.200 & 0.011*** & 0.008**\\
+\hline
+ & (0.002) & (0.003) & (20.800) & (20.800) & (0.003) & (0.004)\\
+\hline
+r.squared & 1.11e-01 & 2.88e-01 & 2.60e-02 & 2.60e-02 & 0.472 & 0.413\\
+\hline
+adj.r.squared & 1.01e-01 & 2.80e-01 & 1.61e-02 & 1.61e-02 & 0.467 & 0.407\\
+\hline
+statistic & 2.73e+02*** & 3.81e+01*** & 8.94e+01*** & 2.63e+00*** & 3017.027*** & 71.499***\\
+\hline
+nobs & 3240 & 3240 & 3380 & 3380 & 3497 & 3497\\
+\hline
+\multicolumn{7}{l}{\textsuperscript{*} Standard errors in brackets}\\
+\multicolumn{7}{l}{\textsuperscript{\dag} 1\% - (***), 5\%- (**), 10\%- (*)}\\
+\end{tabular}
+\end{table}
+
+\newpage
+\elandscape
+
+\newpage
+
+\hypertarget{percent-of-women-borrowers}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Percent of Women
+Borrowers}}}{Percent of Women Borrowers}}\label{percent-of-women-borrowers}}
+
+The legal status of an MFI is a significant driver of outreach to women,
+with NGOs faring better. Other positive drivers of outreach to women
+include education, operating expenses to assets ratio, profit margin and
+capital-to-assets ratio. Region is also important as North Africa fares
+worse than Sub-Sahara Africa despite the fact that it is represented
+entirely by NGOs in the sample. Table () of the fixed effects model
+shows that NGOs outperform other legal forms of MFIs in reaching out to
+women. The result implies that the transformation of MFIs has the
+potential to negatively impact on financial inclusion efforts as
+commercial MFIs are less keen to reach the financially excluded, which
+contradicts some previous research (Joann Ledgerwood 1998; Joanna
+Ledgerwood and White 2006; Hartarska and Mersland 2012; Bos and Millone
+2015).
+
+The results gain more credence when we examine operating expenses to
+assets ratio. There is a positive and significant relationship between
+operating expense to assets ratio on the one hand and percent of women
+borrowers on the other. It means that an MFI has to spend more to reach
+financially excluded clients, which in turn means fewer profits at a
+given level of revenue. As expected, the conversion of MFIs from NGOs to
+the commercial model could lead to a reduction in operating expenses in
+the quest for profits in line with the profit incentive arising from the
+agency theory (Eisenhardt 1989).
+
+Hence, it follows that a quest for profit is bad for financial inclusion
+by causing mission drift in line with prior research (Wagenaar 2012;
+Roberts 2013; Lopatta and Tchikov 2016; Mia and Lee 2017). Except in the
+unlikely scenario where MFIs generate profits by raising revenue without
+lowering costs, Africa should rethink the case for transformation of
+MFIs. Indeed profitability has a positive relationship albeit
+insignificant effects on the percent of women borrowers. With this
+hindsight it would appear like the viable explanation for the
+profitability-operating expense-financial inclusion issue is that for
+commercial MFIs, a reduction in operating expenses in the short run is
+warranted if this translates into higher profits that allow the MFIs to
+reach more financially excluded clients while cross subsidizing them in
+the median and long term. However, (D'Espallier et al. 2017) note that
+for transformed MFIs, profits tend to drop in the short term but not
+necessarily in the long term, although operating expenses generally
+drop.The drop in profitability is driven by transformed MFIs charging
+lower interest rates, a contentious issue in micro-finance. It would be
+interesting to examine the dynamics between profitability, operating
+expense and financial inclusion for MFIs over a longer period.
+
+The significant control variables are education and region. Education
+varies positively with outreach to women as does region. A country in
+Northern Africa has lower outreach to women than an otherwise similar
+country in Sub-Sahara Africa which could be due to religious beliefs
+that harm financial inclusion for women (Hassan, Hossain, and Unsal
+2018). It is notable that North Africa has only NGOs in the sample
+meaning that cultural and religious inclinations play a bigger role in
+driving financial inclusion than the operating model of MFIs. Education
+also appears to play a key role in financial inclusion arising from its
+empowerment in terms of women joining the formal labour market and
+financial literacy that allows for better financial decision making
+(Zins and Weill 2016; Chikalipah 2017).
+
+The observed relationships largely hold even when we winsorise the data
+(see table ()). The only exception is capital to assets ratio and profit
+margin which turn out to have a significant positive relationships with
+outreach to women. These results suggest that larger firms are more
+likely to experience mission drift after conversion. However, even after
+winsorizing the data, NGOs still do better at financing women in line
+with research from the welfare approach to microfinance (Kodongo and
+Kendi 2013). To sum this up, the quest improve outreach to women would
+best be achieved by targeting NGOs with capital funding, especially with
+the rise of blended finance - commercial capital for social projects,
+ceteris paribus. The other variables in the model are not significant
+but are worth mentioning. For instance, older firms have lower levels of
+outreach to women which could imply that firms loose focus on financial
+inclusion as they mature and get financially independent. Next, we
+examine average loan balance per borrower.
+
+\hypertarget{average-loan-balance-per-borrower}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Average Loan Balance per
+Borrower}}}{Average Loan Balance per Borrower}}\label{average-loan-balance-per-borrower}}
+
+Like the percent of female borrowers, average loan balance per borrower
+captures how deep an MFI goes to reach the financially excluded, who
+typically would demand smaller loans. Thus, the smaller the average loan
+balance the better the outreach. The major criticism of the average loan
+balance per borrower as an indicator of financial inclusion is that a
+larger average loan balance could result from progressive lending or
+arise as clients get better off (Abeysekera, Oguzoglu, and Le 2014).
+Again, researchers could be wrongly proclaiming mission drift for MFIs
+operating in countries that have relatively fewer indigent clients
+(Armendáriz et al. 2013). Importantly, the presence of some extremely
+high loans granted to some clients could tilt the average loan balance
+upwards (Market 2015). Despite these shortcomings, it is a useful metric
+as it is easily quantifiable and data readily available.
+
+The key observation is that NGOs consistently offers smaller average
+loan sizes compared to other legal forms of MFIs, although the result is
+only significant for credit unions/ cooperatives. Consistent with the
+outreach to women, the observation would suggest that NGOs reach the
+financially excluded better than do commercial forms of MFIs. It would
+then imply that the conversion of MFIs from NGOs to legal forms is
+harmful to financial inclusion as the welfare school argues. Indeed,
+D'Espallier et al. (2017) and Mia and Lee (2017), using a global dataset
+of MFIs find that after transformation, average loan balances go up
+which is consistent with our finding. Accordingly Peck Christen and Cook
+(2001) argue that commercial logic has, over time, displaced the welfare
+approach to addressing financial exclusion.
+
+Furthermore, Older MFIs have lower average loan balance per borrower
+relative to newer ones. The relationship could hold as older firms tend
+to reach out to more financially excluded clients given their stable
+financial base, operational experience, and linkage to donors who
+emphasize social performance {[}{]}. However, the larger the MFIs asset
+base, the higher the average loan balance, meaning that it is older but
+relatively smaller firms that better focus on their mission. Overall, it
+would imply that the growth of an MFI comes at the expense of outreach
+to the financially excluded. The insignificant drivers of average loan
+balance per borrower include region, operating expense to assets ratio,
+donations to assets ratio, capital to assets ratio, asset structure,
+education and profit margin. More profitable firms also have lower
+average loan balances which is a good indicator of financial inclusion.
+However, capital-asset ratio and the size of an MFI vary positively with
+average loan balance meaning that they hurt financial inclusion. The
+results remain robust even after removing extreme values (see table ).
+The next section examines the breadth of outreach captured using gross
+loans to assets ratio.
+
+\hypertarget{gross-loans-to-assets-ratio}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Gross Loans to Assets
+Ratio}}}{Gross Loans to Assets Ratio}}\label{gross-loans-to-assets-ratio}}
+
+Gross loans capture the breadth of outreach, that is the number of
+people reached and the volume of credit that an MFI disburses. While it
+is desirable for MFIs to enhance their depth of outreach by reaching
+female borrowers and micro-borrowers, the sheer scale of such lending
+also matters. In the best case scenario, we should have an MFI that
+reaches the most financially excluded borrowers but that also offers
+more gross loans, meaning that it reaches more of the financially
+excluded. Gross loans to assets ratio exhibits a much stronger
+relationship with the independent variables with a coefficient of
+determination (adjusted R-Squared) of 0.467. The significant variables
+are MFI legal status, age, operating expenses to assets, donations to
+assets, capital-asset ratio, asset structure, size, and profit margin.
+
+Although the legal status of an MFI is marginally significant in driving
+gross loans, NGOs have the greatest loans portfolios than all other
+legal forms except credit unions/ cooperatives and NBFIs. Hence,
+although NGOs exhibit more depth, it is not at the expense of breadth.
+Cooperatives have the highest gross loans which may reflect their closed
+nature serving a limited geographic region or people with common
+interests who opt to pool their savings. NBFIs, unlike NGOs, have the
+advantage of having access to commercial equity and capital which as we
+see later positively drives breadth of outreach in terms of gross loans.
+
+As expected, older firms have more gross loans to assets given their
+longer presence in the market implying a greater market share. Size is
+weakly negatively related to gross loans, meaning that older firms
+greater gross loans to assets is a result of better intermediation
+probably arising from management experience and expertise. Operating
+expenses to assets ration also positively relate to gross loans. MFIs
+that have a higher spending capacity give out more loans, probably due
+to their greater market share. Capital to assets ratio and profit margin
+also positively relate to gross loans. In this respect, it appears that
+breadth of outreach would best be achieved via commercial organizations
+that aim to maximize profits. Also, to broaden outreach, equity capital
+plays a positive role, meaning that commercialization could aid the
+expansion of gross loans.
+
+On the other hand, donations are negatively related to gross loans. In
+this case, it appears that donors may not be keen on breadth but rather
+emphasize depth that research shows is best done through not-for-profit
+MFIs like NGOs. MFIs that are more dependent on donations are most
+likely small and young and hence the low gross loans to assets. Again,
+asset structure have a significant negative relationship with gross
+loans. In this case, MFIs that tie a lot of their resources in physical
+assets have less breadth of outreach which is a case for the adoption of
+technology in place of brick and mortar branches. As noted, the size of
+an MFI is weakly negatively related to the gross loan portfolio to
+assets ratio.
+
+A final important aspect is the way gross loans to assets relate to
+measures of depth of outreach. Figure () below captures the
+relationship. While gross loans appear to weakly correlate negatively
+with average loan balance per borrower, there is a substantial positive
+correlation between gross loans and percent of female borrowers. But
+examining the scatter plots shows that outliers drive the little
+correlation between these variables. Hence it is possible for MFIs to
+pursue both financial inclusion depth and breadth without trade-offs.
+
+\newpage
+
+\newpage
+\blandscape
+
+\begin{center}\includegraphics[width=10in]{transformation_financial_inclusion_files/figure-latex/unnamed-chunk-22-1} \end{center}
+
+\elandscape
+\newpage
+
+\newpage
+
+\hypertarget{single-difference-approach}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Single Difference
+Approach}}}{Single Difference Approach}}\label{single-difference-approach}}
+
+\hypertarget{robustness-checks}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Robustness
+Checks}}}{Robustness Checks}}\label{robustness-checks}}
+
+Our robustness checks encompass three matters. First, the study employs
+three financial metrics to capture financial inclusion - percent of
+women borrowers, average loan balance per borrower and gross loans to
+assets ratio. The second aspect relates to outliers which could affect
+the regression estimates. To control for outliers, we run regressions
+using winsorized data. Precisely, we remove the top 10\% and the bottom
+10\% of the data and run the random effects, fixed effects and pooled
+OLS. Overall, the results remain largely robust to extreme values.
+Lastly, we correct the standard errors for cross-sectional dependence
+and serial correlation by presenting panel corrected standard errors
+(PCSE) to cater for serial correlation and cross-sectional dependence, a
+common issue in panel data.
+
+\hypertarget{conclusion}{%
+\section{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion}}
+
+This article examined the transformation of microfinance institutions in
+Africa and its potential effects on financial inclusion. We found that
+NGOs perform best in measures of financial depth- percent of women
+borrowers and average loan balance per borrower. Although banks lead in
+terms of financial breadth - the gross loans to assets ratio, NGOs do
+not perform poorly either and, in fact, exhibit higher median gross
+loans to assets ratio than other legal forms. The result suggest that
+transformation could adversely affect financial inclusion in Africa if
+allowed to occur without appropriate interventions and support. Capital
+positively drives all aspects of financial inclusion but is significant
+for gross loans only. Hence, microfinance institutions- including those
+that are not NGOs- could fare well in financial inclusion if affordable
+capital is available. Interestingly, profitability is positively related
+to gross loans although MFI do not need to transform to make profits.
+Operating expenses also positively drive depth and breadth of outreach
+and hence targeted tax breaks could allow MFIs to incur costs of
+reaching the financially excluded clients without a severe dent on
+profitability. Donations, negatively impact breadth of outreach while
+education and region are only important regarding depth - the percent of
+female borrowers. Asset structure, donations, and size of an MFI
+negatively relate to gross loans.
+
+\hypertarget{references}{%
+\section{\texorpdfstring{\textbf{References}}{References}}\label{references}}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\hypertarget{ref-abeysekera2014sustainability}{}%
+Abeysekera, Sarath, Umut Oguzoglu, and Thanh Tam Le. 2014.
+{``Sustainability and Mission Drift: Do Microfinance Institutions in
+Vietnam Reach the Poor?''} In \emph{Microfinance Institutions}, 99--118.
+Springer.
+
+\leavevmode\hypertarget{ref-allen2011african}{}%
+Allen, Franklin, Isaac Otchere, and Lemma W Senbet. 2011. {``African
+Financial Systems: A Review.''} \emph{Review of Development Finance} 1
+(2): 79--113.
+
+\leavevmode\hypertarget{ref-armendariz2013subsidy}{}%
+Armendáriz, Beatriz, Bert D'Espallier, Marek Hudon, and Ariane Szafarz.
+2013. {``Subsidy Uncertainty and Microfinance Mission Drift.''}
+\emph{Available at SSRN 1731265}.
+
+\leavevmode\hypertarget{ref-bateman2010doesn}{}%
+Bateman, Milford. 2010. \emph{Why Doesn't Microfinance Work?: The
+Destructive Rise of Local Neoliberalism}. Zed Books Ltd.
+
+\leavevmode\hypertarget{ref-beck2014sme}{}%
+Beck, Thorsten, and Robert Cull. 2014. {``SME Finance in Africa.''}
+\emph{Journal of African Economies} 23 (5): 583--613.
+
+\leavevmode\hypertarget{ref-bos2015practice}{}%
+Bos, Jaap WB, and Matteo Millone. 2015. {``Practice What You Preach:
+Microfinance Business Models and Operational Efficiency.''} \emph{World
+Development} 70: 28--42.
+
+\leavevmode\hypertarget{ref-chikalipah2017determines}{}%
+Chikalipah, Sydney. 2017. {``What Determines Financial Inclusion in
+Sub-Saharan Africa?''} \emph{African Journal of Economic and Management
+Studies}.
+
+\leavevmode\hypertarget{ref-d2017ngos}{}%
+D'Espallier, Bert, Jann Goedecke, Marek Hudon, and Roy Mersland. 2017.
+{``From NGOs to Banks: Does Institutional Transformation Alter the
+Business Model of Microfinance Institutions?''} \emph{World Development}
+89: 19--33.
+
+\leavevmode\hypertarget{ref-d2013unsubsidized}{}%
+D'Espallier, Bert, Marek Hudon, and Ariane Szafarz. 2013.
+{``Unsubsidized Microfinance Institutions.''} \emph{Economics Letters}
+120 (2): 174--76.
+
+\leavevmode\hypertarget{ref-d2017aid}{}%
+---------. 2017. {``Aid Volatility and Social Performance in
+Microfinance.''} \emph{Nonprofit and Voluntary Sector Quarterly} 46 (1):
+116--40.
+
+\leavevmode\hypertarget{ref-dichter1996questioning}{}%
+Dichter, Thomas W. 1996. {``Questioning the Future of NGOs in
+Microfinance.''} \emph{Journal of International Development} 8 (2):
+259--69.
+
+\leavevmode\hypertarget{ref-eisenhardt1989agency}{}%
+Eisenhardt, Kathleen M. 1989. {``Agency Theory: An Assessment and
+Review.''} \emph{Academy of Management Review} 14 (1): 57--74.
+
+\leavevmode\hypertarget{ref-garmaise2013cheap}{}%
+Garmaise, Mark J, and Gabriel Natividad. 2013. {``Cheap Credit, Lending
+Operations, and International Politics: The Case of Global
+Microfinance.''} \emph{The Journal of Finance} 68 (4): 1551--76.
+
+\leavevmode\hypertarget{ref-hartarska2012governance}{}%
+Hartarska, Valentina, and Roy Mersland. 2012. {``Which Governance
+Mechanisms Promote Efficiency in Reaching Poor Clients? Evidence from
+Rated Microfinance Institutions.''} \emph{European Financial Management}
+18 (2): 218--39.
+
+\leavevmode\hypertarget{ref-hassan2018religious}{}%
+Hassan, M Kabir, Shadiya Hossain, and Omer Unsal. 2018. {``Religious
+Preference and Financial Inclusion: The Case for Islamic Finance.''}
+\emph{Management of Islamic Finance: Principle, Practice, and
+Performance}, 93.
+
+\leavevmode\hypertarget{ref-kodongo2013individual}{}%
+Kodongo, Odongo, and Lilian G Kendi. 2013. {``Individual Lending Versus
+Group Lending: An Evaluation with Kenya's Microfinance Data.''}
+\emph{Review of Development Finance} 3 (2): 99--108.
+
+\leavevmode\hypertarget{ref-ledgerwood1998microfinance}{}%
+Ledgerwood, Joann. 1998. \emph{Microfinance Handbook: An Institutional
+and Financial Perspective}. The World Bank.
+
+\leavevmode\hypertarget{ref-ledgerwood2006transforming}{}%
+Ledgerwood, Joanna, and Victoria White. 2006. \emph{Transforming
+Microfinance Institutions: Providing Full Financial Services to the
+Poor}. The World Bank.
+
+\leavevmode\hypertarget{ref-lopatta2016microfinance}{}%
+Lopatta, K, and M Tchikov. 2016. {``Do Microfinance Institutions Fulfil
+Their Promise? Evidence from Cross-Country Data.''} \emph{Applied
+Economics} 48 (18): 1655--77.
+
+\leavevmode\hypertarget{ref-louis2013financial}{}%
+Louis, Philippe, Alex Seret, and Bart Baesens. 2013. {``Financial
+Efficiency and Social Impact of Microfinance Institutions Using
+Self-Organizing Maps.''} \emph{World Development} 46: 197--210.
+
+\leavevmode\hypertarget{ref-market2014global}{}%
+Market, MIX. 2015. {``Global Outreach \& Financial. Performance
+Benchmark Report-2015.''} Recuperado de http://www. themix.
+org/mixmarket/publications/2014-global~\ldots.
+
+\leavevmode\hypertarget{ref-mersland2010microfinance}{}%
+Mersland, Roy, and R Øystein Strøm. 2010. {``Microfinance Mission
+Drift?''} \emph{World Development} 38 (1): 28--36.
+
+\leavevmode\hypertarget{ref-mia2017mission}{}%
+Mia, Md Aslam, and Hwok-Aun Lee. 2017. {``Mission Drift and Ethical
+Crisis in Microfinance Institutions: What Matters?''} \emph{Journal of
+Cleaner Production} 164: 102--14.
+
+\leavevmode\hypertarget{ref-peck2001commercialization}{}%
+Peck Christen, Robert, and Tamara Cook. 2001. {``Commercialization and
+Mission Drift: The Transformation of Microfinance in Latin America.''}
+The World Bank.
+
+\leavevmode\hypertarget{ref-roberts2013profit}{}%
+Roberts, Peter W. 2013. {``The Profit Orientation of Microfinance
+Institutions and Effective Interest Rates.''} \emph{World Development}
+41: 120--31.
+
+\leavevmode\hypertarget{ref-wagenaar2012institutional}{}%
+Wagenaar, Kim. 2012. {``Institutional Transformation and Mission Drift
+in Microfinance.''} \emph{Centre of Development Studies, University of
+Cambridge}.
+
+\leavevmode\hypertarget{ref-zins2016determinants}{}%
+Zins, Alexandra, and Laurent Weill. 2016. {``The Determinants of
+Financial Inclusion in Africa.''} \emph{Review of Development Finance} 6
+(1): 46--57.
+
+\end{CSLReferences}
+
+\blandscape
+\newpage
+
+\hypertarget{appendix}{%
+\section{\texorpdfstring{\textbf{Appendix}}{Appendix}}\label{appendix}}
+
+\begin{tabular}{l|l|l|l|l|l|l|l|l|l}
+\hline
+Variables & Percent\_female & Percent\_female & Percent\_female & Average\_loan & Average\_loan & Average\_loan & Gross\_loans & Gross\_loans & Gross\_loans\\
+\hline
+ & Random & Within & Pooling & Random & Within & Pooling & Random & Within & Pooling\\
+\hline
+ & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9)\\
+\hline
+Legal status: Bank & -0.144*** &  & -0.131*** & -71.500 &  & -71.500 & -0.069 &  & -0.088*\\
+\hline
+ & (0.049) &  & (0.049) & (712.000) &  & (712.000) & (0.056) &  & (0.051)\\
+\hline
+Legal status: NBFI & -0.172*** &  & -0.163*** & 188.000 &  & 188.000 & -0.0002 &  & -0.013\\
+\hline
+ & (0.033) &  & (0.031) & (444.000) &  & (444.000) & (0.039) &  & (0.036)\\
+\hline
+Legal status: Credit Union & -0.211*** & 0.113 & -0.193*** & 1,116.000** & 1,684.000 & 1,116.000** & 0.021 & -0.015 & 0.008\\
+\hline
+ & (0.035) & (0.130) & (0.034) & (518.000) & (1,971.000) & (518.000) & (0.043) & (0.103) & (0.040)\\
+\hline
+Legal status: Rural Bank & -0.209*** &  & -0.167*** & -140.000 &  & -140.000 & -0.317*** &  & -0.341***\\
+\hline
+ & (0.059) &  & (0.052) & (732.000) &  & (732.000) & (0.093) &  & (0.089)\\
+\hline
+Age: Young & -0.022 & -0.019 & -0.043** & -43.300 & -939.000*** & -43.300 & 0.069 & 0.082* & 0.066\\
+\hline
+ & (0.016) & (0.016) & (0.020) & (265.000) & (360.000) & (265.000) & (0.050) & (0.047) & (0.052)\\
+\hline
+Age: Mature & -0.023 & -0.017 & -0.052* & -184.000 & -1,220.000** & -184.000 & 0.112** & 0.127*** & 0.099*\\
+\hline
+ & (0.021) & (0.022) & (0.029) & (339.000) & (610.000) & (339.000) & (0.051) & (0.048) & (0.054)\\
+\hline
+Region: Africa & 0.086 &  & 0.092 & 468.000 &  & 468.000 & -0.110 &  & -0.091\\
+\hline
+ & (0.058) &  & (0.058) & (763.000) &  & (763.000) & (0.068) &  & (0.062)\\
+\hline
+Operating\_expense/assets & 0.162** & 0.086 & 0.471*** & 2,567.000 & 2,858.000 & 2,567.000 & 0.539*** & 0.938*** & 0.436***\\
+\hline
+ & (0.072) & (0.078) & (0.114) & (1,683.000) & (3,080.000) & (1,683.000) & (0.143) & (0.226) & (0.140)\\
+\hline
+Donations/assets\_ratio & 2.230 & 1.410 & 10.700*** & -93,698.000* & 141.000 & -93,698.000* & -5.840 & 0.884 & -7.750*\\
+\hline
+ & (1.500) & (1.500) & (2.620) & (50,487.000) & (63,343.000) & (50,487.000) & (4.160) & (4.540) & (4.210)\\
+\hline
+Capital/asset\_ratio & 0.077*** & 0.069** & 0.110** & 358.000 & 3,893.000*** & 358.000 & 0.147** & 0.107 & 0.160**\\
+\hline
+ & (0.029) & (0.029) & (0.047) & (766.000) & (1,292.000) & (766.000) & (0.069) & (0.083) & (0.068)\\
+\hline
+Asset\_structure & 0.105 & 0.215 & -0.397* & 3,622.000 & -342.000 & 3,622.000 & -1.150*** & -0.977* & -1.140***\\
+\hline
+ & (0.136) & (0.143) & (0.232) & (3,607.000) & (7,163.000) & (3,607.000) & (0.337) & (0.525) & (0.320)\\
+\hline
+Size (lassets) & -0.008 & 0.008 & -0.032* & 797.000*** & 7,756.000*** & 797.000*** & -0.069*** & -0.258*** & -0.054**\\
+\hline
+ & (0.014) & (0.018) & (0.017) & (247.000) & (1,188.000) & (247.000) & (0.023) & (0.043) & (0.022)\\
+\hline
+Education & 0.215*** & 0.229** & 0.202** & 1,113.000 & -3,770.000 & 1,113.000 & -0.078 & -0.114 & -0.047\\
+\hline
+ & (0.082) & (0.102) & (0.091) & (1,353.000) & (4,209.000) & (1,353.000) & (0.104) & (0.176) & (0.104)\\
+\hline
+Profit\_margin & 0.049** & 0.042** & 0.089*** & -24.100 & -1,824.000* & -24.100 & 0.230*** & 0.221*** & 0.239***\\
+\hline
+ & (0.019) & (0.020) & (0.033) & (609.000) & (1,008.000) & (609.000) & (0.054) & (0.058) & (0.055)\\
+\hline
+Constant & 0.602*** &  & 0.687*** & -6,091.000*** &  & -6,091.000*** & 0.982*** &  & 0.923***\\
+\hline
+ & (0.118) &  & (0.143) & (2,078.000) &  & (2,078.000) & (0.204) &  & (0.203)\\
+\hline
+r.squared & 1.16e-01 & 5.49e-02 & 3.08e-01 & 2.74e-02 & 6.74e-02 & 2.74e-02 & 4.37e-02 & 3.70e-02 & 5.57e-02\\
+\hline
+adj.r.squared & 1.04e-01 & -5.96e-02 & 2.99e-01 & 1.49e-02 & -4.71e-02 & 1.49e-02 & 3.15e-02 & -8.18e-02 & 4.37e-02\\
+\hline
+Statistic & 2.47e+02*** & 4.59e+00*** & 3.43e+01*** & 7.47e+01*** & 5.75e+00*** & 2.20e+00*** & 1.24e+02*** & 3.09e+00*** & 4.65e+00***\\
+\hline
+\end{tabular}
+
+\elandscape
+\newpage
+
+\end{document}
