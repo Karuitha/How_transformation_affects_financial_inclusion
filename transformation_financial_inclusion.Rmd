@@ -8,7 +8,7 @@ header-includes:
 - \newcommand{\elandscape}{\end{landscape}}
 - \usepackage[default]{sourcesanspro}
 - \usepackage[T1]{fontenc}
-- \usepackage{amsmath}
+- \usepackage{amsmath, amssymb}
 mainfont: garamond
 output:
   pdf_document:
@@ -30,7 +30,6 @@ bibliography: citation.bib
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.height = 9, fig.width = 14, out.width='8.8in', fig.align = "center")
 options(digits = 3)
 library(tidyverse)
-library(dtplyr)
 library(plm)
 library(ggthemes)
 library(GGally)
@@ -69,6 +68,14 @@ The study focuses on Africa, a continent that is the epicentre of financial excl
 
 [^1]: We use the terms financial sustainability/ efficiency/ profitability on the one hand, and social performance/ outreach on the other, interchangeably. By Financial sustainability, we refer to the capability of a firm to turn a profit which allows it to meet its obligations without relying on donations and subsidies. Social performance/ outreach is the firms ability to reach out and avail financial services to the financially excluded members of society including the poor, women, and rural dwellers- refering to both breadth and depth.
 
+Most pioneer microfinance institutions adopted a not-for-profit model [@dichter1996questioning], operating mainly as non-governmental organizations (NGOs). However, neo-liberalism has seen many donors scale back and push MFIs to strive for financial sustainability [@bateman2010doesn]. The arguments for the commercial approach to microfinance revolve around sustainability. Financial sustainability school posits that MFIs can best serve the financially excluded when they have a degree of financial self-sufficiency [@kodongo2013individual].
+
+For instance, profit-oriented MFIs could serve the relatively well-off at market rates and use the proceeds to subsidize services to the poor sustainably, causing mission expansion [@mersland2010microfinance; @louis2013financial]. Also, donor funds are volatile and subject to political and economic conditions [@garmaise2013cheap; @d2017aid]. In this respect, a substantial body of research finds that the transformation of microfinance institutions enhances outreach to the financially excluded [@frank2008stemming; @gutierrez2009social; @mersland2010microfinance; @quayes2012depth; @mia2017mission; @d2013unsubsidized].
+
+The proponents point to the possibility of mission drift where MFI reduce the focus on providing financial services to the financially excluded in favour of making profits which some researchers have found to be the case [@louis2013financial; @bos2015practice; @d2013unsubsidized; @hartarska2012governance]. Two theories underpin the study. The first is the agency theory on the conflicts between providers of capital and managers. In a quest to minimize agency conflicts, managers may consciously or sub-consciously place less emphasis on the social mission of MFIs, reaching out to the financially excluded, in order to make financial returns for shareholders and debt-holders, causing mission drift. The theory presumes that all fund providers are driven by financial returns, which is not always the case.
+
+Institutional theory examines the rise, persistence and decline of institutional structures over time. The central issue is the drivers of the adoption and decline of certain institutional norms [@powell2012new]. In this respect, some institutionalists claim that prevailing institutional culture is a stronger driver than market forces in driving the adoption or rejection of institutional structures. Institutionalists posit that one of the drivers is coercion. In the case of MFIs, some the donors have put implicit or explicit pressure towards financial sustainability. Additionally, the adoption of institutional norms in most cases arises out of the need to fit into the institutional environment. The desire to be compliant may explain the prevalence of NGOs not-for-profit type MFIs in the early years of microfinance and the trend towards the transformation of MFIs to commercial entities that is ongoing. Importantly, institutional theory sheds light on the dilemmas managers face when institutional norms change [@thornton2015institutional]. For instance, how can managers of MFIs reconcile financial sustainability with outreach to the financially excluded.
+
 ```{r}
 library(tibble)
 
@@ -84,7 +91,7 @@ tribble(~ Institution, ~ Country, ~ Year, ~ Converted_to,
       
       booktabs = TRUE) %>% 
   
-  kable_paper(full_width = FALSE, font_size = 7) %>% 
+  kable_paper(full_width = FALSE, font_size = 8) %>% 
   
   footnote(general = "Authors' construction from the literature",
            
@@ -94,13 +101,6 @@ tribble(~ Institution, ~ Country, ~ Year, ~ Converted_to,
            number_title = "Note: ")
 ```
 
-Most pioneer microfinance institutions adopted a not-for-profit model [@dichter1996questioning], operating mainly as non-governmental organizations (NGOs). However, neo-liberalism has seen many donors scale back and push MFIs to strive for financial sustainability [@bateman2010doesn]. The arguments for the commercial approach to microfinance revolve around sustainability. Financial sustainability school posits that MFIs can best serve the financially excluded when they have a degree of financial self-sufficiency [@kodongo2013individual].
-
-For instance, profit-oriented MFIs could serve the relatively well-off at market rates and use the proceeds to subsidize services to the poor sustainably, causing mission expansion [@mersland2010microfinance; @louis2013financial]. Also, donor funds are volatile and subject to political and economic conditions [@garmaise2013cheap; @d2017aid]. In this respect, a substantial body of research finds that the transformation of microfinance institutions enhances outreach to the financially excluded [@frank2008stemming; @gutierrez2009social; @mersland2010microfinance; @quayes2012depth; @mia2017mission; @d2013unsubsidized].
-
-The proponents point to the possibility of mission drift where MFI reduce the focus on providing financial services to the financially excluded in favour of making profits which some researchers have found to be the case [@louis2013financial; @bos2015practice; @d2013unsubsidized; @hartarska2012governance]. Two theories underpin the study. The first is the agency theory on the conflicts between providers of capital and managers. In a quest to minimize agency conflicts, managers may consciously or sub-consciously place less emphasis on the social mission of MFIs, reaching out to the financially excluded, in order to make financial returns for shareholders and debt-holders, causing mission drift. The theory presumes that all fund providers are driven by financial returns, which is not always the case.
-
-Institutional theory examines the rise, persistence and decline of institutional structures over time. The central issue is the drivers of the adoption and decline of certain institutional norms [@powell2012new]. In this respect, some institutionalists claim that prevailing institutional culture is a stronger driver than market forces in driving the adoption or rejection of institutional structures. Institutionalists posit that one of the drivers is coercion. In the case of MFIs, some the donors have put implicit or explicit pressure towards financial sustainability. Additionally, the adoption of institutional norms in most cases arises out of the need to fit into the institutional environment. The desire to be compliant may explain the prevalence of NGOs not-for-profit type MFIs in the early years of microfinance and the trend towards the transformation of MFIs to commercial entities that is ongoing. Importantly, institutional theory sheds light on the dilemmas managers face when institutional norms change [@thornton2015institutional]. For instance, how can managers of MFIs reconcile financial sustainability with outreach to the financially excluded.
 
 As noted, research on the effects of the transformation of microfinance institutions is mixed. @morduch2019challenges plausibly argue that if commercial MFIs could sustainably achieve both financial sustainability while also reaching the poor, then NGOs would not exist. The most important question relates to the way the transformation of MFIs would affect their core mission of providing financial services to the financially excluded. The issue is important not only due to the legitimacy that MFIs derive from serving the financially excluded but also because financial inclusion is central to alleviating poverty and achieving inclusive growth and is a key dimension of financial development. In this article, we use data from the Microfinance Information Exchange (MIX) to evaluate the way transformation of MFIs affects financial inclusion in Africa.
 
@@ -130,24 +130,22 @@ Besides, @campion1999institutional argue that the presence or absence of mission
 
 We run fixed and random effects models dependent on the results of the Hausmann Tests (see Appendix 1). the fixed effects models are designed to study the causes of changes within an entity. The fixed-effects model does this by controlling for all time-invariant differences between the individuals, so the estimated coefficients of the fixed-effects models cannot be biased because of omitted time-invariant characteristics, such as culture [@torres2007panel]. On the other hand, Random effect models assist in controlling for unobserved heterogeneity when the heterogeneity is constant over time and uncorrelated with the explanatory variables. Following @roberts2013endogeneity, we fit the following model.
 
-
-
-$y_{it} = \hat{a} + \hat{b}x_{it} + u_{it}$
-
-
+\begin{equation}
+y_{it} = \hat{a} + \hat{b}x_{it} + \mu_{it}
+\end{equation}
 
 In this case, $y_{it}$ is the independent variable; one of percent of female borrowers, average loan balance per borrower, and gross loan portfolio to total assets. The first two metrics capture financial depth while gross loans captures the breadth of outreach.
 
 Also, $x_{it}$ is a matrix of independent variables. The variable of interest in our case is the current legal status that enters the model as a dummy representing NGOs, NBFIs, commercial banks, rural banks and credit unions/ cooperatives [@ayyagari2013financing]. The other control variables include age dummy, a dummy for region, operating expenses to assets ratio, donations to assets ratio, equity capital to assets ratio, asset structure, size (logarithm of total assets), education, and profit margin captured from the literature [@ayyagari2013financing; @d2017ngos; @d2013unsubsidized]. 
 
-Finally, $u_{it}$ is the error term that we assume has zero mean conditional on $x_{it}$.
+Finally, $\mu_{it}$ is the error term that we assume has zero mean conditional on $x_{it}$.
 
 Further,
 
 
-
-$u_{it} = c_{i} + e_{it}$
-
+\begin{equation}
+\mu_{it} = c_{i} + \varepsilon_{it}
+\end{equation}
 
 
 In the equation, $c_{i}$ captures the aggregate effects of the unobserved, time-invariant explanatory variables for $y_{it}$. 
@@ -1261,11 +1259,14 @@ MFI avail financial services to the financially excluded including women, rural 
 :::
 
 
+
 \newpage
-\blandscape
+
 # **Appendix**
 
+
 ## Appendix 1: Regression Results for Winsorized Data
+
 
 ```{r}
 library(tibble)
@@ -1288,7 +1289,10 @@ kbl(., caption = "Fixed Effects, Random Effects and Pooled OLS Regressions Using
            number_title = "Note: ")
 ```
 
-\elandscape
+
+\blandscape
+\newpage
+
 
 ## Appendix 2: The Hausmann Test
 
@@ -1312,6 +1316,9 @@ hausmann_test(data = data, depvar = data$gross_loan_portfolio_to_total_assets)) 
   knitr::kable(caption = "`Results of the Hausmann Test for Fixed versus Random Effects`", digits = 4)
 ##########################################################################
 ```
+
+
+\newpage
 
 ## Appendix 3: Fixed Effects vs Pooled OLS
 
@@ -1349,6 +1356,9 @@ tribble(~ Dependent_variable, ~ statistic, ~ Method, ~ Alternative,
         "Percent of women borrowers", "23.0000***", "F test for individual effects", "Significant effects","Average Loan Balance per Borrower", "1.0000***", "F test for individual effects", "Significant effects", "Gross Loans to Total Assets", "5.0000***", "F test for individual effects", "Significant effects") %>% knitr::kable(caption = "Results of the F test for individual effects for Fixed Effects versus Pooled OLS")
 ```
 
+
+\newpage
+
 ## Appendix 4: Random Effects vs Pooled OLS
 
 Again, the Table below shows results of the Langrage multiplier test that favors the random effects model over the pooled OLS.
@@ -1384,6 +1394,7 @@ tribble(~ Dependent_variable, ~ statistic, ~ Method, ~ Alternative,
         "Percent of Women Borrowers", "85.5000***", "Lagrange Multiplier Test - (Honda) for unbalanced panels", "Significant effects","Average Loan Balance per Borrower", "2.2400***", "Lagrange Multiplier Test - (Honda) for unbalanced panels", "Significant effects", "Gross Loans to Total Assets", "22.3000***", "Lagrange Multiplier Test - (Honda) for unbalanced panels", "Significant effects") %>% knitr::kable(caption = "Results of the Langrage Multiplier Test for Random Effects versus Pooled OLS")
 
 ```
+
 
 \newpage
 
@@ -1442,8 +1453,9 @@ tribble(~ Dependent_variable, ~ Model, ~ Chisq, ~ df,
   knitr::kable(caption = "Results of the PCD Test for Cross-Sectional Dependence")
 ```
 
-\blandscape
+
 \newpage
+
 
 ## Appendix 6: Correlation Matrix for Dependent Variables
 
@@ -1459,7 +1471,10 @@ GGally::ggpairs(columnLabels = c("Gross Loans to Assets", "Average Loan Balance 
   
   #corrplot(method = "number", type = "lower", sig.level = 0.05, title = "Correlation Coefficients for Dependent Variables", tl.pos = "ln")
 ```
+
+
 \newpage
+
 ## Appendix 7: Residuals Diagnostics for Models for Full Data
 
 ```{r, fig.cap = "Normal QQ Plots for the Fixed and Radom Effects Regression Models", fig.height=5, fig.width=8}
@@ -1552,7 +1567,11 @@ qqnorm(residuals(plm_gross_random), ylab = 'Residuals', col = "red",
 
 qqline(residuals(plm_gross_fixed))
 ```
+
+
 \newpage
+
+
 ## Appendix 8: Residuals Diagnostics for Models for Winsorised Data
 
 ```{r, fig.cap = "Normal QQ Plots for Regressions Using Winsorized Data", fig.height=5, fig.width=8}
@@ -1645,7 +1664,10 @@ qqnorm(residuals(plm_gross_random_wins), ylab = 'Residuals', col = "red",
 
 qqline(residuals(plm_gross_fixed_wins))
 ```
+
+
 \newpage
+
 ## Appendix 9: Trends in Debt to Equity Ratio
 
 ```{r, fig.cap = "Trends in Debt/Equity Ratio", fig.height=5, fig.width=8}
@@ -1671,7 +1693,10 @@ qqline(residuals(plm_gross_fixed_wins))
   
   ggthemes::theme_clean())
 ```
+
+
 \newpage
+
 ## Appendix 10: Debt to Equity Ratio by MFI Legal Status
 
 ```{r, fig.cap = "Debt to Equity Ratio by MFI Legal Status", fig.height=5, fig.width=8}
@@ -1682,7 +1707,10 @@ second_plotter(data = data, x = currentlegalstatus,
         ylabel = "Debt to Equity Ratio (Log Scale)", 
         title = "")
 ```
+
+
 \newpage
+
 ## Appendix 11: Deposits to Assets Ratio by MFI Legal Status
 
 ```{r, fig.cap = "Donations to Assets Ratio by MFI Legal Status", fig.height=5, fig.width=8}
@@ -1693,7 +1721,10 @@ second_plotter(data = data, x = currentlegalstatus,
         ylabel = "Donations to Assets Ratio (Log Scale)", 
         title = "")
 ```
+
+
 \newpage
+
 ## Appendix 12: Percent of Women Borrowers by MFI type
 
 ```{r, fig.cap = "Trends in the Percent of Female Borrowers by Legal Tradition", fig.height=5, fig.width=8}
@@ -1718,10 +1749,12 @@ data %>%
   
   ggthemes::theme_clean() + facet_wrap(~currentlegalstatus)
 
-
-
 ```
+
+
 \newpage
+
+
 ## Appendix 13: Average Loan Balance per Borrower by MFI type
 
 ```{r, fig.cap = "Trends in Average Loan Balance per Borrower by MFI Legal Status", fig.height=5, fig.width=8}
@@ -1747,7 +1780,10 @@ data %>%
   ggthemes::theme_clean() + facet_wrap(~currentlegalstatus)
 
 ```
+
+
 \newpage
+
 ## Appendix 14: Gross Loans to Assets Ratio by MFI type
 
 ```{r, fig.cap = "Trends in Gross Loans to Assets Ratio by MFI Legal Status", fig.height=5, fig.width=8}
@@ -1774,3 +1810,4 @@ data %>%
 ```
 
 \elandscape
+

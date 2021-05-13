@@ -17,16 +17,16 @@
 \contentsline {section}{\textbf {References}}{22}{section*.18}%
 \contentsline {section}{\textbf {Appendix}}{25}{section*.19}%
 \contentsline {subsection}{Appendix 1: Regression Results for Winsorized Data}{25}{section*.20}%
-\contentsline {subsection}{Appendix 2: The Hausmann Test}{27}{section*.21}%
+\contentsline {subsection}{Appendix 2: The Hausmann Test}{26}{section*.21}%
 \contentsline {subsection}{Appendix 3: Fixed Effects vs Pooled OLS}{27}{section*.22}%
-\contentsline {subsection}{Appendix 4: Random Effects vs Pooled OLS}{27}{section*.23}%
-\contentsline {subsection}{Appendix 5: Test for Cross-Sectional Dependence}{28}{section*.24}%
-\contentsline {subsection}{Appendix 6: Correlation Matrix for Dependent Variables}{29}{section*.25}%
-\contentsline {subsection}{Appendix 7: Residuals Diagnostics for Models for Full Data}{30}{section*.26}%
-\contentsline {subsection}{Appendix 8: Residuals Diagnostics for Models for Winsorised Data}{31}{section*.27}%
-\contentsline {subsection}{Appendix 9: Trends in Debt to Equity Ratio}{32}{section*.28}%
-\contentsline {subsection}{Appendix 10: Debt to Equity Ratio by MFI Legal Status}{34}{section*.29}%
-\contentsline {subsection}{Appendix 11: Deposits to Assets Ratio by MFI Legal Status}{35}{section*.30}%
-\contentsline {subsection}{Appendix 12: Percent of Women Borrowers by MFI type}{36}{section*.31}%
-\contentsline {subsection}{Appendix 13: Average Loan Balance per Borrower by MFI type}{38}{section*.32}%
-\contentsline {subsection}{Appendix 14: Gross Loans to Assets Ratio by MFI type}{40}{section*.33}%
+\contentsline {subsection}{Appendix 4: Random Effects vs Pooled OLS}{28}{section*.23}%
+\contentsline {subsection}{Appendix 5: Test for Cross-Sectional Dependence}{29}{section*.24}%
+\contentsline {subsection}{Appendix 6: Correlation Matrix for Dependent Variables}{30}{section*.25}%
+\contentsline {subsection}{Appendix 7: Residuals Diagnostics for Models for Full Data}{31}{section*.26}%
+\contentsline {subsection}{Appendix 8: Residuals Diagnostics for Models for Winsorised Data}{32}{section*.27}%
+\contentsline {subsection}{Appendix 9: Trends in Debt to Equity Ratio}{33}{section*.28}%
+\contentsline {subsection}{Appendix 10: Debt to Equity Ratio by MFI Legal Status}{35}{section*.29}%
+\contentsline {subsection}{Appendix 11: Deposits to Assets Ratio by MFI Legal Status}{36}{section*.30}%
+\contentsline {subsection}{Appendix 12: Percent of Women Borrowers by MFI type}{37}{section*.31}%
+\contentsline {subsection}{Appendix 13: Average Loan Balance per Borrower by MFI type}{39}{section*.32}%
+\contentsline {subsection}{Appendix 14: Gross Loans to Assets Ratio by MFI type}{41}{section*.33}%
