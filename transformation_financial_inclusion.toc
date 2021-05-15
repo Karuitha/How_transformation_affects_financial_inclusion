@@ -25,8 +25,5 @@
 \contentsline {subsection}{Appendix 7: Residuals Diagnostics for Models for Full Data}{31}{section*.26}%
 \contentsline {subsection}{Appendix 8: Residuals Diagnostics for Models for Winsorised Data}{32}{section*.27}%
 \contentsline {subsection}{Appendix 9: Trends in Debt to Equity Ratio}{33}{section*.28}%
-\contentsline {subsection}{Appendix 10: Debt to Equity Ratio by MFI Legal Status}{35}{section*.29}%
-\contentsline {subsection}{Appendix 11: Deposits to Assets Ratio by MFI Legal Status}{36}{section*.30}%
-\contentsline {subsection}{Appendix 12: Percent of Women Borrowers by MFI type}{37}{section*.31}%
-\contentsline {subsection}{Appendix 13: Average Loan Balance per Borrower by MFI type}{39}{section*.32}%
-\contentsline {subsection}{Appendix 14: Gross Loans to Assets Ratio by MFI type}{41}{section*.33}%
+\contentsline {subsection}{Appendix 10: Debt to Equity Ratio by MFI Legal Status}{34}{section*.29}%
+\contentsline {subsection}{Appendix 11: Percent of Women Borrowers by MFI type}{35}{section*.30}%

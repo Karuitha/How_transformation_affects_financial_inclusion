@@ -9,6 +9,7 @@ header-includes:
 - \usepackage[default]{sourcesanspro}
 - \usepackage[T1]{fontenc}
 - \usepackage{amsmath, amssymb}
+- \usepackage{float}
 mainfont: garamond
 output:
   pdf_document:
@@ -216,21 +217,13 @@ modelling <- function(data, depvar,
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
 +           asset_structure + lassets + 
-+           education + profit_margin, 
++           education + profit_margin + year, 
           data = data, effect = effect,
           model = model, 
           inst.method = inst.method, index = index, 
           digits = digits)
-  
-  ## Output results
-  list(broom::glance(unadjusted),
-       
-       ## Correct standard errors for heteroscedasticity 
-       ## And cross-sectional dependence
-       
-       coeftest(unadjusted, vcov. = function(x) {
-         vcovBK(x, method = "arellano", type="HC1", cluster = "group")
-       }))
+
+unadjusted
 }
 ```
 
@@ -813,7 +806,7 @@ data %>% select(currentlegalstatus, age) %>% skim() %>%
       
       booktabs = TRUE) %>% 
   
-  kable_paper(full_width = FALSE, font_size = 7) %>% 
+  kable_paper(full_width = FALSE, font_size = 8) %>% 
   
   footnote(general = "Authors' construction from the MIX data",
            
@@ -851,7 +844,7 @@ data %>% group_by(currentlegalstatus) %>%
       
       booktabs = TRUE) %>% 
   
-  kable_paper(full_width = FALSE, font_size = 7) %>% 
+  kable_paper(full_width = FALSE, font_size = 8) %>% 
   
   footnote(general = "Authors' construction from the MIX data",
            
@@ -888,7 +881,7 @@ data %>% group_by(currentlegalstatus) %>%
       
       booktabs = TRUE) %>% 
   
-  kable_paper(full_width = FALSE, font_size = 7) %>% 
+  kable_paper(full_width = FALSE, font_size = 8) %>% 
   
   footnote(general = "Authors' construction from the MIX data",
            
@@ -943,141 +936,191 @@ data3 <- data %>% group_by(mfiid) %>% filter(n() >= 3)
 data5 <- data %>% group_by(mfiid) %>% filter(n() >= 5)
 ```
 
-```{r, results = "asis", eval = FALSE}
+```{r, results = "asis", eval = TRUE}
 ## Coefficients output for the fixed effects models at full, >= 3 years, and >= 5 years of data.
-stargazer(
-modelling(data = data, depvar = data$percent_of_female_borrowers, model = "within")[[2]], 
 
-modelling(data = data3, depvar = data3$percent_of_female_borrowers, model = "within")[[2]],
+model1 <- modelling(data = data, depvar = data$percent_of_female_borrowers, model = "within")
 
-modelling(data = data5, depvar = data5$percent_of_female_borrowers, model = "within")[[2]],
+model2 <- modelling(data = data3, depvar = data3$percent_of_female_borrowers, model = "within")
 
-modelling(data = data, depvar = data$average_loan_balance_per_borrower, model = "within")[[2]],
+model3 <- modelling(data = data5, depvar = data5$percent_of_female_borrowers, model = "within")
 
-modelling(data = data3, depvar = data3$average_loan_balance_per_borrower, model = "within")[[2]],
+model4 <- modelling(data = data, depvar = data$average_loan_balance_per_borrower, model = "within")
 
-modelling(data = data5, depvar = data5$average_loan_balance_per_borrower, model = "within")[[2]],
+model5 <- modelling(data = data3, depvar = data3$average_loan_balance_per_borrower, model = "within")
 
-modelling(data = data, depvar = data$gross_loan_portfolio_to_total_assets, model = "within")[[2]],
+model6 <- modelling(data = data5, depvar = data5$average_loan_balance_per_borrower, model = "within")
 
-modelling(data = data3, depvar = data3$gross_loan_portfolio_to_total_assets, model = "within")[[2]],
+model7 <- modelling(data = data, depvar = data$gross_loan_portfolio_to_total_assets, model = "within")
 
-modelling(data = data5, depvar = data5$gross_loan_portfolio_to_total_assets, model = "within")[[2]],
+model8 <- modelling(data = data3, depvar = data3$gross_loan_portfolio_to_total_assets, model = "within")
 
-type = "html", out = "full.html" , header = FALSE, title = "Output for Full Dataset", 
+model9 <- modelling(data = data5, depvar = data5$gross_loan_portfolio_to_total_assets, model = "within")
 
-column.labels = c("(1)% of Female Borrowers", "(2)% of Female Borrowers- 3", "(3)% of Female Borrowers- 5", "(4)Average Loan Balance per Borrower- Full", "(5)Average Loan Balance per Borrower- 3", "(6)Average Loan Balance per Borrower- 5", "(7)Gross Loan Portfolio/Assets - Full", "(8)Gross Loan Portfolio/Assets - 3", "(9)Gross Loan Portfolio/Assets- 5"))
 ########################################################################
 ```
 
-```{r, eval = FALSE}
-# R-square and adjusted R-square for random effects models at full, >= 3 years, and >= 5 years of data.
-rbind(
-modelling(data = data, depvar = data$percent_of_female_borrowers, model = "within")[[1]], 
 
-modelling(data = data3, depvar = data3$percent_of_female_borrowers, model = "within")[[1]],
+```{r}
+inference_m1 <- coeftest(model1, vcov = vcovBK(model1, method = "arellano", type="HC1", cluster = "group"))
 
-modelling(data = data5, depvar = data5$percent_of_female_borrowers, model = "within")[[1]],
+inference_m2 <- coeftest(model2, vcov = vcovBK(model2, method = "arellano", type="HC1", cluster = "group"))
 
-modelling(data = data, depvar = data$average_loan_balance_per_borrower, model = "within")[[1]],
+inference_m3 <- coeftest(model3, vcov = vcovBK(model3, method = "arellano", type="HC1", cluster = "group"))
 
-modelling(data = data3, depvar = data3$average_loan_balance_per_borrower, model = "within")[[1]],
+inference_m4 <- coeftest(model4, vcov = vcovBK(model4, method = "arellano", type="HC1", cluster = "group"))
 
-modelling(data = data5, depvar = data5$average_loan_balance_per_borrower, model = "within")[[1]],
+inference_m5 <- coeftest(model5, vcov = vcovBK(model5, method = "arellano", type="HC1", cluster = "group"))
 
-modelling(data = data, depvar = data$gross_loan_portfolio_to_total_assets, model = "within")[[1]],
+inference_m6 <- coeftest(model6, vcov = vcovBK(model6, method = "arellano", type="HC1", cluster = "group"))
 
-modelling(data = data3, depvar = data3$gross_loan_portfolio_to_total_assets, model = "within")[[1]],
+inference_m7 <- coeftest(model7, vcov = vcovBK(model7, method = "arellano", type="HC1", cluster = "group"))
 
-modelling(data = data5, depvar = data5$gross_loan_portfolio_to_total_assets, model = "within")[[1]]) %>% 
-  
-data.frame() %>% t()
-################################################################
+inference_m8 <- coeftest(model8, vcov = vcovBK(model8, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m9 <- coeftest(model9, vcov = vcovBK(model9, method = "arellano", type="HC1", cluster = "group"))
 ```
 
-```{r, results = "asis", eval = FALSE}
-## Pooled OLS and random effects using full dataset
-stargazer(
-modelling(data = data, depvar = data$percent_of_female_borrowers, model = "random")[[2]], 
-
-modelling(data = data, depvar = data$percent_of_female_borrowers, model = "pooling")[[2]],
-
-modelling(data = data, depvar = data$average_loan_balance_per_borrower, model = "random")[[2]],
-
-modelling(data = data, depvar = data$average_loan_balance_per_borrower, model = "pooling")[[2]],
-
-modelling(data = data, depvar = data$gross_loan_portfolio_to_total_assets, model = "random")[[2]],
-
-modelling(data = data, depvar = data$gross_loan_portfolio_to_total_assets, model = "pooling")[[2]],
-
-type = "html", out = "full_random_pooled.html" , header = FALSE, title = "Output for Full Dataset - Random Effects & Pooled OLS", column.labels = c("(1)% of Female Borrowers", "(2)% of Female Borrowers", "(3)Average Loan Balance per Borrower", "(4)Average Loan Balance per Borrower", "(5)Gross Loan Portfolio/Assets", "(6)Gross Loan Portfolio/Assets"))
-############################################################
-```
-
-```{r, eval = FALSE}
-## R square and adjusted R-square for random effects and pooled OLS
-rbind(
-modelling(data = data, depvar = data$percent_of_female_borrowers, model = "random")[[1]], 
-
-modelling(data = data, depvar = data$percent_of_female_borrowers, model = "pooling")[[1]],
-
-modelling(data = data, depvar = data$average_loan_balance_per_borrower, model = "random")[[1]],
-
-modelling(data = data, depvar = data$average_loan_balance_per_borrower, model = "pooling")[[1]],
-
-modelling(data = data, depvar = data$gross_loan_portfolio_to_total_assets, model = "random")[[1]],
-
-modelling(data = data, depvar = data$gross_loan_portfolio_to_total_assets, model = "pooling")[[1]]) %>% 
-  
-data.frame() %>% t()
-################################################################
-```
-
-\newpage
 \blandscape
+```{r, results = 'asis'}
+stargazer(model1, model2, model3, model4, model5, 
+          
+          model6, model7, model8, model9, 
+          
+          header = FALSE, type = "latex",
+          
+          title = "Output of Fixed Effects Model", 
+          
+font.size = "footnotesize", omit = c("^year.", "^current."),
 
-```{r}
-library(tibble)
-tribble(~ Variables, ~ Percent_female, ~ Percent_female, ~ Percent_female, ~ Average_loan, ~ Average_loan, ~ Average_loan, ~ Gross_loans, ~ Gross_loans, ~ Gross_loans, "", "Full data", ">=3 years", ">= 5 years", "Full data", ">=3 years", ">= 5 years", "Full data", ">=3 years", ">= 5 years", "", "(1)", "(2)", "(3)", "(4)", "(5)", "(6)", "(7)", "(8)", "(9)", "Credit Union", "0.099", "0.099", "0.098", "1654.000", "1657.000", "1768.000", "0.052", "0.052", "0.065", "", "(0.124)", "(0.124)", "(0.127)", "(1520.000)", "(1568.000)", "(1856.000)", "(0.248)", "(0.252)", "(0.254)", "Age: Young", "-0.009", "-0.009", "-0.010", "-1,138.000***", "-1,143.000***", "-1,238.000***", "0.117***", "0.118***", "0.131***", "", "(0.013)", "(0.013)", "(0.014)", "(347.000)", "(350.000)", "(387.000)", "(0.031)", "(0.031)", "(0.034)", "Age: Mature", "-0.005", "-0.005", "-0.005", "-1,533.000**", "-1,537.000**", "-1,657.000**", "0.163***", "0.164***", "0.176***", "", "(0.018)", "(0.018)", "(0.019)", "(600.000)", "(607.000)", "(648.000)", "(0.040)", "(0.040)", "(0.044)", "Op exp/assets", "0.067*", "0.067*", "0.072*", "1,775.000", "1,787.000", "2,205.000", "0.279***", "0.280***", "0.306***", "", "(0.036)", "(0.036)", "(0.037)", "(1,844.000)", "(1,872.000)", "(1,978.000)", "(0.090)", "(0.091)", "(0.097)", "Donations/assets", "-0.012", "-0.012", "-0.016", "1663.000", "1662.000", "1478.000", "-0.315***", "-0.316***", "-0.324***", "", "(0.031)", "(0.032)", "(0.034)", "(1,227.000)", "(1,237.000)", "(1,338.000)", "(0.100)", "(0.101)", "(0.105)", "Capital to assets", "-0.004", "-0.004", "-0.007", "797.000***", "797.000***", "1,049.000***", "1.100***", "1.100***", "1.260***", "", "(0.007)", "(0.007)", "(0.010)", "(244.000)", "(247.000)", "(339.000)", "(0.034)", "(0.035)", "(0.047)", "Asset structure", "0.081", "0.083", "0.076", "478.000", "558.000", "-1,137.000", "-0.730***", "-0.722***", "-1.050***", "", "(0.081)", "(0.081)", "(0.088)", "(3,930.000)", "(4,074.000)", "(4,311.000)", "(0.218)", "(0.226)", "(0.250)", "Size (Lassets)", "0.011", "0.011", "0.012", "7,398.000***", "7,412.000***", "7,832.000***", "-0.087***", "-0.088***", "-0.047", "", "(0.014)", "(0.014)", "(0.015)", "(868.000)", "(877.000)", "(945.000)", "(0.034)", "(0.034)", "(0.037)", "Education", "0.192**", "0.193**", "0.205**", "-2,370.000", "-2,355.000", "-2,604.000", "0.008", "0.007", "-0.029", "", "(0.090)", "(0.090)", "(0.093)", "(3,472.000)", "(3,506.000)", "(3,708.000)", "(0.189)", "(0.191)", "(0.212)", "Profit Margin", "0.02", "0.02", "0.03", "-159.000***", "-160.000***", "-160.000***", "0.015***", "0.016***", "0.014***", "", "(0.002)", "(0.002)", "(0.002)", "(39.500)", "(40.000)", "(39.900)", "(0.004)", "(0.004)", "(0.004)", "r.squared", "4.26e-02", "4.27e-02", "4.47e-02", "7.52e-02", "7.54e-02", "7.97e-02", "0.517", "0.518", " 0.527", "adj.r.squared", "-8.83e-02", "-8.33e-02", "-6.31e-02", "-5.68e-02", "-5.03e-02", "-2.61e-02", "0.444", "0.451", "0.473", "statistic", "4.23***", "4.21***",  "4.13***",  "8.02***", "7.98***",  "7.84***",  "108.395***",  "106.966***", "101.779***", "nobs", "3240", "3210",  "2950",  "3380",  "3340",  "3030", "3497", "3405", "3056") %>% 
-  
-  kbl(., caption = "Fixed Effects Regressions (Standard Errors in brackets)", 
-      
-      booktabs = TRUE) %>% 
-  
-  kable_paper(full_width = FALSE, font_size = 7) %>% 
-  
-  footnote(general = "Authors' construction from the MIX data",
-           
-           general_title = "Source: ",
-           
-           number = c("Fixed Effects Regressions- Standard errors in brackets(***1%, **5%, *10%)`"),
-           
-           number_title = "Note: ")
+se = list(inference_m1[,2], inference_m2[,2], inference_m3[,2], 
+          
+          inference_m4[,2], inference_m5[,2], inference_m6[,2],
+          
+          inference_m7[,2], inference_m8[,2], inference_m9[,2]),
 
-```
+column.labels = c("FemaleClients", "FemaleClients", "FemaleClients", 
+                  
+                  "AverageLoan", "AverageLoan", "AverageLoan", 
+                  
+                  "GrossLoans", "GrossLoans", "GrossLoans"), 
+
+keep.stat = c("n", "rsq", "adj.rsq"),
 
 
-```{r}
-library(tibble)
-tribble(~ Variables, ~ Percent_female, ~ Percent_female, ~ Average_loan, ~ Average_loan, ~ Gross_loans, ~ Gross_loans, "", "Random_Effects", "Pooled_OLS", "Random_Effects", "Pooled_OLS", "Random_Effects", "Pooled_OLS", "", "(1)", "(2)", "(3)", "(4)", "(5)", "(6)", "Bank", "-0.214***", "-0.182***", "276.000", "276.000", "-0.013",	"-0.061", "", "(0.044)", "(0.043)",	"(585.000)", "(585.000)",	"(0.053)", "(0.046)", "NBFI", "-0.181***", "-0.178***", "152.000", "152.000", "0.027",	"-0.008", "", "(0.030)", "(0.029)", "(379.000)", "(379.000)", "(0.038)", "(0.034)", "Credit Union",	"-0.260***",	"-0.236***", "872.000**",	"872.000**",	"0.088**",	"0.043", "", "(0.030)", "(0.030)", "(388.000)", "(388.000)", "(0.039)",	"(0.035)", "Rural Bank", "-0.241***", "-0.214***", "112.000", "112.000", "-0.119", "-0.185**", "", "(0.061)", "(0.050)",	"(570.000)", "(570.000)", "(0.078)", "(0.073)", "Age: Young", "-0.010",	"-0.011",	"-314.000",	"-314.000",	"0.077***",	"0.049*", "", "(0.012)", "(0.017)",	"(305.000)", "(305.000)",	"(0.028)", "(0.029)", "Age: Mature",	"-0.010",	"-0.024", "-641.000*", "-641.000*", "0.117***",	"0.077**", "", "(0.017)", "(0.023)",	"(340.000)", "(340.000)", "(0.030)", "(0.031)", "Region:Africa", "0.098*", "0.088",	"456.000", "456.000", "-0.060",	"-0.034", "", "(0.054)", "(0.059)", "(650.000)", "(650.000)", "(0.081)", "(0.068)", "Op exp/assets",	"0.098***",	"0.295***", "403.000", "403.000", "0.208***", "0.121", "", "(0.034)", "(0.062)", "(1,083.000)", "(1,083.000)",	"(0.070)", "(0.076)", "Donations/assets", "-0.007",	"0.028",	"374.000", "374.000", "-0.383***", "-0.474***", "", "(0.032)", "(0.053)", "(619.000)", "(619.000)",	"(0.094)", "(0.099)", "Capital/asset", "0.002", "0.048***", "95.400", "95.400", "0.924***",	"0.777***", "", "(0.007)", "(0.015)", "(154.000)", "(154.000)", "(0.029)", "(0.028)", "Asset_structure",	"0.035", "-0.168", "1,901.000", "1,901.000", "-0.787***", "-0.828***", "", "(0.077)", "(0.131)", "(1,387.000)", "(1,387.000)", "(0.164)", "(0.168)", "Size(Lassets)", "-0.001",	"-0.022", "1,013.000***", "1,013.000***", "-0.024", "-0.005", "", "(0.011)", "(0.014)", "(197.000)",	"(197.000)", "(0.017)", "(0.017)", "Education", "0.188***", "0.172**", "305.000", "305.000", "0.115", "0.128", "", "(0.071)", "(0.079)", "(962.000)", "(962.000)", "(0.094)", "(0.089)", "Profit_margin",	"0.002", "0.001", "-31.200", "-31.200", "0.011***", "0.008**", "", "(0.002)", "(0.003)", "(20.800)",	"(20.800)", "(0.003)", "(0.004)", "r.squared", "0.111", "0.288", "0.026", "0.026", "0.472", "0.413", "adj.r.squared", "0.101", "0.280", "0.0161", "0.0161", "0.467", "0.407", "statistic", "273***", "38.1***", "89.4***", "2.63***", "3017.027***", "71.499***", "nobs", "3240", "3240", "3380", "3380", "3497", "3497") %>% 
-  
-kbl(., caption = "Random Effects and Pooled OLS Regressions (Standard Errors in brackets)", 
-      
-      booktabs = TRUE) %>% 
-  
-  kable_paper(full_width = FALSE, font_size = 7) %>% 
-  
-  footnote(general = "Authors' construction from the MIX data",
-           
-           general_title = "Source: ",
-           
-           number = c("Random Effects and Pooled OLS Regressions- Standard errors in brackets(***1%, **5%, *10%)`"),
-           
-           number_title = "Note: ")
+add.lines = list(c("F", "4.230***", "4.210***", "4.130***", "8.200***", 
+                   
+                   "7.980***", "7.840***", "108.395***", "106.966***", 
+                   
+                   "101.779***"), c("DF", "3240", "3210", "2950", "3380", "3340", 
+                                    
+                                    "3030", "3497", "3405", "3056"),
+                 c("Data", "Full", ">=3 Years", ">=5 Years", 
+                   
+                   "Full", ">=3 Years", ">=5 Years", 
+                   
+                   "Full", ">=3 Years", ">=5 Years")),
+
+covariate.labels = c("Age: Young", "Age: Mature", "Operating Expense", 
+                     
+                     "Donations/Assets", "Capital/Assets", "Asset Structure", 
+                     
+                     "Size(Lassets)", "Education", "Profit Margin"), 
+
+dep.var.caption  = "Dependent Variables",
+
+  dep.var.labels   = "Social Performance"
+)
+
 ```
 
 \elandscape
-\newpage
+
+
+```{r, results = "asis", eval = TRUE}
+## Pooled OLS and random effects using full dataset
+model10 <- modelling(data = data, depvar = data$percent_of_female_borrowers, model = "random")
+
+model11 <- modelling(data = data, depvar = data$percent_of_female_borrowers, model = "pooling")
+
+model12 <- modelling(data = data, depvar = data$average_loan_balance_per_borrower, model = "random")
+
+model13 <- modelling(data = data, depvar = data$average_loan_balance_per_borrower, model = "pooling")
+
+model14 <- modelling(data = data, depvar = data$gross_loan_portfolio_to_total_assets, model = "random")
+
+model15 <- modelling(data = data, depvar = data$gross_loan_portfolio_to_total_assets, model = "pooling")
+############################################################
+```
+
+```{r}
+inference_m10 <- coeftest(model10, vcov = vcovBK(model10, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m11 <- coeftest(model11, vcov = vcovBK(model11, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m12 <- coeftest(model12, vcov = vcovBK(model12, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m13 <- coeftest(model13, vcov = vcovBK(model13, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m14 <- coeftest(model14, vcov = vcovBK(model14, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m15 <- coeftest(model15, vcov = vcovBK(model15, method = "arellano", type="HC1", cluster = "group"))
+```
+
+
+\blandscape
+
+```{r, results = 'asis'}
+stargazer(model10, model11, model12, model13, model14, model15, 
+          
+          header = FALSE, type = "latex",
+          
+          title = "Output of Random Effects and Pooled OLS Models", 
+          
+font.size = "footnotesize", omit = c("^year."),
+
+se = list(inference_m10[,2], inference_m11[,2], inference_m12[,2], 
+          
+          inference_m13[,2], inference_m14[,2], inference_m15[,2]),
+
+column.labels = c("FemaleClients-Random", "FemaleClients-Pooled", 
+                  
+                  "AverageLoan- Random", "AverageLoan- Pooled", 
+                  
+                  "GrossLoans- Random", "GrossLoans- Pooled"), 
+
+keep.stat = c("n", "rsq", "adj.rsq"),
+
+
+add.lines = list(c("F", "27.3***", "38.1***", "89.4***", "2.63***", 
+                   
+                   "3017***", "71.5***"), 
+                 
+                 c("DF", "3240", "3210", "2950", "3380", "3340", "3030"),
+                 
+                 c("Data", "Full", "Full", ">=3 Years", 
+                   
+                   ">=3 Years", ">=5 Years", ">=5 Years")),
+
+covariate.labels = c("Legal: Bank", "Legal: NBFI", "Legal: Coop", 
+                     
+                     "Legal: Rural Bank", "Age: Young", "Age: Mature", 
+                     
+                     "Region: SSA", "Operating Expense", 
+                     
+                     "Donations/Assets", "Capital/Assets", "Asset Structure", 
+                     
+                     "Size(Lassets)", "Education", "Profit Margin"), 
+
+dep.var.caption  = "Dependent Variables",
+
+  dep.var.labels   = "Social Performance"
+)
+
+```
+
+\elandscape
+
 
 ### ***Gross Loans to Assets Ratio***
 
@@ -1201,53 +1244,49 @@ data_wins <- left_join(data_wins, bio,
 
 ```
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 ## Run the winsorized regressions
 ## Model for coefficients
-stargazer(
-modelling(data = data_wins, depvar = data_wins$percent_of_female_borrowers, model = "random")[[2]], 
+model16 <- modelling(data = data_wins, depvar = data_wins$percent_of_female_borrowers, model = "random")
 
-modelling(data = data_wins, depvar = data_wins$percent_of_female_borrowers, model = "within")[[2]],
+model17 <- modelling(data = data_wins, depvar = data_wins$percent_of_female_borrowers, model = "within")
 
-modelling(data = data_wins, depvar = data_wins$percent_of_female_borrowers, model = "pooling")[[2]],
+model18 <- modelling(data = data_wins, depvar = data_wins$percent_of_female_borrowers, model = "pooling")
 
-modelling(data = data_wins, depvar = data_wins$average_loan_balance_per_borrower, model = "random")[[2]],
+model19 <- modelling(data = data_wins, depvar = data_wins$average_loan_balance_per_borrower, model = "random")
 
-modelling(data = data_wins, depvar = data_wins$average_loan_balance_per_borrower, model = "within")[[2]],
+model20 <- modelling(data = data_wins, depvar = data_wins$average_loan_balance_per_borrower, model = "within")
 
-modelling(data = data_wins, depvar = data_wins$average_loan_balance_per_borrower, model = "pooling")[[2]],
+model21 <- modelling(data = data_wins, depvar = data_wins$average_loan_balance_per_borrower, model = "pooling")
 
-modelling(data = data_wins, depvar = data_wins$gross_loan_portfolio_to_total_assets, model = "random")[[2]],
+model22 <- modelling(data = data_wins, depvar = data_wins$gross_loan_portfolio_to_total_assets, model = "random")
 
-modelling(data = data_wins, depvar = data_wins$gross_loan_portfolio_to_total_assets, model = "within")[[2]],
+model23 <- modelling(data = data_wins, depvar = data_wins$gross_loan_portfolio_to_total_assets, model = "within")
 
-modelling(data = data_wins, depvar = data_wins$gross_loan_portfolio_to_total_assets, model = "pooling")[[2]],
-
-type = "html", out = "full_wins.html" , header = FALSE, title = "Output for Winsorized Dataset", 
-
-column.labels = c("(1)% of Female Borrowers -RE", "(2)% of Female Borrowers- FE", "(3)% of Female Borrowers- Pooling", "(4)Average Loan Balance per Borrower- RE", "(5)Average Loan Balance per Borrower- FE", "(6)Average Loan Balance per Borrower- Pooling", "(7)Gross Loan Portfolio/Assets - RE", "(8)Gross Loan Portfolio/Assets - FE", "(9)Gross Loan Portfolio/Assets- Pooling"))
-
-##########################################################
-## Model for r square
-rbind(
-modelling(data = data_wins, depvar = data_wins$percent_of_female_borrowers, model = "random")[[1]], 
-
-modelling(data = data_wins, depvar = data_wins$percent_of_female_borrowers, model = "within")[[1]],
-
-modelling(data = data_wins, depvar = data_wins$percent_of_female_borrowers, model = "pooling")[[1]],
-
-modelling(data = data_wins, depvar = data_wins$average_loan_balance_per_borrower, model = "random")[[1]],
-
-modelling(data = data_wins, depvar = data_wins$average_loan_balance_per_borrower, model = "within")[[1]],
-
-modelling(data = data_wins, depvar = data_wins$average_loan_balance_per_borrower, model = "pooling")[[1]],
-
-modelling(data = data_wins, depvar = data_wins$gross_loan_portfolio_to_total_assets, model = "random")[[1]],
-
-modelling(data = data_wins, depvar = data_wins$gross_loan_portfolio_to_total_assets, model = "within")[[1]],
-
-modelling(data = data_wins, depvar = data_wins$gross_loan_portfolio_to_total_assets, model = "pooling")[[1]]) %>% data.frame() %>% t()
+model24 <- modelling(data = data_wins, depvar = data_wins$gross_loan_portfolio_to_total_assets, model = "pooling")
 ```
+
+
+```{r}
+inference_m16 <- coeftest(model16, vcov = vcovBK(model16, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m17 <- coeftest(model17, vcov = vcovBK(model17, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m18 <- coeftest(model18, vcov = vcovBK(model18, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m19 <- coeftest(model19, vcov = vcovBK(model19, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m20 <- coeftest(model20, vcov = vcovBK(model20, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m21 <- coeftest(model21, vcov = vcovBK(model21, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m22 <- coeftest(model22, vcov = vcovBK(model22, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m23 <- coeftest(model23, vcov = vcovBK(model23, method = "arellano", type="HC1", cluster = "group"))
+
+inference_m24 <- coeftest(model24, vcov = vcovBK(model24, method = "arellano", type="HC1", cluster = "group"))
+```
+
 
 # **Conclusion**
 
@@ -1264,39 +1303,75 @@ MFI avail financial services to the financially excluded including women, rural 
 
 # **Appendix**
 
-
 ## Appendix 1: Regression Results for Winsorized Data
 
 
-```{r}
-library(tibble)
-library(gt)
-library(knitr)
-tribble(~ `Variables`, ~ `Percent_female`, ~ `Percent_female`, ~ `Percent_female`, ~ `Average_loan`, ~ `Average_loan`, ~ `Average_loan`, ~ `Gross_loans`, ~ `Gross_loans`, ~ `Gross_loans`, "", "Random", "Within", "Pooling", "Random", "Within", "Pooling", "Random", "Within", "Pooling", "", "(1)", "(2)", "(3)", "(4)", "(5)", "(6)", "(7)", "(8)", "(9)", "Bank", "-0.144***", "", "-0.131***", "-71.500", "", "-71.500", "-0.069", "", "-0.088*", "", "(0.049)", "", "(0.049)", "(712.000)", "", "(712.000)", "(0.056)", "", "(0.051)", "NBFI", "-0.172***", "", "-0.163***", "188.000", "", "188.000", "-0.0002", "", "-0.013", "", "(0.033)", "", "(0.031)", "(444.000)", "", "(444.000)",	"(0.039)", "", "(0.036)", "Credit Union",	"-0.211***", "0.113", "-0.193***", "1,116.000**", "1,684.000", "1,116.000**", "0.021", "-0.015", "0.008", "", "(0.035)", "(0.130)",	"(0.034)", "(518.000)", "(1,971.000)", "(518.000)", "(0.043)", "(0.103)", "(0.040)", "Rural Bank", "-0.209***", "", "-0.167***", "-140.000", "", "-140.000", "-0.317***", "", "-0.341***", "", "(0.059)", "", "(0.052)",	"(732.000)", "", "(732.000)",	"(0.093)", "", "(0.089)", "Age: Young",	"-0.022", "-0.019", "-0.043**", "-43.300", "-939.000***", "-43.300", "0.069", "0.082*", "0.066", "", "(0.016)", "(0.016)", "(0.020)", "(265.000)", "(360.000)", "(265.000)", "(0.050)", "(0.047)", "(0.052)", "Age: Mature", "-0.023", "-0.017", "-0.052*", "-184.000", "-1,220.000**", "-184.000",	"0.112**", "0.127***", "0.099*", "", "(0.021)", "(0.022)", "(0.029)", "(339.000)", "(610.000)",	"(339.000)", "(0.051)", "(0.048)", "(0.054)", "Region: Africa",	"0.086", "", "0.092",	"468.000", "", "468.000", "-0.110", "", "-0.091", "", "(0.058)", "", "(0.058)", "(763.000)", "", "(763.000)", "(0.068)", "", "(0.062)", "Op exp/assets",	"0.162**", "0.086", "0.471***", "2,567.000",	"2,858.000", "2,567.000", "0.539***",	"0.938***", "0.436***", "", "(0.072)", "(0.078)", "(0.114)",	"(1,683.000)", "(3,080.000)", "(1,683.000)", "(0.143)", "(0.226)", "(0.140)", "Donations/assets",	"2.230", "1.410", "10.700***", "-93,698.000*", "141.000", "-93,698.000*",	"-5.840", "0.884", "-7.750*", "", "(1.500)", "(1.500)", "(2.620)", "(50,487.000)", "(63,343.000)",	"(50,487.000)", "(4.160)", "(4.540)", "(4.210)", "Capital/asset",	"0.077***", "0.069**", "0.110**", "358.000", "3,893.000***",	"358.000", "0.147**", "0.107", "0.160**", "", "(0.029)",	"(0.029)", "(0.047)", "(766.000)", "(1,292.000)", "(766.000)", "(0.069)", "(0.083)", "(0.068)", "Asset_structure", "0.105",	"0.215", "-0.397*", "3,622.000", "-342.000", "3,622.000", "-1.150***",	"-0.977*", "-1.140***", "", "(0.136)", "(0.143)", "(0.232)", "(3,607.000)", "(7,163.000)", "(3,607.000)", "(0.337)", "(0.525)", "(0.320)", "Size (lassets)",	"-0.008", "0.008", "-0.032*",	"797.000***",	"7,756.000***",	"797.000***", "-0.069***", "-0.258***", "-0.054**", "", "(0.014)",	"(0.018)", "(0.017)", "(247.000)", "(1,188.000)", "(247.000)", "(0.023)", "(0.043)", "(0.022)", "Education", "0.215***", "0.229**", "0.202**", "1,113.000", "-3,770.000", "1,113.000", "-0.078",	"-0.114", "-0.047", "", "(0.082)", "(0.102)", "(0.091)", "(1,353.000)", "(4,209.000)", "(1,353.000)",	"(0.104)", "(0.176)", "(0.104)", "Profit_margin", "0.049**", "0.042**", "0.089***", "-24.100",	"-1,824.000*", "-24.100", "0.230***", "0.221***", "0.239***", "", "(0.019)", "(0.020)", "(0.033)",	"(609.000)", "(1,008.000)", "(609.000)", "(0.054)", "(0.058)", "(0.055)", "r.squared", "0.116", "0.0549", "0.308", "0.0274",  "0.0674", "0.0274", "0.0437", "0.037", "0.0557", "adj.r.squared", "0.104", "-0.0596", "0.299", "0.0149", "-0.0471", "0.0149", "0.0315", "-0.0818", "0.0437", "Statistic", "247***", "4.59e***", "34.3***", "74.7***", "5.75***", "2.20***", "124***", "3.09***", "4.65***", "nobs", "2660", "2660", "2660", "2680", "2680", "2680", "2720", "2720", "2720") %>%
-  
-kbl(., caption = "Fixed Effects, Random Effects and Pooled OLS Regressions Using Winsorized Data (Standard Errors in brackets)", 
-      
-      booktabs = TRUE) %>% 
-  
-  kable_paper(full_width = FALSE, font_size = 7) %>% 
-  
-  footnote(general = "Authors' construction from the MIX data",
-           
-           general_title = "Source: ",
-           
-           number = c("Fixed Effects, Random Effects and Pooled OLS Regressions Using Winsorozed Data- Standard errors in brackets(***1%, **5%, *10%)`"),
-           
-           number_title = "Note: ")
+```{r, results = 'asis'}
+stargazer(model16, model17, model18, model19, model20, 
+          
+          model21, model22, model23, model24, 
+          
+          header = FALSE, type = "latex",
+          
+          title = "Regression Models Using Winsorized Data", 
+          
+font.size = "footnotesize", omit = c("^year."),
+
+se = list(inference_m16[,2], inference_m17[,2], inference_m18[,2], 
+          
+          inference_m19[,2], inference_m20[,2], inference_m21[,2],
+          
+          inference_m22[,2], inference_m23[,2], inference_m24[,2]),
+
+column.labels = c("FemaleClients", "FemaleClients", "FemaleClients", 
+                  
+                  "AverageLoan", "AverageLoan", "AverageLoan", 
+                  
+                  "GrossLoans", "GrossLoans", "GrossLoans"), 
+
+keep.stat = c("n", "rsq", "adj.rsq"),
+
+
+add.lines = list(c("F", "4.230***", "4.210***", "4.130***", "8.200***", 
+                   
+                   "7.980***", "7.840***", "108.395***", "106.966***", 
+                   
+                   "101.779***"), c("DF", "3240", "3210", "2950", "3380", "3340", 
+                                    
+                                    "3030", "3497", "3405", "3056"),
+                 c("Model", "Random", "Fixed", "Pooled", 
+                   
+                   "Random", "Fixed", "Pooled", 
+                   
+                   "Random", "Fixed", "Pooled")),
+
+covariate.labels = c("Legal: Bank", "Legal: NBFI", "Legal: Coop", 
+                     
+                     "Legal: Rural Bank", "Age: Young", "Age: Mature", 
+                     
+                     "Region: SSA", "Operating Expense", 
+                     
+                     "Donations/Assets", "Capital/Assets", "Asset Structure", 
+                     
+                     "Size(Lassets)", "Education", "Profit Margin"), 
+
+dep.var.caption  = "Dependent Variables",
+
+  dep.var.labels   = "Social Performance"
+)
+
 ```
 
 
 \blandscape
+
 \newpage
 
 
 ## Appendix 2: The Hausmann Test
 
 In this section, we run the Hausmann test for the choice between fixed effects and random effects model.Also, we check for the choice between pooled OLS and random effects models. Finally, we present the output from the regression analysis. Appendix 2 shows the results of the Hausmann test. The test favours the fixed effects model given that the null hypothesis is the random effects.
+
 
 ```{r}
 ## The Hausmann test
@@ -1323,6 +1398,7 @@ hausmann_test(data = data, depvar = data$gross_loan_portfolio_to_total_assets)) 
 ## Appendix 3: Fixed Effects vs Pooled OLS
 
 The table below shows that there are significant effects and the test favours fixed effects model over the pooled OLS.
+
 
 ```{r}
 fixed_ols <- function(depvar){
@@ -1356,12 +1432,12 @@ tribble(~ Dependent_variable, ~ statistic, ~ Method, ~ Alternative,
         "Percent of women borrowers", "23.0000***", "F test for individual effects", "Significant effects","Average Loan Balance per Borrower", "1.0000***", "F test for individual effects", "Significant effects", "Gross Loans to Total Assets", "5.0000***", "F test for individual effects", "Significant effects") %>% knitr::kable(caption = "Results of the F test for individual effects for Fixed Effects versus Pooled OLS")
 ```
 
-
 \newpage
 
 ## Appendix 4: Random Effects vs Pooled OLS
 
 Again, the Table below shows results of the Langrage multiplier test that favors the random effects model over the pooled OLS.
+
 
 ```{r}
 random_ols <- function(depvar){
@@ -1401,6 +1477,7 @@ tribble(~ Dependent_variable, ~ statistic, ~ Method, ~ Alternative,
 ## Appendix 5: Test for Cross-Sectional Dependence
 
 The table below shows that there is high cross-sectional dependence in the dataset. For this reason, we run and present the panel corrected standard errors.
+
 
 ```{r}
 fixed <- function(depvar) {
@@ -1665,14 +1742,46 @@ qqnorm(residuals(plm_gross_random_wins), ylab = 'Residuals', col = "red",
 qqline(residuals(plm_gross_fixed_wins))
 ```
 
-
+\elandscape
 \newpage
 
 ## Appendix 9: Trends in Debt to Equity Ratio
 
 ```{r, fig.cap = "Trends in Debt/Equity Ratio", fig.height=5, fig.width=8}
 ## Size - Log of assets
-(de <- data %>% 
+```
+
+\blandscape
+\newpage
+
+## Appendix 10: Debt to Equity Ratio by MFI Legal Status
+
+```{r, fig.cap = "Debt to Equity Ratio by MFI Legal Status", fig.height=5, fig.width=8}
+second_plotter(data = data, x = currentlegalstatus, 
+        z = currentlegalstatus,
+        y = debt_to_equity_ratio, 
+        xlabel = "Current Legal Status", 
+        ylabel = "Debt to Equity Ratio (Log Scale)", 
+        title = "") /
+  
+second_plotter(data = data, x = currentlegalstatus, 
+        z = currentlegalstatus,
+        y = deposits_to_total_assets, 
+        xlabel = "Current Legal Status", 
+        ylabel = "Donations to Assets Ratio (Log Scale)", 
+        title = "")
+```
+
+\elandscape
+
+
+\newpage
+
+## Appendix 11: Percent of Women Borrowers by MFI type
+
+```{r, fig.cap = "Trends in the Percent of Female Borrowers by Legal Tradition", fig.height=5, fig.width=8}
+
+data %>% 
   
   group_by(year) %>% 
   
@@ -1691,43 +1800,11 @@ qqline(residuals(plm_gross_fixed_wins))
   labs(x = "Year", y = "Mean/Median of Debt/Equity Ratio", title = "", 
        caption = "Authors, computation from MIX data") + 
   
-  ggthemes::theme_clean())
-```
+  ggthemes::theme_clean() 
 
 
-\newpage
-
-## Appendix 10: Debt to Equity Ratio by MFI Legal Status
-
-```{r, fig.cap = "Debt to Equity Ratio by MFI Legal Status", fig.height=5, fig.width=8}
-second_plotter(data = data, x = currentlegalstatus, 
-        z = currentlegalstatus,
-        y = debt_to_equity_ratio, 
-        xlabel = "Current Legal Status", 
-        ylabel = "Debt to Equity Ratio (Log Scale)", 
-        title = "")
-```
 
 
-\newpage
-
-## Appendix 11: Deposits to Assets Ratio by MFI Legal Status
-
-```{r, fig.cap = "Donations to Assets Ratio by MFI Legal Status", fig.height=5, fig.width=8}
-second_plotter(data = data, x = currentlegalstatus, 
-        z = currentlegalstatus,
-        y = deposits_to_total_assets, 
-        xlabel = "Current Legal Status", 
-        ylabel = "Donations to Assets Ratio (Log Scale)", 
-        title = "")
-```
-
-
-\newpage
-
-## Appendix 12: Percent of Women Borrowers by MFI type
-
-```{r, fig.cap = "Trends in the Percent of Female Borrowers by Legal Tradition", fig.height=5, fig.width=8}
 ## Percent of female borrowers - trends over time
 data %>% 
   
@@ -1749,15 +1826,8 @@ data %>%
   
   ggthemes::theme_clean() + facet_wrap(~currentlegalstatus)
 
-```
 
 
-\newpage
-
-
-## Appendix 13: Average Loan Balance per Borrower by MFI type
-
-```{r, fig.cap = "Trends in Average Loan Balance per Borrower by MFI Legal Status", fig.height=5, fig.width=8}
 ## Average loan Balance per borrower
 data %>% 
   
@@ -1779,14 +1849,7 @@ data %>%
   
   ggthemes::theme_clean() + facet_wrap(~currentlegalstatus)
 
-```
 
-
-\newpage
-
-## Appendix 14: Gross Loans to Assets Ratio by MFI type
-
-```{r, fig.cap = "Trends in Gross Loans to Assets Ratio by MFI Legal Status", fig.height=5, fig.width=8}
 ## Gross loan portfolio to assets 
 data %>% 
   
@@ -1807,7 +1870,8 @@ data %>%
   labs(x = "Year", y = "Mean/Median Gross Loans to Assets", title = "") + 
   
   ggthemes::theme_clean() + facet_wrap(~currentlegalstatus)
+
 ```
 
-\elandscape
+
 
