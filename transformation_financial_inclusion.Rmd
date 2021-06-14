@@ -1298,10 +1298,11 @@ MFI avail financial services to the financially excluded including women, rural 
 :::
 
 
+\blandscape
 
 \newpage
 
-# **Appendix**
+**Appendices**
 
 ## Appendix 1: Regression Results for Winsorized Data
 
@@ -1315,7 +1316,7 @@ stargazer(model16, model17, model18, model19, model20,
           
           title = "Regression Models Using Winsorized Data", 
           
-font.size = "footnotesize", omit = c("^year."),
+font.size = "tiny", omit = c("^year."),
 
 se = list(inference_m16[,2], inference_m17[,2], inference_m18[,2], 
           
@@ -1361,6 +1362,9 @@ dep.var.caption  = "Dependent Variables",
 )
 
 ```
+
+
+\elandscape
 
 
 \blandscape
@@ -1774,14 +1778,16 @@ second_plotter(data = data, x = currentlegalstatus,
 
 \elandscape
 
-
+\blandscape
 \newpage
 
 ## Appendix 11: Percent of Women Borrowers by MFI type
 
+
 ```{r, fig.cap = "Trends in the Percent of Female Borrowers by Legal Tradition", fig.height=5, fig.width=8}
 
-data %>% 
+
+(data %>% 
   
   group_by(year) %>% 
   
@@ -1800,7 +1806,7 @@ data %>%
   labs(x = "Year", y = "Mean/Median of Debt/Equity Ratio", title = "", 
        caption = "Authors, computation from MIX data") + 
   
-  ggthemes::theme_clean() 
+  ggthemes::theme_clean() +
 
 
 
@@ -1824,12 +1830,12 @@ data %>%
   
   labs(x = "Year", y = "Mean/Median Percent of Female Borrowers", title = "") + 
   
-  ggthemes::theme_clean() + facet_wrap(~currentlegalstatus)
+  ggthemes::theme_clean() + facet_wrap(~currentlegalstatus)) /
 
 
 
 ## Average loan Balance per borrower
-data %>% 
+(data %>% 
   
   group_by(year, currentlegalstatus) %>% 
   
@@ -1847,7 +1853,7 @@ data %>%
   
   labs(x = "Year", y = "Mean/Median Average Loan Balance per Borrower", title = "T") + 
   
-  ggthemes::theme_clean() + facet_wrap(~currentlegalstatus)
+  ggthemes::theme_clean() + facet_wrap(~currentlegalstatus) +
 
 
 ## Gross loan portfolio to assets 
@@ -1869,9 +1875,9 @@ data %>%
   
   labs(x = "Year", y = "Mean/Median Gross Loans to Assets", title = "") + 
   
-  ggthemes::theme_clean() + facet_wrap(~currentlegalstatus)
+  ggthemes::theme_clean() + facet_wrap(~currentlegalstatus))
 
 ```
 
-
+\elandscape
 
