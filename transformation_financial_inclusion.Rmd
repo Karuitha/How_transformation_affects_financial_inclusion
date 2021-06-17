@@ -1,5 +1,5 @@
 ---
-title: Transformation of Microfinance Institutions and Financial Inclusion in Africa
+title: Transformation of Microfinance Institutions and its Effects on Financial Inclusion in Africa
 author: "John Karuitha & Kalu Ojah"
 date: "`r format(Sys.Date(), '%A %B %d, %Y')`"
 header-includes:
@@ -13,7 +13,8 @@ header-includes:
 mainfont: garamond
 output:
   pdf_document:
-    toc: yes
+    toc: false
+    number_sections: true
   prettydoc::html_pretty:
     theme: hpstr
   word_document: default
@@ -53,11 +54,8 @@ library(wesanderson)  # for nice colors
 library(kableExtra)
 ```
 
-\newpage
 
-# **Transformation of Microfinance Institutions and Financial Inclusion in Africa**
-
-# **Abstract**
+**Abstract**
 
 > The shift from the not-for-profit microfinance has seen the rise of commercial MFIs ranging from commercial banks to rural banks to credit unions in addition to non-governmental organisations (NGOs). The shift arose partly due to neo-liberalism and the need for microfinance institutions (MFIs) to reach the financially excluded sustainably. In this article, we examine how the shift has affected financial inclusion in Africa. We utilise data from the Microfinance Information Exchange (MIX). The analysis shows that the change from the NGO model to the commercial models could negatively affect the depth of financial outreach given that NGOs have better outreach to women and advance smaller loans on average. Also, NGOs have a higher median gross loans compared to other legal forms except for credit unions/ cooperatives, although commercial banks have highest mean gross loans. The results are robust after removing outliers and controlling for factors that affect the ability of MFIs to offer financial services to the poor.
 
@@ -1799,11 +1797,7 @@ second_plotter(data = data, x = currentlegalstatus,
   
   geom_line(mapping = aes(x = year, y = median_de), linetype = "dashed", color = "red") +
   
-  geom_text(x = 2003, y = 1, label = "Median") + 
-  
-  geom_text(x = 2002, y = 2, label = "Mean")+
-  
-  labs(x = "Year", y = "Mean/Median of Debt/Equity Ratio", title = "", 
+  labs(x = "Year", y = "Debt/Equity Ratio", title = "", 
        caption = "Authors, computation from MIX data") + 
   
   ggthemes::theme_clean() +
@@ -1824,11 +1818,7 @@ data %>%
   
   geom_line(mapping = aes(x = year, y = median_female), linetype = "dashed", color = "red") +
   
-  geom_text(x = 2018, y = 0.55, label = "Median") + 
-  
-  geom_text(x = 2018, y = 0.57, label = "Mean")+
-  
-  labs(x = "Year", y = "Mean/Median Percent of Female Borrowers", title = "") + 
+  labs(x = "Year", y = "Percent of Female Borrowers", title = "") + 
   
   ggthemes::theme_clean() + facet_wrap(~currentlegalstatus)) /
 
@@ -1847,11 +1837,7 @@ data %>%
   
   geom_line(mapping = aes(x = year, y = median_average_loan), linetype = "dashed", color = "red") +
   
-  geom_text(x = 2018, y = 500, label = "Median") + 
-  
-  geom_text(x = 2016, y = 1200, label = "Mean")+
-  
-  labs(x = "Year", y = "Mean/Median Average Loan Balance per Borrower", title = "T") + 
+  labs(x = "Year", y = "Average Loan Balance", title = "T") + 
   
   ggthemes::theme_clean() + facet_wrap(~currentlegalstatus) +
 
@@ -1869,11 +1855,7 @@ data %>%
   
   geom_line(mapping = aes(x = year, y = median_gross_loans), linetype = "dashed", color = "red") +
   
-  geom_text(x = 2012, y = 0.64, label = "Median") + 
-  
-  geom_text(x = 2013, y = 0.7, label = "Mean")+
-  
-  labs(x = "Year", y = "Mean/Median Gross Loans to Assets", title = "") + 
+  labs(x = "Year", y = "Gross Loans to Assets", title = "") + 
   
   ggthemes::theme_clean() + facet_wrap(~currentlegalstatus))
 
