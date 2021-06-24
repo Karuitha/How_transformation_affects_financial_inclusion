@@ -30,9 +30,12 @@ bibliography: citation.bib
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.height = 9, fig.width = 14, out.width='8.8in', fig.align = "center")
-options(digits = 3)
+
 library(tidyverse)
+library(dtplyr)
 library(plm)
+library(pglm)
+library(gmnl)
 library(ggthemes)
 library(GGally)
 library(skimr)
@@ -51,7 +54,25 @@ library(viridis)  # for nice colors
 library(broom)  # for cleaning up models
 library(treemapify)  # for making area graphs
 library(wesanderson)  # for nice colors
+library(janitor)
+library(readxl)
+library(magrittr)
+library(mice)
+library(patchwork)
+library(Rchoice)
+library(gplots)
+library(margins)
+library(lme4)
 library(kableExtra)
+library(caret)
+library(nnet)
+library(pROC)
+#library(ConfusionTableR)#
+
+#########################################
+options(digits = 3)
+theme_set(ggthemes::theme_clean())
+#########################################
 ```
 
 
@@ -156,30 +177,286 @@ In the case where $c_{i}$ and $x_{it}$ are correlated, then $c_{i}$ is a fixed e
 In this section, we begin by visualizing the study variables followed by summary statistics of the variables. We then run and discuss the results of the regression model.
 
 ```{r}
-## Read in the dataset 
-data <- read_csv("amelia.csv")
+## legal traditions 
+### Common law countries in Africa
+common <- tibble(country = c("Botswana", "Gambia, The", "Ghana", "Kenya", "Lesotho", "Liberia", "Malawi", "Namibia", "Nigeria", "Sierra Leone", "South Africa", "South Sudan", "Sudan", "Eswatini", "Tanzania", "Uganda", "Zambia", "Zimbabwe"), trad = c(rep("common", 18)))
 
-data <- data %>% set_names(names(.) %>% 
-                             
-                             str_replace_all(" ", "") %>% 
-                             
-                             str_to_lower()) %>% 
+### Civil law countries in Africa
+civil <- tibble(country = c("Algeria", "Benin", "Burkina Faso", "Cameroon", "Central African Republic", "Chad", "Comoros", "Congo, Rep.", "Cote d'Ivoire", "Gabon", "Guinea", "Madagascar", "Mali", "Mauritania", "Morocco", "Niger", "Senegal", "Togo", "Tunisia"), trad = c(rep("civil", 19)))
+
+### Other legal traditions in Africa
+others <- tibble(country = c("Equatorial Guinea", "Angola", "Burundi", "Cape Verde", "Congo, Dem. Rep.", "Egypt, Arab Republic of", "Ethiopia", "Eritrea", "Guinea-Bissau", "Mozambique", "Rwanda"), trad = c(rep("others", 11)))
+
+###Putting them all together
+legal <- rbind(common, civil, others)
+```
+
+```{r}
+# Bond market data - private and public bond market capitalization to GDP
+bonds <- read_excel("bonds_oluoch.xlsx") %>% 
   
- rename(operating_expense_assets = `operating_expense_/_assets`, operating_expense_loan_portfolio =  `operating_expense_/_loan_portfolio`, capital_asset_ratio = `capital_/asset_ratio`, provision_for_loan_impairment_assets = `provision_for_loan_impairment_/_assets`)
+  janitor::clean_names()
 
-data$currentlegalstatus <- factor(data$currentlegalstatus, 
+```
+
+```{r}
+# Add the financial development index to the dataset
+## Countries not part of Africa
+mideast <- c("Bahrain", "Iran, Islamic Rep.", "Iraq", "Israel", "Jordan", "Kuwait", "Lebanon", "Malta", "Oman", "Qatar", "Saudi Arabia", "Syrian Arab Republic", "United Arab Emirates", "West Bank and Gaza", "Yemen, Rep.")
+
+## Load the financial structure data
+finstr <- read_excel("FinancialStructureDatabase20191018.xlsx", sheet = 4) %>% 
+  
+  ## Select desired variables
+  select(country, region, year, pcrdbgdp, stmktcap, stvaltraded, stturnover, listco_pc) %>% 
+  
+  ### Filter out regions not in Africa or middle east
+  filter(region == "Sub-Saharan Africa" | region == "Middle East & North Africa") %>% 
+  ### Filter out countries in middle east and select year 1999 onwards
+  filter(!country %in% mideast, year >= 1999) %>% 
+  
+## Replace NAs
+          group_by(country) %>% 
+  
+          mutate(pcrdbgdp = replace_na(pcrdbgdp, median(pcrdbgdp, na.rm = TRUE)),
+                 
+                 pcrdbgdp = replace_na(pcrdbgdp, 0),
+                 
+                 stmktcap = replace_na(stmktcap, median(stmktcap, na.rm = TRUE)),
+                 
+                 stmktcap = replace_na(stmktcap, 0)) %>% ungroup() %>% 
+  
+## Join with the bonds data
+  left_join(bonds, by = c("country", "year")) %>% 
+  
+## rename bonds columns 
+  rename(prbonds = outstanding_t_bonds_percent_gdp, 
+         
+         pubonds = outstanding_c_bonds_percent_gdp) %>% 
+  
+  ## Replace NAs in public bond and private bond markets 
+  mutate(pubonds = replace_na(pubonds, 0), 
+         
+         prbonds = replace_na(prbonds, 0)) %>% 
+  
+         ## Rename Ivory Coast
+         mutate(country = if_else(country == "Côte d'Ivoire", "Cote d'Ivoire", 
+                                  
+                                  country))
+
+## View missing data points
+#mice::md.pattern(finstr)
+
+#finstr %>% select(pcrdbgdp, stmktcap) %>% cor(.) %>% 
+  
+  #corrplot(method = "number", type = "lower")
+```
+
+```{r}
+## Read in the dataset 
+my_data <- read_csv("amelia.csv") %>% 
+
+## Region
+mutate(region = if_else(region == "Middle East and North Africa", 
+                        
+                        "North_Africa", region)) %>% 
+
+# Clean the names 
+janitor::clean_names() %>% 
+  
+# Set up factor variables 
+## legal status 
+mutate(currentlegalstatus = factor(currentlegalstatus, 
                            levels = c("NGO", "Bank", "NBFI", 
                             "Credit Union/ Cooperative", 
-                            "Rural Bank"))
+                            "Rural Bank")), 
+      ## Age
+      age = factor(age, levels = c("New", "Young", "Mature")),
+       
+      ## Region 
+      region = factor(region, levels = c("North_Africa", "Africa"))) %>% 
+  
+      ## Add the financial structure data     
+      left_join(finstr, by = c("country", "year")) %>% 
+  
+      ## Add a binary variable for the legal dummy- NGO vs Others
+      mutate(currentlegaldummy = case_when(currentlegalstatus == "NGO" ~ "NGO",
+                                           
+                                           TRUE ~ "others"),
+      
+        currentlegaldummy = factor(currentlegaldummy, levels = c("NGO", "others")),
+        
+        legal_tradition = factor(legal_tradition, 
+                                 
+                                 levels = c("Common", "Civil", "Other"))
+        
+        ) %>% 
+  ## Select required variables 
+  select(mfiid, mfiname, year, country, currentlegaldummy, currentlegalstatus, 
+         
+         percent_of_female_borrowers, operational_self_sufficiency,
+         
+         age, legal_tradition, region.x, asset_structure, 
+         
+         assets, kkm, education, pcrdbgdp, stmktcap, prbonds, 
+         
+         gdp_growth_annual, donations, donations_assets_ratio, 
+         
+         profit_margin, capital_asset_ratio,
+         
+         debt_to_equity_ratio, operating_expense_assets, 
+         
+         average_loan_balance_per_borrower, gross_loan_portfolio_to_total_assets, 
+         
+         deposits_to_total_assets) %>% 
+  
+          ## Rename region
+         rename(region = region.x) %>% 
+  
+  group_by(country) %>% 
+  
+  mutate(kkm = replace_na(kkm, median(kkm, na.rm = TRUE)),
+         education = replace_na(education, median(education, na.rm = TRUE)),
+         prbonds = replace_na(prbonds, median(prbonds, na.rm = TRUE)),
+         pcrdbgdp = replace_na(pcrdbgdp, median(pcrdbgdp, na.rm = TRUE)),
+         stmktcap = replace_na(stmktcap, median(stmktcap, na.rm = TRUE))) %>% 
+  
+  ungroup() %>% 
+  
+  group_by(mfiid) %>% 
+  
+  mutate(asset_structure = replace_na(asset_structure, median(asset_structure, na.rm = TRUE)), 
+         
+         percent_of_female_borrowers = replace_na(percent_of_female_borrowers, 
+                                                  
+                                                  median(percent_of_female_borrowers, na.rm = TRUE)),
+         
+         operational_self_sufficiency = replace_na(operational_self_sufficiency, 
+                                                   
+                                                   median(operational_self_sufficiency, na.rm = TRUE)),
+         
+         assets = replace_na(assets, median(assets, na.rm = TRUE)),
+         
+         donations = replace_na(donations, median(donations, na.rm = TRUE)),
+         
+         donations_assets_ratio = replace_na(donations_assets_ratio, 
+                                             
+                                  median(donations_assets_ratio, na.rm = TRUE)), 
+         
+         profit_margin = replace_na(profit_margin, median(profit_margin, na.rm = TRUE)),
+         
+         capital_asset_ratio = replace_na(capital_asset_ratio, median(capital_asset_ratio, na.rm = TRUE)),
+         
+         debt_to_equity_ratio = replace_na(debt_to_equity_ratio, median(debt_to_equity_ratio, na.rm = TRUE)),
+         
+         operating_expense_assets = replace_na(operating_expense_assets, median(operating_expense_assets, na.rm = TRUE)),
+         
+         deposits_to_total_assets = replace_na(deposits_to_total_assets, median(deposits_to_total_assets, na.rm = TRUE))
+         
+         
+         ) %>% 
+  
+  ungroup() %>% 
+  
+  group_by(region) %>% 
+  
+  mutate(education = replace_na(education, median(education, na.rm = TRUE)),
+         
+         kkm = replace_na(kkm, median(kkm, na.rm = TRUE)),
+         
+         gdp_growth_annual = replace_na(gdp_growth_annual, 
+                                        
+         median(gdp_growth_annual, na.rm = TRUE))) %>% 
+  
+  ungroup() %>% 
+  
+  group_by(currentlegalstatus) %>% 
+  
+  mutate(assets = replace_na(assets, median(assets, na.rm = TRUE)), 
+         
+         percent_of_female_borrowers = replace_na(percent_of_female_borrowers, 
+                                                  
+                        median(percent_of_female_borrowers, na.rm = TRUE)),
+         
+         operational_self_sufficiency = replace_na(operational_self_sufficiency, 
+                                                   
+                        median(operational_self_sufficiency, na.rm = TRUE)),
+         
+         donations = replace_na(donations, median(donations, na.rm = TRUE)),
+         
+         donations_assets_ratio = replace_na(donations_assets_ratio, 
+                                             
+                                  median(donations_assets_ratio, na.rm = TRUE)),
+         
+         profit_margin = replace_na(profit_margin, median(profit_margin, na.rm = TRUE)),
+         
+         capital_asset_ratio = replace_na(capital_asset_ratio, median(capital_asset_ratio, na.rm = TRUE)),
+         
+         asset_structure = replace_na(asset_structure, median(asset_structure, na.rm = TRUE)),
+         
+         debt_to_equity_ratio = replace_na(debt_to_equity_ratio, median(debt_to_equity_ratio, na.rm = TRUE)),
+         
+         operating_expense_assets = replace_na(operating_expense_assets, median(operating_expense_assets, na.rm = TRUE)),
+         
+         deposits_to_total_assets = replace_na(deposits_to_total_assets, median(deposits_to_total_assets, na.rm = TRUE))
+         
+         ) %>% 
+  
+  ungroup() %>% 
+  
+  mutate(dummy = if_else(currentlegaldummy == "NGO", 0, 1)) %>% 
+  
+  mutate(assets = log(assets + 1),
+         
+         pcrdbgdp = log(pcrdbgdp + 1),
+         
+         stmktcap = log(stmktcap + 1),
+         
+         prbonds = log(prbonds + 1)) %>% 
+  
+  add_count(mfiid, name = "count") %>% 
+  
+  mutate(currentlegalstatus = fct_recode(currentlegalstatus, Coop = "Credit Union/ Cooperative")) %>% 
+  
+  mutate(finsoc = case_when(operational_self_sufficiency >= 1 & percent_of_female_borrowers > 0.5 ~ "SS",
+                            
+                            operational_self_sufficiency > 1 & percent_of_female_borrowers < 0.5 ~ "SF", 
+                            
+                            operational_self_sufficiency < 1 & percent_of_female_borrowers >= 0.5 ~ "FS",
+                            
+                            TRUE ~ "FF")) %>% 
+  
+mutate(finsoc = factor(finsoc, levels = c("FF", "SF", "FS", "SS"))) %>% 
+  
+## replace negative donations with zero
+mutate(donations = case_when(donations <= 0 ~ 1,
+                             TRUE ~ donations))
+## Write a csv for the data
+my_data %>% write.csv(., "data.csv")
 
-data$age <- factor(data$age, levels = c("New", "Young", "Mature"))
+## Visualize missing data
+#md.pattern(data)
+## Amelia::missmap(data)
 
-data$region <- ifelse(data$region == "Middle East and North Africa", "North_Africa", 
-                        data$region)
+## MFIs with three (3) or more years of data
+data3 <- my_data %>% 
+  
+  group_by(mfiid) %>% 
+  
+  filter(n() > 3)
+  
+data3 %>% write.csv(., "data3.csv")
 
-data$region <- factor(data$region, levels = 
-                          c("North_Africa", "Africa"))
+## MFIs with three (3) or more years of data
+data5 <- my_data %>% 
+  
+  group_by(mfiid) %>% 
+  
+  filter(n() > 5)  
+  
+data5 %>% write.csv(., "data5.csv")
 ```
+
 
 ######################################################################### 
 
@@ -214,7 +491,7 @@ modelling <- function(data, depvar,
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
           data = data, effect = effect,
           model = model, 
@@ -243,7 +520,7 @@ hausmann_test <- function(data, depvar){
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin, 
                data = data, effect = "individual", model = "within", 
       index = c("mfiid", "year")) 
@@ -252,7 +529,7 @@ hausmann_test <- function(data, depvar){
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin, 
           data = data, effect = "individual", model = "random", 
       index = c("mfiid", "year"))
@@ -485,7 +762,7 @@ Lastly, for asset structure (tangibility), that is, the ratio of non-current ass
 \blandscape
 ```
 ```{r, fig.cap = "Operating Expense, Donations, Capital and Asset Structure of MFIs by Legal Status"}
-box1 <- second_plotter(data = data, x = currentlegalstatus, 
+box1 <- second_plotter(data = my_data, x = currentlegalstatus, 
         z = currentlegalstatus,
         y = operating_expense_assets, 
         xlabel = "Current Legal Status", 
@@ -493,21 +770,21 @@ box1 <- second_plotter(data = data, x = currentlegalstatus,
         title = "Panel A: Operating Expense to Assets Ratio by MFI Legal Status")
 
 
-box2 <- second_plotter(data = data, x = currentlegalstatus, 
+box2 <- second_plotter(data = my_data, x = currentlegalstatus, 
         z = currentlegalstatus,
         y = donations_assets_ratio, 
         xlabel = "Current Legal Status", 
         ylabel = "Donations/Assets Ratio (log Scale)", 
         title = "Panel B: Donations to Assets Ratio by MFIs Legal Status")
 
-box3 <- second_plotter(data = data, x = currentlegalstatus, 
+box3 <- second_plotter(data = my_data, x = currentlegalstatus, 
         z = currentlegalstatus,
         y = capital_asset_ratio, 
         xlabel = "Current Legal Status", 
         ylabel = "Capital/Assets Ratio (log Scale)", 
         title = "Panel C: Capital to Assets Ratio by MFIs Legal Status")
 
-box4 <- second_plotter(data = data, x = currentlegalstatus, 
+box4 <- second_plotter(data = my_data, x = currentlegalstatus, 
         z = currentlegalstatus,
         y = asset_structure, 
         xlabel = "Current Legal Status", 
@@ -522,11 +799,11 @@ library(patchwork)
 \newpage
 \elandscape
 ```
-Overall, the pattern indicates that while NGOs spend the most in operating expense to reach the financially excluded, these efforts come at the expense of profitability. on the contrary, profit-oriented MFIs are keen to manage expenses which improves profitability, presumably at the expense of outreach to the financially excluded. It is worth noting that NGOs have a relatively low asset base and hold relatively fewer non-current assets to total assets. The observation could mean that NGOs do not invest heavily in brick and mortar branches or serve a relatively limited geographic range. Finally, despite the push towards commercial capital, NGOs have the highest capital (equity) to asset ratio- of which much could be from investors keen on social performance and not profits [@mia2017mission].
+Overall, the pattern indicates that while NGOs spend the most in operating expense to reach the financially excluded, these efforts come at the expense of profitability. In contrast, profit-oriented MFIs are keen to manage expenses which improves profitability, presumably at the expense of outreach to the financially excluded. It is worth noting that NGOs have a relatively low asset base and hold relatively fewer non-current assets to total assets. The observation could mean that NGOs do not invest heavily in brick and mortar branches or serve a relatively limited geographic range. Finally, despite the push towards commercial capital, NGOs have the highest capital (equity) to asset ratio, of which much could be from investors, who put forth dedicated equity capital because they are keen on social performance and not profits [@mia2017mission].
 
-We now turn to Figure 2. The first graph (Figure 2- Panel A) shows that commercial banks are the largest in terms of total assets, while NGOs and cooperatives are the smallest in that order. Banks tend to have a much broader geographic presence and hence attract more clients which, in turn means more assets. Again, capital adequacy requirements by central banks have implications on the assets that banks hold. Also, commercial banks are generally dominant in many developing countries meaning that they have a long operating history which implies a bigger size [@levine2002bank].
+We now turn to Figure 2. The first graph (Figure 2- Panel A) shows that commercial banks have the largest asset size (total assets), while NGOs and cooperatives have the smallest in that order. Banks tend to have a much broader geographic presence and hence attract more clients which, in turn means more assets accumulation. Again, capital adequacy requirements by central banks have implications on the assets that banks hold. Furthermore, commercial banks are generally dominant in many developing countries meaning that they have a long operating history which implies a bigger size [@levine2002bank].
 
-Turning to profitability, we find that rural banks and commercial banks post the highest median profits, while NBFIs and NGOs trail (Figure 2- Panel B). The result probably partially illustrates the emphasis on social performance versus financial performance that management take- with NGOs and NBFIs more likely to favour the social aspect. When we take this result together with the observation that NGOs tend to have more operating profits, we may conclude that the desire by managers of commercial banks and other for-profit MFIs to mitigate agency conflicts leads to less operating expenses, more profitability and hence lower outreach to the financially excluded [@jensen1976theory].
+Turning to profitability, we find that rural banks and commercial banks post the highest median profits, while NBFIs and NGOs trail (Figure 2- Panel B). This result probably partially illustrates the emphasis on social performance versus financial performance that management take, with NGOs and NBFIs more likely to favour the social goal. When we take this result together with the observation that NGOs tend to have more operating expenses, we conclude that the desire by managers of commercial banks and other for-profit MFIs to mitigate agency conflicts leads to less operating expenses, more profitability and, hence, lower outreach to the financially excluded [@jensen1976theory].
 
 Commercial banks and credit unions have the highest average loan balance per borrower, while NBFIs and NGOs come last in that order (Figure 2- Panel 3). As an indicator of outreach to the poor, average loan balance per borrower is better when lower as it indicates that poorer people get access to financial services. Again, it appears that profit-orientation by commercial banks may cause MFIs to reach less financially excluded people in favour of making profits. For credit unions, the observation could arise due to the limited geographic range of operations where they serve people with a common interest like occupation, meaning that their members may not be suffering from financial exclusion in the first place [@armendariz2013subsidy].
 
@@ -539,28 +816,28 @@ Figure 3 shows the correlation matrix and a graphical view of the relationships 
 \blandscape
 ```
 ```{r, fig.cap = "Size, Profit Margin, Average Loan Balance per Borrower and Gross of MFIs by Legal Status"}
-box5 <- second_plotter(data = data, x = currentlegalstatus, 
+box5 <- second_plotter(data = my_data, x = currentlegalstatus, 
         z = currentlegalstatus,
-        y = lassets, 
+        y = assets, 
         xlabel = "Current Legal Status", 
         ylabel = "Size - Log of Total Assets (log Scale)", 
         title = "Panel A: Relative Size of MFIs by MFI Legal Status")
 
-box6 <- second_plotter(data = data, x = currentlegalstatus, 
+box6 <- second_plotter(data = my_data, x = currentlegalstatus, 
         z = currentlegalstatus,
         y = percent_of_female_borrowers, 
         xlabel = "Current Legal Status", 
         ylabel = "Percent of Female Borrowers (log Scale)", 
         title = "Panel B: Percent of Female Borrowers by MFIs Legal Status")
 
-box7 <- second_plotter(data = data, x = currentlegalstatus, 
+box7 <- second_plotter(data = my_data, x = currentlegalstatus, 
         z = currentlegalstatus,
         y = average_loan_balance_per_borrower, 
         xlabel = "Current Legal Status", 
         ylabel = "Loan Balance per Borrower (log Scale)", 
         title = "Panel C: Loan Balance per Borrower by MFIs Legal Status")
 
-box8 <- second_plotter(data = data, x = currentlegalstatus, 
+box8 <- second_plotter(data = my_data, x = currentlegalstatus, 
         z = currentlegalstatus,
         y = gross_loan_portfolio_to_total_assets, 
         xlabel = "Current Legal Status", 
@@ -573,11 +850,19 @@ library(patchwork)
                                                 The y-Axis is in log scale")
 ```
 
+
+```{r, fig.cap = "Donations, Capital to Assets, Age"}
+
+```
+
+
+
+
 ```{r plots2, fig.cap = "Correlation Matrix for Independent Variables"}
-data %>% select(operating_expense_assets, 
+my_data %>% select(operating_expense_assets, 
           donations_assets_ratio, 
           capital_asset_ratio,
-          asset_structure, lassets, 
+          asset_structure, assets, 
           education, profit_margin) %>% 
   
   ggpairs(columnLabels = c("OperatingExpense/Assets",
@@ -608,7 +893,7 @@ Appendices 12-14 show the breakdown of the trends for percent of female borrower
 
 ```{r, fig.cap = "Trends in MFI Donations, Capital, Profitability, and Operating Expenses"}
 ## Percent of female borrowers - trends over time
-female <- data %>% 
+female <- my_data %>% 
   
   group_by(year) %>% 
   
@@ -629,7 +914,7 @@ female <- data %>%
   ggthemes::theme_clean()
 
 ## Average loan Balance per borrower
-avloan <- data %>% 
+avloan <- my_data %>% 
   
   group_by(year) %>% 
   
@@ -651,7 +936,7 @@ avloan <- data %>%
 
 
 ## Gross loan portfolio to assets 
-grossloan <- data %>% 
+grossloan <- my_data %>% 
   
   group_by(year) %>% 
   
@@ -672,7 +957,7 @@ grossloan <- data %>%
   ggthemes::theme_clean()
 
 ## Capital assets ratio
-capital <- data %>% 
+capital <- my_data %>% 
   
   group_by(year) %>% 
   
@@ -693,7 +978,7 @@ capital <- data %>%
   ggthemes::theme_clean()
 
 ## Operating expense to assets ratio
-expense <- data %>% 
+expense <- my_data %>% 
   
   group_by(year) %>% 
   
@@ -714,7 +999,7 @@ expense <- data %>%
   ggthemes::theme_clean()
 
 ## Donations to assets ratio
-donations <- data %>% 
+donations <- my_data %>% 
   
   group_by(year) %>% 
   
@@ -735,7 +1020,7 @@ donations <- data %>%
   ggthemes::theme_clean()
 
 ## Profit Margin
-profit <- data %>% 
+profit <- my_data %>% 
   
   group_by(year) %>% 
   
@@ -756,13 +1041,13 @@ profit <- data %>%
   ggthemes::theme_clean()
 
 ## Size - Log of assets
-size <- data %>% 
+size <- my_data %>% 
   
   group_by(year) %>% 
   
-  summarize(mean_size = mean(lassets, na.rm = TRUE), 
+  summarize(mean_size = mean(assets, na.rm = TRUE), 
                                
-  median_size = median(lassets, na.rm = TRUE)) %>% 
+  median_size = median(assets, na.rm = TRUE)) %>% 
   
   ggplot(mapping = aes(x = year, y = mean_size), color = "skyblue") + geom_line() +
   
@@ -792,7 +1077,7 @@ size <- data %>%
 ```
 
 ```{r}
-data %>% select(currentlegalstatus, age) %>% skim() %>% 
+my_data %>% select(currentlegalstatus, age) %>% skim() %>% 
   
   select(-n_missing, -factor.ordered, -factor.n_unique, -skim_type) %>% 
   
@@ -820,7 +1105,7 @@ data %>% select(currentlegalstatus, age) %>% skim() %>%
 \newpage
 
 ```{r}
-data %>% group_by(currentlegalstatus) %>% 
+my_data %>% group_by(currentlegalstatus) %>% 
   
   select(currentlegalstatus, percent_of_female_borrowers,
                                                  
@@ -855,12 +1140,12 @@ data %>% group_by(currentlegalstatus) %>%
 
 \newpage
 ```{r}
-data %>% group_by(currentlegalstatus) %>% 
+my_data %>% group_by(currentlegalstatus) %>% 
   
   select(operating_expense_assets, 
           donations_assets_ratio, 
           capital_asset_ratio,
-          asset_structure, lassets, 
+          asset_structure, assets, 
           education, profit_margin) %>% 
   
   skim() %>% 
@@ -929,27 +1214,27 @@ The insignificant drivers of average loan balance per borrower include region, o
 
 ```{r}
 ## Filtering data for >= 3 years and >= 5 years
-data3 <- data %>% group_by(mfiid) %>% filter(n() >= 3)
+data3 <- my_data %>% group_by(mfiid) %>% filter(n() >= 3)
 
-data5 <- data %>% group_by(mfiid) %>% filter(n() >= 5)
+data5 <- my_data %>% group_by(mfiid) %>% filter(n() >= 5)
 ```
 
 ```{r, results = "asis", eval = TRUE}
 ## Coefficients output for the fixed effects models at full, >= 3 years, and >= 5 years of data.
 
-model1 <- modelling(data = data, depvar = data$percent_of_female_borrowers, model = "within")
+model1 <- modelling(data = my_data, depvar = my_data$percent_of_female_borrowers, model = "within")
 
 model2 <- modelling(data = data3, depvar = data3$percent_of_female_borrowers, model = "within")
 
 model3 <- modelling(data = data5, depvar = data5$percent_of_female_borrowers, model = "within")
 
-model4 <- modelling(data = data, depvar = data$average_loan_balance_per_borrower, model = "within")
+model4 <- modelling(data = my_data, depvar = my_data$average_loan_balance_per_borrower, model = "within")
 
 model5 <- modelling(data = data3, depvar = data3$average_loan_balance_per_borrower, model = "within")
 
 model6 <- modelling(data = data5, depvar = data5$average_loan_balance_per_borrower, model = "within")
 
-model7 <- modelling(data = data, depvar = data$gross_loan_portfolio_to_total_assets, model = "within")
+model7 <- modelling(data = my_data, depvar = my_data$gross_loan_portfolio_to_total_assets, model = "within")
 
 model8 <- modelling(data = data3, depvar = data3$gross_loan_portfolio_to_total_assets, model = "within")
 
@@ -1037,17 +1322,17 @@ dep.var.caption  = "Dependent Variables",
 
 ```{r, results = "asis", eval = TRUE}
 ## Pooled OLS and random effects using full dataset
-model10 <- modelling(data = data, depvar = data$percent_of_female_borrowers, model = "random")
+model10 <- modelling(data = my_data, depvar = my_data$percent_of_female_borrowers, model = "random")
 
-model11 <- modelling(data = data, depvar = data$percent_of_female_borrowers, model = "pooling")
+model11 <- modelling(data = my_data, depvar = my_data$percent_of_female_borrowers, model = "pooling")
 
-model12 <- modelling(data = data, depvar = data$average_loan_balance_per_borrower, model = "random")
+model12 <- modelling(data = my_data, depvar = my_data$average_loan_balance_per_borrower, model = "random")
 
-model13 <- modelling(data = data, depvar = data$average_loan_balance_per_borrower, model = "pooling")
+model13 <- modelling(data = my_data, depvar = my_data$average_loan_balance_per_borrower, model = "pooling")
 
-model14 <- modelling(data = data, depvar = data$gross_loan_portfolio_to_total_assets, model = "random")
+model14 <- modelling(data = my_data, depvar = my_data$gross_loan_portfolio_to_total_assets, model = "random")
 
-model15 <- modelling(data = data, depvar = data$gross_loan_portfolio_to_total_assets, model = "pooling")
+model15 <- modelling(data = my_data, depvar = my_data$gross_loan_portfolio_to_total_assets, model = "pooling")
 ############################################################
 ```
 
@@ -1134,7 +1419,7 @@ A final important aspect is the way gross loans to assets relate to measures of 
 
 ```{r, eval = FALSE}
 #######################################################
-diff <- data %>% select(mfiid, year, currentlegalstatus, 
+diff <- my_data %>% select(mfiid, year, currentlegalstatus, 
                        age, region, 
                        gross_loan_portfolio_to_total_assets, 
                        percent_of_female_borrowers, 
@@ -1214,32 +1499,36 @@ Our robustness checks encompass three matters. First, the study employs three fi
 ```{r}
 # Winsorizing the data
 ## Winsorizing function
-winsorizeR <- function(x){
-           library(robustHD)
-            winsorize(x, minval = NULL, 
-            maxval = NULL, probs = c(0.10, 0.90),
-            na.rm = TRUE, type = 7)}
+remove_outliers <- function(x, na.rm = TRUE, ...) {
+  qnt <- quantile(x, probs=c(.10, .90), na.rm = na.rm, ...)
+  H <- 1.5 * IQR(x, na.rm = na.rm)
+  y <- x
+  y[x < (qnt[1] - H)] <- NA
+  y[x > (qnt[2] + H)] <- NA
+  y
+}
 
 #####################################################
-data_wins <- data %>% select(mfiid, year, 
-                             operating_expense_assets, 
+data_wins <- my_data %>% select(operating_expense_assets, 
                              donations_assets_ratio, 
                              capital_asset_ratio, 
-                             asset_structure, lassets, 
-                             education, profit_margin) %>% na.omit()
+                             asset_structure, assets, 
+                             education, profit_margin,
+                             percent_of_female_borrowers,
+                             average_loan_balance_per_borrower,
+                             gross_loan_portfolio_to_total_assets)
 
 ####################################################
-data_wins <- sapply(data_wins, winsorizeR) %>% data.frame()
+data_wins <- sapply(data_wins, remove_outliers) %>% data.frame()
 
 ####################################################
-bio <- data %>% select(mfiid, year, currentlegalstatus, 
-                       age, region, gross_loan_portfolio_to_total_assets, 
-                       percent_of_female_borrowers, average_loan_balance_per_borrower)
+data_wins <- my_data %>% 
+  
+  select(mfiid, year, currentlegalstatus, age, region) %>% 
+  
+  bind_cols(data_wins)
 
 ####################################################
-data_wins <- left_join(data_wins, bio,
-                    by = c("mfiid", "year"), copy = TRUE)
-
 ```
 
 ```{r, eval = TRUE}
@@ -1378,9 +1667,9 @@ In this section, we run the Hausmann test for the choice between fixed effects a
 ```{r}
 ## The Hausmann test
 rbind(
-hausmann_test(data = data, depvar = data$percent_of_female_borrowers),
-hausmann_test(data = data, depvar = data$average_loan_balance_per_borrower),
-hausmann_test(data = data, depvar = data$gross_loan_portfolio_to_total_assets)) %>% 
+hausmann_test(data = my_data, depvar = my_data$percent_of_female_borrowers),
+hausmann_test(data = my_data, depvar = my_data$average_loan_balance_per_borrower),
+hausmann_test(data = my_data, depvar = my_data$gross_loan_portfolio_to_total_assets)) %>% 
   
   mutate(Dependent_Variable = c("Percent of Female Borrowers", "Average Loan Balance per Borrower", 
                       
@@ -1408,26 +1697,26 @@ fixed <- plm(depvar ~ currentlegalstatus + age + region +
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
-               data = data, effect = "individual", model = "within", 
+               data = my_data, effect = "individual", model = "within", 
       index = c("mfiid", "year")) 
   
 pooling <- plm(depvar ~ currentlegalstatus + age + region +
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
-          data = data, effect = "individual", model = "pooling", 
+          data = my_data, effect = "individual", model = "pooling", 
       index = c("mfiid", "year"))
 
 pFtest(fixed, pooling)
 }
 
-women <- fixed_ols(data$percent_of_female_borrowers)
-average_loan <- fixed_ols(data$average_loan_balance_per_borrower)
-gross_loans <- fixed_ols(data$gross_loan_portfolio_to_total_assets)
+women <- fixed_ols(my_data$percent_of_female_borrowers)
+average_loan <- fixed_ols(my_data$average_loan_balance_per_borrower)
+gross_loans <- fixed_ols(my_data$gross_loan_portfolio_to_total_assets)
 
 library(tibble)
 tribble(~ Dependent_variable, ~ statistic, ~ Method, ~ Alternative,
@@ -1447,26 +1736,26 @@ random <- plm(depvar ~ currentlegalstatus + age + region +
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
-               data = data, effect = "individual", model = "random", 
+               data = my_data, effect = "individual", model = "random", 
       index = c("mfiid", "year")) 
   
 pooling <- plm(depvar ~ currentlegalstatus + age + region +
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
-          data = data, effect = "individual", model = "pooling", 
+          data = my_data, effect = "individual", model = "pooling", 
       index = c("mfiid", "year"))
 
 plmtest(pooling)
 }
 
-women_random <- random_ols(data$percent_of_female_borrowers)
-average_loan_random <- random_ols(data$average_loan_balance_per_borrower)
-gross_loans_random <- random_ols(data$gross_loan_portfolio_to_total_assets)
+women_random <- random_ols(my_data$percent_of_female_borrowers)
+average_loan_random <- random_ols(my_data$average_loan_balance_per_borrower)
+gross_loans_random <- random_ols(my_data$gross_loan_portfolio_to_total_assets)
 
 tribble(~ Dependent_variable, ~ statistic, ~ Method, ~ Alternative,
         "Percent of Women Borrowers", "85.5000***", "Lagrange Multiplier Test - (Honda) for unbalanced panels", "Significant effects","Average Loan Balance per Borrower", "2.2400***", "Lagrange Multiplier Test - (Honda) for unbalanced panels", "Significant effects", "Gross Loans to Total Assets", "22.3000***", "Lagrange Multiplier Test - (Honda) for unbalanced panels", "Significant effects") %>% knitr::kable(caption = "Results of the Langrage Multiplier Test for Random Effects versus Pooled OLS")
@@ -1488,9 +1777,9 @@ fixed <- function(depvar) {
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
-               data = data, effect = "individual", model = "within", 
+               data = my_data, effect = "individual", model = "within", 
       index = c("mfiid", "year"))
   
   pcdtest(reg, test = "lm")
@@ -1502,22 +1791,22 @@ random <- function(depvar){
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
-               data = data, effect = "individual", model = "random", 
+               data = my_data, effect = "individual", model = "random", 
       index = c("mfiid", "year"))
   
   pcdtest(reg, test = "lm")
   }
 
 #########################################
-women_fixed_pcd <- fixed(data$percent_of_female_borrowers)
-average_loan_fixed_pcd <- fixed(data$average_loan_balance_per_borrower)
-gross_loan_fixed_pcd <- fixed(data$gross_loan_portfolio_to_total_assets)
+women_fixed_pcd <- fixed(my_data$percent_of_female_borrowers)
+average_loan_fixed_pcd <- fixed(my_data$average_loan_balance_per_borrower)
+gross_loan_fixed_pcd <- fixed(my_data$gross_loan_portfolio_to_total_assets)
 ################################################
-women_random_pcd <- random(data$percent_of_female_borrowers)
-average_loan_random_pcd <- random(data$average_loan_balance_per_borrower)
-gross_loan_random_pcd <- random(data$gross_loan_portfolio_to_total_assets)
+women_random_pcd <- random(my_data$percent_of_female_borrowers)
+average_loan_random_pcd <- random(my_data$average_loan_balance_per_borrower)
+gross_loan_random_pcd <- random(my_data$gross_loan_portfolio_to_total_assets)
 
 ############################################################
 ## Cross sectional dependence under fixed effects model
@@ -1539,7 +1828,7 @@ tribble(~ Dependent_variable, ~ Model, ~ Chisq, ~ df,
 ## Appendix 6: Correlation Matrix for Dependent Variables
 
 ```{r, fig.cap = "Correlation Between Gross Loans to Assets, Average Loan Balance per Borrower, and Percent of Female Borrowers", fig.height=5, fig.width=8}
-data %>% select(gross_loan_portfolio_to_total_assets, 
+my_data %>% select(gross_loan_portfolio_to_total_assets, 
                 
                 average_loan_balance_per_borrower, percent_of_female_borrowers) %>% 
   
@@ -1561,54 +1850,54 @@ plm_women_fixed <- plm(percent_of_female_borrowers ~ currentlegalstatus + age + 
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
-               data = data, effect = "individual", model = "within", 
+               data = my_data, effect = "individual", model = "within", 
       index = c("mfiid", "year"))
 
 plm_women_random <- plm(percent_of_female_borrowers ~ currentlegalstatus + age + region +
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
-               data = data, effect = "individual", model = "random", 
+               data = my_data, effect = "individual", model = "random", 
       index = c("mfiid", "year"))
 
 plm_avloan_fixed <- plm(average_loan_balance_per_borrower ~ currentlegalstatus + age + region +
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
-               data = data, effect = "individual", model = "within", 
+               data = my_data, effect = "individual", model = "within", 
       index = c("mfiid", "year"))
 
 plm_avloan_random <- plm(average_loan_balance_per_borrower ~ currentlegalstatus + age + region +
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
-               data = data, effect = "individual", model = "random", 
+               data = my_data, effect = "individual", model = "random", 
       index = c("mfiid", "year"))
 
 plm_gross_fixed <- plm(gross_loan_portfolio_to_total_assets ~ currentlegalstatus + age + region +
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
-               data = data, effect = "individual", model = "within", 
+               data = my_data, effect = "individual", model = "within", 
       index = c("mfiid", "year"))
 
 plm_gross_random <- plm(gross_loan_portfolio_to_total_assets ~ currentlegalstatus + age + region +
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
-               data = data, effect = "individual", model = "random", 
+               data = my_data, effect = "individual", model = "random", 
       index = c("mfiid", "year"))
 
 
@@ -1658,7 +1947,7 @@ plm_women_fixed_wins <- plm(percent_of_female_borrowers ~ currentlegalstatus + a
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
                data = data_wins, effect = "individual", model = "within", 
       index = c("mfiid", "year"))
@@ -1667,7 +1956,7 @@ plm_women_random_wins <- plm(percent_of_female_borrowers ~ currentlegalstatus + 
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
                data = data_wins, effect = "individual", model = "random", 
       index = c("mfiid", "year"))
@@ -1676,7 +1965,7 @@ plm_avloan_fixed_wins <- plm(average_loan_balance_per_borrower ~ currentlegalsta
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
                data = data_wins, effect = "individual", model = "within", 
       index = c("mfiid", "year"))
@@ -1685,7 +1974,7 @@ plm_avloan_random_wins <- plm(average_loan_balance_per_borrower ~ currentlegalst
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
                data = data_wins, effect = "individual", model = "random", 
       index = c("mfiid", "year"))
@@ -1694,7 +1983,7 @@ plm_gross_fixed_wins <- plm(gross_loan_portfolio_to_total_assets ~ currentlegals
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
                data = data_wins, effect = "individual", model = "within", 
       index = c("mfiid", "year"))
@@ -1703,7 +1992,7 @@ plm_gross_random_wins <- plm(gross_loan_portfolio_to_total_assets ~ currentlegal
 +           operating_expense_assets + 
 +           donations_assets_ratio + 
 +           capital_asset_ratio +
-+           asset_structure + lassets + 
++           asset_structure + log(assets) + 
 +           education + profit_margin + year, 
                data = data_wins, effect = "individual", model = "random", 
       index = c("mfiid", "year"))
@@ -1759,14 +2048,14 @@ qqline(residuals(plm_gross_fixed_wins))
 ## Appendix 10: Debt to Equity Ratio by MFI Legal Status
 
 ```{r, fig.cap = "Debt to Equity Ratio by MFI Legal Status", fig.height=5, fig.width=8}
-second_plotter(data = data, x = currentlegalstatus, 
+second_plotter(data = my_data, x = currentlegalstatus, 
         z = currentlegalstatus,
         y = debt_to_equity_ratio, 
         xlabel = "Current Legal Status", 
         ylabel = "Debt to Equity Ratio (Log Scale)", 
         title = "") /
   
-second_plotter(data = data, x = currentlegalstatus, 
+second_plotter(data = my_data, x = currentlegalstatus, 
         z = currentlegalstatus,
         y = deposits_to_total_assets, 
         xlabel = "Current Legal Status", 
@@ -1785,7 +2074,7 @@ second_plotter(data = data, x = currentlegalstatus,
 ```{r, fig.cap = "Trends in the Percent of Female Borrowers by Legal Tradition", fig.height=5, fig.width=8}
 
 
-(data %>% 
+(my_data %>% 
   
   group_by(year) %>% 
   
@@ -1806,7 +2095,7 @@ second_plotter(data = data, x = currentlegalstatus,
 
 
 ## Percent of female borrowers - trends over time
-data %>% 
+my_data %>% 
   
   group_by(year, currentlegalstatus) %>% 
   
@@ -1825,7 +2114,7 @@ data %>%
 
 
 ## Average loan Balance per borrower
-(data %>% 
+(my_data %>% 
   
   group_by(year, currentlegalstatus) %>% 
   
@@ -1843,7 +2132,7 @@ data %>%
 
 
 ## Gross loan portfolio to assets 
-data %>% 
+my_data %>% 
   
   group_by(year, currentlegalstatus) %>% 
   
