@@ -745,29 +745,58 @@ plotter_scatter <- function(data, x, y, z,
 }
 ```
 
-## **Data Visualization**
+## **Exploratory Data Analysis**
 
-We start by visualizing the numeric variables against the current legal forms (status) of MFIs. We use the median of the variables to stand for the variables. Figure 1 (Panel A) shows that NGOs exhibit the highest median operating expense to assets ratio followed by NBFIs while credit unions trail. As we see later in the analysis, operating expenses positively relate to the depth of outreach- percent of female borrowers and breadth of outreach in terms of gross loans to assets. Therefore, NGOs will tend to do better in terms of social outreach as they incur more cost to reach out to the financially excluded. Indeed, literature shows that outreach to the poor is expensive partly due to the dis-economies of scale in serving the poor, financially excluded clients [@mia2017mission]. One of the efficiency enhancement opportunities from the transformation of MFIs to the for-profit approach to microfinance services delivery is that managers could trim operating expenses to increase profits hurting financial inclusion.
+In this section, we explore the data by visualizing the pertinent variables and computing their summary statistics. 
 
-As expected NGOs receive the highest share of donations followed by, surprisingly, credit unions and NBFIs while commercial banks receive the least donations (Figure 1- Panel B). The result relating to NGOs is not surprising given they are rooted in the welfare model of microfinance and that most donors are likely to channel their funds to MFIs that place social performance over profits. When commercial capital almost entirely replaces donations, then it is likely that outreach to the poor maybe affected [@roberts2013profit], given that managers may place emphasis on impressing shareholders and debt-holders in line with the agency theory. As noted by @d2013unsubsidized, MFIs with little or no subsidies exhibit greater mission drift. Hence, outreach to the poor would suffer even more where the providers of capital do not have a sense of the hybrid nature of microfinance. Therefore, the rise of blended finance where commercial capital funds social causes may partly mitigate this scenario [@attridge2019blended].
+### **Data Visualization**
 
-Evidently, donations do not prevent NGOs and NBFIs from raising capital as they have the highest capital to assets ratio- which largely reflects equity injections as well (Figure 1: Panel C). Commercial banks, credit unions and rural banks follow in that order. The observation is surprising given that NGOs and NBFIs still exhibit a high level of social performance even in the presence of a relatively high capital to assets feature. It could imply, therefore, that the profit vs social orientation of an MFI could be driven not just by the needs of the providers of funds but also by the internal governance, mission, and strategic orientation of an MFI [@campion1999institutional]. In this respect, an MFI's social mission could outweigh the needs of capital providers. Also, the equity capital NGOs may attract may be preferential in terms of expected returns, as is the case with blended finance [@rode2019blended]. In this case, donors could provide dedicated capital which does not put pressure on management to make high interest or dividends payments, and hence allow MFIs to remain predorminantly on the social mission path [@lopatta2016microfinance]. ^[Apart from credit unions/cooperatives and rural banks, we use acronymns for other legal forms of MFIs. NGO stands for non-governmental organisations, while NBFI connotes non-bank financial institutions. The term bank represents microfinance-oriented commercial banks.]
+Figure 1 shows the correlation matrix and a graphical view of the relationships between the numeric variables. The highest level of correlation is between operating exoense to assets ratio and donations to assets ratio, meaning that MFIs that receive more donations spend relatively more which is good for financial inclusion. On the other hand, the relatively low levels of correlation between the variables suggest that multicollinearity is not likely to be a major concern for the regression analysis that we embark on later in the article. The main diagnonal shows the distribution of the individual variables. In this case, there is high skewness exhibited by donations to assets ratio, average loan balance per borrower and gross loans to assets ratio. It means that relatively few firms account for a huge chunk of the donations received, in this case among NGOs, cooperatives and NBFIs. The highest correlation exists between operating expenses to assets ratio and donations to assets ratio, meaning that donor funded MFIs have more operating expenses probably because they are less constrained by profit/ interest seeking shareholders and debt holders. Taken together, this observation may imply that if it is expensive to administer and monitor small loans, then the profit oriented model is not good for financial inclusion as it constrains the ability to spend. The summary statistics in Table 2, Table 3, and Table 4 that follow highlight the discussed issues but offer a wider array of statistical measures including the mean, standard deviation and the quantiles.
+
+\newpage
+\blandscape
+
+```{r plots2, fig.cap = "Correlation Matrix for Independent Variables"}
+my_data %>% select(operating_expense_assets, 
+          donations_assets_ratio, 
+          capital_asset_ratio,
+          asset_structure, assets, 
+          education, profit_margin) %>% 
+  
+  ggpairs(columnLabels = c("OperatingExpense/Assets",
+                          "Donations/Assets", "Capital/Assets", 
+                          "Asset Structure", "Size- Lassets", "Education", 
+                          "Profit Margin")) + 
+  
+  theme_bw() + labs(title = "")
+```
+
+\elandscape
+
+
+Next, we visualise each of the numeric variables against the current legal forms (status) of MFIs. We use the median of the variables to stand for the variables. Figure 2 (Panel A) shows that mature MFIs form the bulk of MFIs in the sample. Among mature MFIs, NGOs and cooperatives are the majority which indicates their relatively longer operational cycle than NBFIs, banks and rural banks. As expected NGOs receive the highest share of donations followed by, surprisingly, credit unions and NBFIs while commercial banks receive the least donations (Figure 2- Panel B). The result relating to NGOs is not surprising given they are rooted in the welfare model of microfinance and that most donors are likely to channel their funds to MFIs that place social performance over profits. When commercial capital almost entirely replaces donations, then it is likely that outreach to the poor maybe affected [@roberts2013profit], given that managers may place emphasis on impressing shareholders and debt-holders in line with the agency theory. As noted by @d2013unsubsidized, MFIs with little or no subsidies exhibit greater mission drift. Hence, outreach to the poor would suffer even more where the providers of capital do not have a sense of the hybrid nature of microfinance. Therefore, the rise of blended finance where commercial capital funds social causes may partly mitigate this scenario [@attridge2019blended].
+
+Evidently, donations do not prevent NGOs and NBFIs from raising capital as they have the highest capital to assets ratio- which largely reflects equity injections as well (Figure 2: Panel C). Commercial banks, credit unions and rural banks follow in that order. The observation is surprising given that NGOs and NBFIs still exhibit a high level of social performance even in the presence of a relatively high capital to assets feature. It could imply, therefore, that the profit vs social orientation of an MFI could be driven not just by the needs of the providers of funds but also by the internal governance, mission, and strategic orientation of an MFI [@campion1999institutional]. In this respect, an MFI's social mission could outweigh the needs of capital providers. Also, the equity capital NGOs may attract may be preferential in terms of expected returns, as is the case with blended finance [@rode2019blended]. In this case, donors could provide dedicated capital which does not put pressure on management to make high interest or dividends payments, and hence allow MFIs to remain predorminantly on the social mission path [@lopatta2016microfinance]. ^[Apart from credit unions/cooperatives and rural banks, we use acronymns for other legal forms of MFIs. NGO stands for non-governmental organisations, while NBFI connotes non-bank financial institutions. The term bank represents microfinance-oriented commercial banks.]
 
 Appendix 10 and 11 show the visualization for Debt to equity ratio and deposits to assets ratio indicating that while NGOs attract more equity capital, rural banks, commercial banks, and credit unions rely more on debt, especially deposits form of debt to finance their operations. The analysis shows that while all MFIs are raising capital, the sources are different for commercial MFIs vis-a-vis NGOs. While NGOs are inclined to using more equity, commercial MFIs appear to rely more on debt. Debt capital gives rise to fixed obligations that may exercebate mission drift, and hence the conversion of NGOs to commercial entities could be harmful to social outreach. However, the relative inability to garner deposits maybe detrimental to NGOs' ability to access cheap, less restrictive capital.
 
 Lastly, for asset structure (tangibility), that is, the ratio of non-current assets to total assets, credit unions lead followed by commercial banks, NGOs, NBFIs, and rural banks. Asset structure captures the extent to which MFIs invest in physical infrastructure relative to the total asset base. Credit unions tend to serve a narrow geographic region and would traditionally put up brick and mortar branches to serve their customers [@mckillop2011credit]. Like credit unions, commercial banks tended to have more branches, having taken root before the advent of fintech that may reduce the need for physical branches. NGOs, NBFIs, and rural banks have the lowest rates of asset tangibility, especially they being of more recent origins, and making use of rural agents to meet customers rather than set up an expansive network of branches [@kent2013bankers].
 
-```{=tex}
+Figure 3 (Panel A) shows that NGOs exhibit the highest median operating expense to assets ratio followed by NBFIs while credit unions trail. As we see later in the analysis, operating expenses positively relate to the depth of outreach- percent of female borrowers and breadth of outreach in terms of gross loans to assets. Therefore, NGOs will tend to do better in terms of social outreach as they incur more cost to reach out to the financially excluded. Indeed, literature shows that outreach to the poor is expensive partly due to the dis-economies of scale in serving the poor, financially excluded clients [@mia2017mission]. One of the efficiency enhancement opportunities from the transformation of MFIs to the for-profit approach to microfinance services delivery is that managers could trim operating expenses to increase profits hurting financial inclusion.
+
+Turning to profitability in Figure 3 (Panel B), we find that rural banks and commercial banks post the highest median profits, while NBFIs and NGOs trail (Figure 3- Panel B). This result probably partially illustrates the emphasis on social performance versus financial performance that management take, with NGOs and NBFIs more likely to favour the social goal. When we take this result together with the observation that NGOs tend to have more operating expenses, we conclude that the desire by managers of commercial banks and other for-profit MFIs to mitigate agency conflicts leads to less operating expenses, more profitability and, hence, lower outreach to the financially excluded [@jensen1976theory].
+
+Overall, the pattern indicates that while NGOs spend the most in operating expense to reach the financially excluded, these efforts come at the expense of profitability. In contrast, profit-oriented MFIs are keen to manage expenses which improves profitability, presumably at the expense of outreach to the financially excluded. It is worth noting that NGOs have a relatively low asset base and hold relatively fewer non-current assets to total assets. The observation could mean that NGOs do not invest heavily in brick and mortar branches or serve a relatively limited geographic range. Finally, despite the push towards commercial capital, NGOs have the highest capital (equity) to asset ratio, of which much could be from investors, who put forth dedicated equity capital because they are keen on social performance and not profits [@mia2017mission].
+
+
 \newpage
 \blandscape
-```
+
+
 ```{r, fig.cap = "Operating Expense, Donations, Capital and Asset Structure of MFIs by Legal Status"}
-box1 <- second_plotter(data = my_data, x = currentlegalstatus, 
-        z = currentlegalstatus,
-        y = operating_expense_assets, 
-        xlabel = "Current Legal Status", 
-        ylabel = "Operating Expense/Assets Ratio (Log Scale)", 
-        title = "Panel A: Operating Expense to Assets Ratio by MFI Legal Status")
+box1 <- my_data %>% ggplot(aes(x = age, fill = currentlegalstatus)) + 
+  
+  geom_bar() + labs(x = "Age", y = "Count")
 
 
 box2 <- second_plotter(data = my_data, x = currentlegalstatus, 
@@ -795,26 +824,44 @@ library(patchwork)
 (box1 + box2) / (box3 + box4) + plot_annotation(title = "", caption = "Source: Authors' construction from MIX Data. NB: The y-Axis is in log scale")
 ```
 
-```{=tex}
 \newpage
-\elandscape
+
+```{r, fig.cap = "Asset Structure, Profit Margin, Donations, Capital to Assets Ratio by Current Legal Status"}
+box9 <- second_plotter(data = my_data, x = currentlegalstatus, 
+        z = currentlegalstatus,
+        y = my_data$operating_expense_assets, 
+        xlabel = "Current Legal Status", 
+        ylabel = "Opareting Expense to Assets (log Scale)", 
+        title = "Panel A: Operating Expense to Assets Ratio of MFIs by MFI Legal Status")
+
+box10 <- second_plotter(data = my_data, x = currentlegalstatus, 
+        z = currentlegalstatus,
+        y = profit_margin, 
+        xlabel = "Current Legal Status", 
+        ylabel = "Profit Margin (log Scale)", 
+        title = "Panel B: Profit Margin by MFIs Legal Status")
+
+
+library(patchwork)
+
+(box9 + box10) + plot_annotation(title = "", caption = "Source: Authors' construction from MIX Data \n
+                                                The y-Axis is in log scale")
+
+
 ```
-Overall, the pattern indicates that while NGOs spend the most in operating expense to reach the financially excluded, these efforts come at the expense of profitability. In contrast, profit-oriented MFIs are keen to manage expenses which improves profitability, presumably at the expense of outreach to the financially excluded. It is worth noting that NGOs have a relatively low asset base and hold relatively fewer non-current assets to total assets. The observation could mean that NGOs do not invest heavily in brick and mortar branches or serve a relatively limited geographic range. Finally, despite the push towards commercial capital, NGOs have the highest capital (equity) to asset ratio, of which much could be from investors, who put forth dedicated equity capital because they are keen on social performance and not profits [@mia2017mission].
 
-We now turn to Figure 2. The first graph (Figure 2- Panel A) shows that commercial banks have the largest asset size (total assets), while NGOs and cooperatives have the smallest in that order. Banks tend to have a much broader geographic presence and hence attract more clients which, in turn means more assets accumulation. Again, capital adequacy requirements by central banks have implications on the assets that banks hold. Furthermore, commercial banks are generally dominant in many developing countries meaning that they have a long operating history which implies a bigger size [@levine2002bank].
+\elandscape
+\newpage
 
-Turning to profitability, we find that rural banks and commercial banks post the highest median profits, while NBFIs and NGOs trail (Figure 2- Panel B). This result probably partially illustrates the emphasis on social performance versus financial performance that management take, with NGOs and NBFIs more likely to favour the social goal. When we take this result together with the observation that NGOs tend to have more operating expenses, we conclude that the desire by managers of commercial banks and other for-profit MFIs to mitigate agency conflicts leads to less operating expenses, more profitability and, hence, lower outreach to the financially excluded [@jensen1976theory].
+We now turn to Figure 4. The first graph (Figure 4- Panel A) shows that commercial banks have the largest asset size (total assets), while NGOs and cooperatives have the smallest in that order. Banks tend to have a much broader geographic presence and hence attract more clients which, in turn means more assets accumulation. Again, capital adequacy requirements by central banks have implications on the assets that banks hold. Furthermore, commercial banks are generally dominant in many developing countries meaning that they have a long operating history which implies a bigger size [@levine2002bank]. Figure 4 panel B shows that NGOs and NBFIs serve proportionately more women borrowers which indicates their depth of outreach. Given that much of the donor funds accrues to NGOs, the conversion to the for-profit model would be detrimental to financial inclusion if coupled with reduction in donor funding. 
 
-Commercial banks and credit unions have the highest average loan balance per borrower, while NBFIs and NGOs come last in that order (Figure 2- Panel 3). As an indicator of outreach to the poor, average loan balance per borrower is better when lower as it indicates that poorer people get access to financial services. Again, it appears that profit-orientation by commercial banks may cause MFIs to reach less financially excluded people in favour of making profits. For credit unions, the observation could arise due to the limited geographic range of operations where they serve people with a common interest like occupation, meaning that their members may not be suffering from financial exclusion in the first place [@armendariz2013subsidy].
+Commercial banks and credit unions have the highest average loan balance per borrower (depth of outreach), while NBFIs and NGOs come last in that order (Figure 4- Panel C). As an indicator of outreach to the poor, average loan balance per borrower is better when lower, as it indicates that poorer people get access to financial services. Again, it appears that profit-orientation by commercial banks may cause MFIs to reach less financially excluded people in favour of making profits. For credit unions, the observation could arise due to the limited geographic range of operations where they serve people with a common interest like type of occupation, meaning that their members may not be suffering from financial exclusion in the first place [@armendariz2013subsidy].
 
-NGOs have the highest median gross loans, which is surprising given their relatively smaller size. On the other hand, banks and rural banks, respectively have the lowest gross loans to assets meaning they are less efficient in converting their assets into credit (Figure 2- Panel 4). Again, it goes to show, at least in the case of Africa that breadth and depth of financial outreach are not always mutually exclusive. In this case, NGOs are able to reach the poorest borrowers, going by the percent of female borrowers and average loan balance per borrower, while at the same time reaching a wide customer base as indicated by the gross loans to assets. The evidence so far leans towards the welfare approach where profitability is incompatible with outreach to the financially excluded [@lopatta2016microfinance].
+NGOs have the highest median gross loans to total assets ratio, which is surprising given their relatively smaller size. On the other hand, banks and rural banks, respectively have the lowest gross loans to assets, meaning they are less efficient in converting their assets into credit (Figure 4- Panel D). Again, it goes to show, at least in the case of Africa that breadth and depth of financial outreach are not always mutually exclusive. In this case, NGOs are able to reach the poorest borrowers, going by the percent of female borrowers and average loan balance per borrower, while at the same time, seemingly reaching a wide customer base as indicated by the gross loans to assets. The bulk of MFIs population so far leans towards the welfare orientation where profitability overtly seems incompatible with outreach to the financially excluded [@lopatta2016microfinance].
 
-Figure 3 shows the correlation matrix and a graphical view of the relationships between the numeric variables. First, there is high skewness exhibited by donations to assets ratio, average loan balance per borrower and gross loans to assets ratio. It means that relatively few firms account for a huge chunk of the donations received, in this case among NGOs, cooperatives and NBFIs. The highest correlation exists between operating expenses to assets ratio and donations to assets ratio, meaning that donor funded MFIs have more operating expenses probably because they are less constrained by profit/ interest seeking shareholders and debt holders. Taken together, this observation may imply that if it is expensive to administer and monitor small loans, then the profit oriented model is not good for financial inclusion as it constrains the ability to spend. The summary statistics in Table 2, Table 3, and Table 4 highlight the discussed issues but offer a wider array of statistical measures including the mean, standard deviation and the quantiles.
-
-```{=tex}
 \newpage
 \blandscape
-```
+
 ```{r, fig.cap = "Size, Profit Margin, Average Loan Balance per Borrower and Gross of MFIs by Legal Status"}
 box5 <- second_plotter(data = my_data, x = currentlegalstatus, 
         z = currentlegalstatus,
@@ -850,46 +897,23 @@ library(patchwork)
                                                 The y-Axis is in log scale")
 ```
 
-
-```{r, fig.cap = "Donations, Capital to Assets, Age"}
-
-```
-
-
-
-
-```{r plots2, fig.cap = "Correlation Matrix for Independent Variables"}
-my_data %>% select(operating_expense_assets, 
-          donations_assets_ratio, 
-          capital_asset_ratio,
-          asset_structure, assets, 
-          education, profit_margin) %>% 
-  
-  ggpairs(columnLabels = c("OperatingExpense/Assets",
-                          "Donations/Assets", "Capital/Assets", 
-                          "Asset Structure", "Size- Lassets", "Education", 
-                          "Profit Margin")) + 
-  
-  theme_bw() + labs(title = "")
-```
-
-```{=tex}
-\newpage
 \elandscape
-```
-## **Trends in Dependent and Independent Variables**
+\newpage
 
-Figure 4 below shows the trends over time for donations, capital, profits and operating expense to assets ratio. Figure 4 (*Panel A*) shows that median donations to assets ratio has been on a downward spiral for the period 1999-2019. The observation confirms the neo-liberal shift where donors expect MFIs to be more financially self-sustainable. The trend is expected given the abundance of literature on the conversion of MFIs from NGOs to the commercial model, and the subsequent drop in donor funding [@d2017ngos]. As donations dry up, we expect the debt and equity components to fill the void.
 
-Interestingly, capital to assets ratio, which captures the extent of the equity capital injection is also on a downward trend in spite of the drive towards commercialization of MFIs (*Figure 4, Panel B*). The observation could be due to a rise in the total asset base of MFIs as they scale up with equity capital being a relatively smaller component of capital compared to debt. *Appendix 8* shows a steady increase in the debt/equity ratio which means that most MFIs, like commercial banks, use debt (including deposits) to finance their operations. In this respect, debt gives rise to fixed obligations which could hurt profitability during economic downturns.
+### **Trends in Dependent and Independent Variables**
 
-MFI profitability in Figure 4 (*Panel C*) shows that the median profitability for MFIs is very low and almost invariant over time except \*for a major deep in mean profitability around 2008-2009 during the global financial crisis period. The result is consistent with the empirical regularity that shows microfinance to be a low margin business [@hartarska2012governance]. An important observation is that there is no distinctive changes in profitability even as more MFIs adopt the commercial model. This means that either the commercialization was not very successful in generating profits or that the extent to which MFIs were able to make profits post-transformation was peculiar to each MFI or to each of the legal forms of microfinance.
+Figure 4 below maps the trends, over time, for donations, capital, profits and operating expense to assets ratio, respectively. Figure 5 (*Panel A*) shows that median donations to assets ratio has been on a downward spiral for the period 1999-2019. The observation confirms the neo-liberal shift in MFI paradigm where donors expect MFIs to be more financially self-sustainable. The trend can be said to be expected given the abundance of literature on the conversion of MFIs from NGOs to the commercial model, and the subsequent drop in donor funding [@d2017ngos]. As donations dry up, we expect the debt and equity capital components to fill the void.
 
-Lastly for Figure 4 (*Panel D*), operating expenses to assets ratio remains approximately constant except for a dip in 1999-2000 period. As the regressions results show, operating expense to assets relate positively relate to depth and breadth of outreach. In this case, the drop in the ratio between 1999 to early 2000's could have worsened financial inclusion outcomes. However, the operating expenses ratio has levelled off which could indicate a sustained commitment to outreach even in the face of the desire to make profits.
+Surprisingly, capital to assets ratio, which captures the extent of the equity capital injection is also on a downward trend in spite of the drive towards commercialization of MFIs (*Figure 5, Panel B*). The observation could be due to a rise in the total asset base of MFIs, as they scale up with equity capital being a relatively smaller component of external capital compared to debt. *Appendix 8* shows a steady increase in the debt/equity ratio which means that most MFIs, like commercial banks, use debt (including deposits) to finance their operations. In this respect, debt gives rise to fixed obligations which could hurt profitability during economic downturns.
 
-We turn to Figure 5 which shows a rise in MFI size, average loan balance per borrower, and gross loans to total assets, while the percent of female borrowers is on a downward trend. The rise in the average loans balance per borrower and the concomitant drop in the proportion of female borrowers indicates a consistent drop in the outreach of MFIs to the financially excluded as MFIs rely less on donations and more on commercial capital. It further shows the effects of the neo-liberal, for-profit paradigm which may hurt the social performance of MFIs, specifically the depth of outreach. However, it appears the breadth of outreach is getting better with time as MFIs give more loans. Taken together, it implies that MFIs give larger loans to less financially excluded people in a bid to make ample financial return to allow for financial sustainability and pay dividends and interest to investors.
+MFI profitability in Figure 5 (*Panel C*) shows that the median profitability for MFIs is very low and almost invariant over time, except \*for a major dip in mean profitability around 2008-2009 during the global financial crisis period. The result is consistent with the empirical regularity that shows microfinance to be a low margin business, reflecting, largely, the primacy of social mission in microfinance [@hartarska2012governance]. An important observation is that there is no distinctive changes in profitability even as more MFIs adopt the commercial model. This means that either the commercialization was not very successful in generating profits or that the extent to which MFIs were able to make profits post-transformation is particularly peculiar to each MFI or to each of the legal forms of MFIs.
 
-Appendices 12-14 show the breakdown of the trends for percent of female borrowers, average loan balance per borrower and gross loans to assets. For women borrowers, the trend is generally downwards except for commercial banks which have low outreach to women but that is relatively constant. the trend indicates weakening depth of outreach. For average loan balance per borrower, NGOs and rural banks remain relatively constant while other legal forms have rising average loans sizes which is indicative with worsening outreach by banks, credit unions, and NBFIs. Lastly, except for rural banks, gross loans are on a rising trend indicating rising breadth of outreach.
+Lastly for Figure 5 (*Panel D*), operating expenses to assets ratio remains approximately constant except for a dip in 1999-2001 period. As the regressions results show in a later section, operating expense to assets ratio relate positively to depth and breadth of outreach. In this case, the drop in the ratio between 1999 and 2001 could have worsened financial inclusion outcomes. However, the operating expenses to assets ratio has levelled off; thus, it could be indicating a sustained commitment to outreach even in the face of the desire to make profits.
+
+Next, we turn to Figure 6 which shows a rise in MFI size, average loan balance per borrower, and gross loans to total assets, while the percent of female borrowers is on a downward trend. The rise in the average loans balance per borrower and the concomitant drop in the proportion of female borrowers indicates a consistent drop in the outreach of MFIs to the financially excluded, as MFIs rely less on donations and more on commercial capital. It further shows the effects of the neo-liberal, for-profit paradigm which may be hurting the social performance of MFIs, specifically the depth of outreach. However, it appears the breadth of outreach is getting better with time as MFIs give more loans, broadly speaking. Taken together, it implies that MFIs give larger loans to less financially excluded people in a bid to make ample financial return to allow for financial sustainability and payment of dividends and interest to investors.
+
+Appendices 12-14 show the breakdown, by legal forms of MFIs, of the trends for percent of female borrowers, average loan balance per borrower and gross loans to assets. For women borrowers, the trend is generally downwards except under the commercial banking legal forms which have low outreach to women but that is relatively constant after the initial spike in the early 2000s. The trends indicates weakening depth of outreach. For average loan balance per borrower, NGOs and rural banks remain relatively constant while other legal forms have rising average loans size trends which is indicative of worsening outreach by banks, credit unions, and NBFIs. Lastly, except for rural banks, gross loans are on a rising trend, indicating rising breadth of outreach.
 
 ```{r, fig.cap = "Trends in MFI Donations, Capital, Profitability, and Operating Expenses"}
 ## Percent of female borrowers - trends over time
@@ -1065,7 +1089,7 @@ size <- my_data %>%
 
 \blandscape
 \newpage
-## **Descriptive Statistics**
+## **Descriptive Statistics: Trends Over 2000-2020**
 
 ```{r}
 (donations + capital) /(profit + expense) + plot_annotation(title = "", caption = "Source: Authors' construction from MIX data")
@@ -1076,20 +1100,25 @@ size <- my_data %>%
 (size + female) / (avloan + grossloan) + plot_annotation(title = "", caption = "Source: Authors' construction from MIX data")
 ```
 
+\elandscae
+\newpage
+## Summary Statistics
+
+
+
+\blandscape
+\newpage
+
 ```{r}
-my_data %>% select(currentlegalstatus, age) %>% skim() %>% 
-  
-  select(-n_missing, -factor.ordered, -factor.n_unique, -skim_type) %>% 
-  
-  rename(Variable =skim_variable, Completeness = complete_rate, 
-         
-         Counts = factor.top_counts) %>% 
+tribble(~ Variable, ~ Counts,
+          "Current Legal Status", "Credit Unions: 1427, NBFI: 1315, NGO: 1250, Bank: 619",
+          "Age", "Mature: 2558, New: 1200, Young: 1024") %>% 
   
   kbl(., caption = "Summary Statistics for Categrical Independent Variables", 
       
       booktabs = TRUE) %>% 
   
-  kable_paper(full_width = FALSE, font_size = 8) %>% 
+  kable_paper(full_width = TRUE, font_size = 10) %>% 
   
   footnote(general = "Authors' construction from the MIX data",
            
@@ -1105,9 +1134,9 @@ my_data %>% select(currentlegalstatus, age) %>% skim() %>%
 \newpage
 
 ```{r}
-my_data %>% group_by(currentlegalstatus) %>% 
+my_data %>% 
   
-  select(currentlegalstatus, percent_of_female_borrowers,
+  select(percent_of_female_borrowers,
                                                  
   average_loan_balance_per_borrower, gross_loan_portfolio_to_total_assets) %>% 
   
@@ -1127,7 +1156,7 @@ my_data %>% group_by(currentlegalstatus) %>%
       
       booktabs = TRUE) %>% 
   
-  kable_paper(full_width = FALSE, font_size = 8) %>% 
+  kable_paper(full_width = TRUE, font_size = 10) %>% 
   
   footnote(general = "Authors' construction from the MIX data",
            
@@ -1140,7 +1169,7 @@ my_data %>% group_by(currentlegalstatus) %>%
 
 \newpage
 ```{r}
-my_data %>% group_by(currentlegalstatus) %>% 
+my_data %>%
   
   select(operating_expense_assets, 
           donations_assets_ratio, 
@@ -1176,7 +1205,7 @@ my_data %>% group_by(currentlegalstatus) %>%
 ```
 
 \elandscape
-\newpage
+
 
 ## **Regression Analysis**
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.25)  24 JUN 2021 12:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.25)  24 JUN 2021 20:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -829,292 +829,312 @@ as been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.324 
-      ] [4] [5] [6] [7]
-<transformation_financial_inclusion_files/figure-latex/unnamed-chunk-12-1.pdf, 
-id=59, 1011.78pt x 650.43pt>
-File: transformation_financial_inclusion_files/figure-latex/unnamed-chunk-12-1.
-pdf Graphic file (type pdf)
-<use transformation_financial_inclusion_files/figure-latex/unnamed-chunk-12-1.p
-df>
-Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
-unnamed-chunk-12-1.pdf  used on input line 599.
-(pdftex.def)             Requested size: 635.989pt x 408.85007pt.
-[8pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
-has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.607 \elandscape
-                  <./transformation_financial_inclusion_files/figure-latex/unna
-med-chunk-12-1.pdf>] [9
-
-
-]
-<transformation_financial_inclusion_files/figure-latex/unnamed-chunk-13-1.pdf, 
-id=82, 1011.78pt x 650.43pt>
-File: transformation_financial_inclusion_files/figure-latex/unnamed-chunk-13-1.
-pdf Graphic file (type pdf)
-<use transformation_financial_inclusion_files/figure-latex/unnamed-chunk-13-1.p
-df>
-Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
-unnamed-chunk-13-1.pdf  used on input line 691.
-(pdftex.def)             Requested size: 635.989pt x 408.85007pt.
-<transformation_financial_inclusion_files/figure-latex/plots2-1.pdf, id=83, 100
+      ] [4] [5] [6]
+<transformation_financial_inclusion_files/figure-latex/plots2-1.pdf, id=54, 100
 1.7425pt x 620.3175pt>
 File: transformation_financial_inclusion_files/figure-latex/plots2-1.pdf Graphi
 c file (type pdf)
 <use transformation_financial_inclusion_files/figure-latex/plots2-1.pdf>
 Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
-plots2-1.pdf  used on input line 700.
+plots2-1.pdf  used on input line 548.
 (pdftex.def)             Requested size: 636.0077pt x 393.84045pt.
+[7pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.555 \end{landscape}
+                      <./transformation_financial_inclusion_files/figure-latex/
+plots2-1.pdf>] [8
+
+
+] [9]
+<transformation_financial_inclusion_files/figure-latex/unnamed-chunk-12-1.pdf, 
+id=78, 1011.78pt x 650.43pt>
+File: transformation_financial_inclusion_files/figure-latex/unnamed-chunk-12-1.
+pdf Graphic file (type pdf)
+<use transformation_financial_inclusion_files/figure-latex/unnamed-chunk-12-1.p
+df>
+Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
+unnamed-chunk-12-1.pdf  used on input line 673.
+(pdftex.def)             Requested size: 635.989pt x 408.85007pt.
+<transformation_financial_inclusion_files/figure-latex/unnamed-chunk-13-1.pdf, 
+id=79, 1011.78pt x 650.43pt>
+File: transformation_financial_inclusion_files/figure-latex/unnamed-chunk-13-1.
+pdf Graphic file (type pdf)
+<use transformation_financial_inclusion_files/figure-latex/unnamed-chunk-13-1.p
+df>
+Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
+unnamed-chunk-13-1.pdf  used on input line 684.
+(pdftex.def)             Requested size: 635.989pt x 408.85007pt.
 [10pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.708 \elandscape
-                  <./transformation_financial_inclusion_files/figure-latex/unna
-med-chunk-13-1.pdf>] [11pdfTeX warning (ext4): destination with the same identi
-fier (name{figure.3}) has been already used, duplicate ignored
+l.691 \end{landscape}
+                      <./transformation_financial_inclusion_files/figure-latex/
+unnamed-chunk-12-1.pdf>] [11pdfTeX warning (ext4): destination with the same id
+entifier (name{figure.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.708 \elandscape
-                  <./transformation_financial_inclusion_files/figure-latex/plot
-s2-1.pdf>]
+l.691 \end{landscape}
+                      <./transformation_financial_inclusion_files/figure-latex/
+unnamed-chunk-13-1.pdf>] [12
+
+
+]
+<transformation_financial_inclusion_files/figure-latex/unnamed-chunk-14-1.pdf, 
+id=121, 1011.78pt x 650.43pt>
+File: transformation_financial_inclusion_files/figure-latex/unnamed-chunk-14-1.
+pdf Graphic file (type pdf)
+<use transformation_financial_inclusion_files/figure-latex/unnamed-chunk-14-1.p
+df>
+Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
+unnamed-chunk-14-1.pdf  used on input line 740.
+(pdftex.def)             Requested size: 635.989pt x 408.85007pt.
+[13pdfTeX warning (ext4): destination with the same identifier (name{figure.4})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.747 \end{landscape}
+                      <./transformation_financial_inclusion_files/figure-latex/
+unnamed-chunk-14-1.pdf>]
 LaTeX Font Info:    Font shape `T1/SourceSansPro-LF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 715.
-[12
+(Font)              scaled to size 10.0pt on input line 757.
+[14
 
 
 ]
 <transformation_financial_inclusion_files/figure-latex/unnamed-chunk-16-1.pdf, 
-id=120, 1011.78pt x 650.43pt>
+id=148, 1011.78pt x 650.43pt>
 File: transformation_financial_inclusion_files/figure-latex/unnamed-chunk-16-1.
 pdf Graphic file (type pdf)
 <use transformation_financial_inclusion_files/figure-latex/unnamed-chunk-16-1.p
 df>
 Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
-unnamed-chunk-16-1.pdf  used on input line 789.
+unnamed-chunk-16-1.pdf  used on input line 833.
 (pdftex.def)             Requested size: 635.989pt x 408.85007pt.
-[13
+[15
 
  <./transformation_financial_inclusion_files/figure-latex/unnamed-chunk-16-1.pd
 f>]
 <transformation_financial_inclusion_files/figure-latex/unnamed-chunk-17-1.pdf, 
-id=138, 1011.78pt x 650.43pt>
+id=164, 1011.78pt x 650.43pt>
 File: transformation_financial_inclusion_files/figure-latex/unnamed-chunk-17-1.
 pdf Graphic file (type pdf)
 <use transformation_financial_inclusion_files/figure-latex/unnamed-chunk-17-1.p
 df>
 Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
-unnamed-chunk-17-1.pdf  used on input line 794.
+unnamed-chunk-17-1.pdf  used on input line 838.
 (pdftex.def)             Requested size: 635.989pt x 408.85007pt.
 
-LaTeX Warning: Float too large for page by 3.64104pt on input line 914.
+LaTeX Warning: Float too large for page by 3.64104pt on input line 958.
 
-[14pdfTeX warning (ext4): destination with the same identifier (name{table.2}) 
+[16pdfTeX warning (ext4): destination with the same identifier (name{table.2}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.916 \end{landscape}
+l.960 \end{landscape}
                      pdfTeX warning (ext4): destination with the same identifie
 r (name{table.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.916 \end{landscape}
-                     ] [15pdfTeX warning (ext4): destination with the same iden
-tifier (name{figure.4}) has been already used, duplicate ignored
+l.960 \end{landscape}
+                     ] [17pdfTeX warning (ext4): destination with the same iden
+tifier (name{figure.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.916 \end{landscape}
+l.960 \end{landscape}
                       <./transformation_financial_inclusion_files/figure-latex/
-unnamed-chunk-17-1.pdf>] [16pdfTeX warning (ext4): destination with the same id
+unnamed-chunk-17-1.pdf>] [18pdfTeX warning (ext4): destination with the same id
 entifier (name{table.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.916 \end{landscape}
+l.960 \end{landscape}
                      ]
 LaTeX Font Info:    Font shape `T1/SourceSansPro-LF/b/it' will be
-(Font)              scaled to size 10.0pt on input line 938.
-[17
+(Font)              scaled to size 10.0pt on input line 981.
+[19
 
-] [18] [19
+] [20] [21
 
 pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
  been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1150 \end{landscape}
+l.1193 \end{landscape}
                       ]
 
-LaTeX Warning: Float too large for page by 106.41023pt on input line 1223.
+LaTeX Warning: Float too large for page by 106.41023pt on input line 1266.
 
-[20pdfTeX warning (ext4): destination with the same identifier (name{table.6}) 
+[22pdfTeX warning (ext4): destination with the same identifier (name{table.6}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1225 \end{landscape}
-                      ] [21
+l.1268 \end{landscape}
+                      ] [23
 
 
 
-] [22] [23] [24]
+] [24] [25] [26]
 LaTeX Font Info:    Font shape `T1/SourceSansPro-LF/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1614.
+(Font)              scaled to size 5.0pt on input line 1657.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-LF/m/it' will be
-(Font)              scaled to size 5.0pt on input line 1678.
-[25
+(Font)              scaled to size 5.0pt on input line 1721.
+[27
 
 pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
  been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1682 \end{landscape}
-                      ] [26pdfTeX warning (ext4): destination with the same ide
+l.1725 \end{landscape}
+                      ] [28pdfTeX warning (ext4): destination with the same ide
 ntifier (name{table.8}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1716 \newpage
+l.1759 \newpage
                
 
 
-] [27pdfTeX warning (ext4): destination with the same identifier (name{table.9}
+] [29pdfTeX warning (ext4): destination with the same identifier (name{table.9}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1742 \newpage
-               ] [28pdfTeX warning (ext4): destination with the same identifier
+l.1785 \newpage
+               ] [30pdfTeX warning (ext4): destination with the same identifier
  (name{table.10}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1768 \newpage
-               ] [29pdfTeX warning (ext4): destination with the same identifier
+l.1811 \newpage
+               ] [31pdfTeX warning (ext4): destination with the same identifier
  (name{table.11}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1801 \newpage
+l.1844 \newpage
                ]
 <transformation_financial_inclusion_files/figure-latex/unnamed-chunk-37-1.pdf, 
-id=312, 568.1225pt x 331.2375pt>
+id=339, 568.1225pt x 331.2375pt>
 File: transformation_financial_inclusion_files/figure-latex/unnamed-chunk-37-1.
 pdf Graphic file (type pdf)
 <use transformation_financial_inclusion_files/figure-latex/unnamed-chunk-37-1.p
 df>
 Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
-unnamed-chunk-37-1.pdf  used on input line 1809.
+unnamed-chunk-37-1.pdf  used on input line 1852.
 (pdftex.def)             Requested size: 568.1471pt x 331.25183pt.
-[30pdfTeX warning (ext4): destination with the same identifier (name{figure.5})
+[32pdfTeX warning (ext4): destination with the same identifier (name{figure.6})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1816 \newpage
+l.1859 \newpage
                 <./transformation_financial_inclusion_files/figure-latex/unname
 d-chunk-37-1.pdf>]
 <transformation_financial_inclusion_files/figure-latex/unnamed-chunk-38-1.pdf, 
-id=327, 557.08125pt x 337.26pt>
+id=354, 557.08125pt x 337.26pt>
 File: transformation_financial_inclusion_files/figure-latex/unnamed-chunk-38-1.
 pdf Graphic file (type pdf)
 <use transformation_financial_inclusion_files/figure-latex/unnamed-chunk-38-1.p
 df>
 Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
-unnamed-chunk-38-1.pdf  used on input line 1824.
+unnamed-chunk-38-1.pdf  used on input line 1867.
 (pdftex.def)             Requested size: 557.0884pt x 337.26431pt.
-[31pdfTeX warning (ext4): destination with the same identifier (name{figure.6})
+[33pdfTeX warning (ext4): destination with the same identifier (name{figure.7})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1831 \newpage
+l.1874 \newpage
                 <./transformation_financial_inclusion_files/figure-latex/unname
 d-chunk-38-1.pdf>]
 <transformation_financial_inclusion_files/figure-latex/unnamed-chunk-39-1.pdf, 
-id=344, 566.115pt x 337.26pt>
+id=370, 566.115pt x 337.26pt>
 File: transformation_financial_inclusion_files/figure-latex/unnamed-chunk-39-1.
 pdf Graphic file (type pdf)
 <use transformation_financial_inclusion_files/figure-latex/unnamed-chunk-39-1.p
 df>
 Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
-unnamed-chunk-39-1.pdf  used on input line 1839.
+unnamed-chunk-39-1.pdf  used on input line 1882.
 (pdftex.def)             Requested size: 566.12225pt x 337.26431pt.
-[32pdfTeX warning (ext4): destination with the same identifier (name{figure.7})
+[34pdfTeX warning (ext4): destination with the same identifier (name{figure.8})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1846 \end{landscape}
+l.1889 \end{landscape}
                        <./transformation_financial_inclusion_files/figure-latex
-/unnamed-chunk-39-1.pdf>] [33
+/unnamed-chunk-39-1.pdf>] [35
 
 ]
 <transformation_financial_inclusion_files/figure-latex/unnamed-chunk-41-1.pdf, 
-id=366, 578.16pt x 361.35pt>
+id=393, 578.16pt x 361.35pt>
 File: transformation_financial_inclusion_files/figure-latex/unnamed-chunk-41-1.
 pdf Graphic file (type pdf)
 <use transformation_financial_inclusion_files/figure-latex/unnamed-chunk-41-1.p
 df>
 Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
-unnamed-chunk-41-1.pdf  used on input line 1862.
-(pdftex.def)             Requested size: 578.15858pt x 361.34912pt.
-[34
-
-] [35pdfTeX warning (ext4): destination with the same identifier (name{figure.8
-}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.1869 \end{landscape}
-                       <./transformation_financial_inclusion_files/figure-latex
-/unnamed-chunk-41-1.pdf>]
-<transformation_financial_inclusion_files/figure-latex/unnamed-chunk-42-1.pdf, 
-id=391, 578.16pt x 361.35pt>
-File: transformation_financial_inclusion_files/figure-latex/unnamed-chunk-42-1.
-pdf Graphic file (type pdf)
-<use transformation_financial_inclusion_files/figure-latex/unnamed-chunk-42-1.p
-df>
-Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
-unnamed-chunk-42-1.pdf  used on input line 1880.
+unnamed-chunk-41-1.pdf  used on input line 1905.
 (pdftex.def)             Requested size: 578.15858pt x 361.34912pt.
 [36
-
 
 ] [37pdfTeX warning (ext4): destination with the same identifier (name{figure.9
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1887 \end{landscape}
+l.1912 \end{landscape}
+                       <./transformation_financial_inclusion_files/figure-latex
+/unnamed-chunk-41-1.pdf>]
+<transformation_financial_inclusion_files/figure-latex/unnamed-chunk-42-1.pdf, 
+id=418, 578.16pt x 361.35pt>
+File: transformation_financial_inclusion_files/figure-latex/unnamed-chunk-42-1.
+pdf Graphic file (type pdf)
+<use transformation_financial_inclusion_files/figure-latex/unnamed-chunk-42-1.p
+df>
+Package pdftex.def Info: transformation_financial_inclusion_files/figure-latex/
+unnamed-chunk-42-1.pdf  used on input line 1923.
+(pdftex.def)             Requested size: 578.15858pt x 361.34912pt.
+[38
+
+
+] [39pdfTeX warning (ext4): destination with the same identifier (name{figure.1
+0}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1930 \end{landscape}
                        <./transformation_financial_inclusion_files/figure-latex
 /unnamed-chunk-42-1.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1889.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1889.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1932.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1932.
 (./transformation_financial_inclusion.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1889.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1889.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1932.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1932.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15517 strings out of 481745
- 236265 string characters out of 5930830
- 540966 words of memory out of 5000000
- 29913 multiletter control sequences out of 15000+600000
- 721223 words of font info for 231 fonts, out of 8000000 for 9000
+ 15535 strings out of 481745
+ 237028 string characters out of 5930830
+ 541392 words of memory out of 5000000
+ 29922 multiletter control sequences out of 15000+600000
+ 721588 words of font info for 233 fonts, out of 8000000 for 9000
  891 hyphenation exceptions out of 8191
- 43i,13n,43p,848b,405s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,13n,43p,848b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
 hare/texlive/texmf-dist/fonts/enc/dvips/sourcesanspro/a_5tbsmu.enc}{/usr/share/
@@ -1130,11 +1150,11 @@ s/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr5.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/pu
 blic/lm/lmsy5.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share
 /texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on transformation_financial_inclusion.pdf (37 pages, 10349304 by
+Output written on transformation_financial_inclusion.pdf (39 pages, 10546824 by
 tes).
 PDF statistics:
- 579 PDF objects out of 1000 (max. 8388607)
- 491 compressed objects within 5 object streams
- 166 named destinations out of 1000 (max. 500000)
- 26883 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 610 PDF objects out of 1000 (max. 8388607)
+ 516 compressed objects within 6 object streams
+ 171 named destinations out of 1000 (max. 500000)
+ 26896 words of extra memory for PDF output out of 29859 (max. 10000000)
 
