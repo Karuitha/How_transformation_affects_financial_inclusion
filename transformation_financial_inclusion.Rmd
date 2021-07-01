@@ -801,6 +801,12 @@ Turning to profitability in Figure 3 (Panel B), we find that rural and commercia
 
 Overall, the pattern indicates that while NGOs spend the most in operating expenses to reach the financially excluded, these efforts come at the cost of profitability. In contrast, profit-oriented MFIs are keen to manage expenses that improve profitability, presumably at the expense of outreach to the financially excluded. It is worth noting that NGOs have a relatively low asset base and hold relatively fewer non-current assets to total assets. The observation could mean that NGOs do not invest heavily in brick and mortar branches or serve a relatively limited geographic range. Finally, NGOs have the highest capital (equity) to asset ratio despite the push towards commercial capital. Much could be from investors, who put forth dedicated equity capital because they are keen on social performance and not profits [@mia2017mission].
 
+We now turn to Figure 4. The first graph (Figure 4- Panel A) shows that commercial banks have the most prominent asset size (total assets), while NGOs and cooperatives have the smallest in that order. Banks tend to have a much broader geographic presence and hence attract more clients, which means more assets accumulation. Again, capital adequacy requirements by central banks have implications on the assets that banks hold. Furthermore, commercial banks are generally dominant in many developing countries meaning that they have a long operating history which implies a bigger size [@levine2002bank]. Figure 4 panel B shows that NGOs and NBFIs serve proportionately more women borrowers, indicating their outreach depth. Given that much of the donor funds accrues to NGOs, the conversion to the for-profit model would be detrimental to financial inclusion if coupled with a reduction in donor funding. 
+
+Commercial banks and credit unions have the highest average loan balance per borrower (depth of outreach), while NBFIs and NGOs come last in that order (Figure 4- Panel C). As an indicator of outreach to the poor, the average loan balance per borrower is better when lower, indicating that more impoverished people get access to financial services. Again, it appears that profit-orientation by commercial banks may cause MFIs to reach less financially excluded people in favour of making profits. For credit unions, the observation could arise due to the limited geographic range of operations where they serve people with a common interest like the type of occupation, meaning that their members may not be suffering from financial exclusion in the first place [@armendariz2013subsidy].
+
+NGOs have the highest median gross loans to total assets ratio, surprising given their relatively smaller size. On the other hand, banks and rural banks, respectively, have the lowest gross loans to assets, meaning they are less efficient in converting their assets into credit (Figure 4- Panel D). Again, it shows, at least in the case of Africa, that the breadth and depth of financial outreach are not always mutually exclusive. In this case, NGOs can reach the most impoverished borrowers, going by the per cent of female borrowers and average loan balance per borrower, while at the same time seemingly reaching a broad customer base as indicated by the gross loans to assets. So far, the bulk of MFIs population leans towards the welfare orientation where profitability overtly seems incompatible with outreach to the financially excluded [@lopatta2016microfinance].
+
 
 \newpage
 \blandscape
@@ -864,15 +870,6 @@ library(patchwork)
 ```
 
 \elandscape
-\newpage
-
-We now turn to Figure 4. The first graph (Figure 4- Panel A) shows that commercial banks have the most prominent asset size (total assets), while NGOs and cooperatives have the smallest in that order. Banks tend to have a much broader geographic presence and hence attract more clients, which means more assets accumulation. Again, capital adequacy requirements by central banks have implications on the assets that banks hold. Furthermore, commercial banks are generally dominant in many developing countries meaning that they have a long operating history which implies a bigger size [@levine2002bank]. Figure 4 panel B shows that NGOs and NBFIs serve proportionately more women borrowers, indicating their outreach depth. Given that much of the donor funds accrues to NGOs, the conversion to the for-profit model would be detrimental to financial inclusion if coupled with a reduction in donor funding. 
-
-Commercial banks and credit unions have the highest average loan balance per borrower (depth of outreach), while NBFIs and NGOs come last in that order (Figure 4- Panel C). As an indicator of outreach to the poor, the average loan balance per borrower is better when lower, indicating that more impoverished people get access to financial services. Again, it appears that profit-orientation by commercial banks may cause MFIs to reach less financially excluded people in favour of making profits. For credit unions, the observation could arise due to the limited geographic range of operations where they serve people with a common interest like the type of occupation, meaning that their members may not be suffering from financial exclusion in the first place [@armendariz2013subsidy].
-
-NGOs have the highest median gross loans to total assets ratio, surprising given their relatively smaller size. On the other hand, banks and rural banks, respectively, have the lowest gross loans to assets, meaning they are less efficient in converting their assets into credit (Figure 4- Panel D). Again, it shows, at least in the case of Africa, that the breadth and depth of financial outreach are not always mutually exclusive. In this case, NGOs can reach the most impoverished borrowers, going by the per cent of female borrowers and average loan balance per borrower, while at the same time seemingly reaching a broad customer base as indicated by the gross loans to assets. So far, the bulk of MFIs population leans towards the welfare orientation where profitability overtly seems incompatible with outreach to the financially excluded [@lopatta2016microfinance].
-
-
 
 \newpage
 \blandscape
@@ -1572,6 +1569,7 @@ data_wins <- my_data %>%
 ####################################################
 ```
 
+
 ```{r, eval = TRUE}
 ## Run the winsorized regressions
 ## Model for coefficients
@@ -1631,8 +1629,6 @@ Furthermore, the capital to assets ratio positively drives all aspects of financ
 
 \blandscape
 \newpage
-
-## Appendix 1: Regression Results for Winsorized Data
 
 
 ```{r, results = 'asis'}
@@ -2118,18 +2114,9 @@ qqline(residuals(plm_gross_fixed_wins))
 ```
 
 
-\newpage
-
-## Appendix 9: Trends in Debt to Equity Ratio
-
-```{r, fig.cap = "Trends in Debt/Equity Ratio", fig.height=5, fig.width=8}
-## Size - Log of assets
-```
-
 
 \newpage
 
-## Appendix 10: Debt to Equity Ratio by MFI Legal Status
 
 ```{r, fig.cap = "Debt to Equity Ratio by MFI Legal Status", fig.height=5, fig.width=8}
 second_plotter(data = my_data, x = currentlegalstatus, 
@@ -2137,7 +2124,7 @@ second_plotter(data = my_data, x = currentlegalstatus,
         y = debt_to_equity_ratio, 
         xlabel = "Current Legal Status", 
         ylabel = "Debt to Equity Ratio (Log Scale)", 
-        title = "") /
+        title = "") +
   
 second_plotter(data = my_data, x = currentlegalstatus, 
         z = currentlegalstatus,
@@ -2149,7 +2136,6 @@ second_plotter(data = my_data, x = currentlegalstatus,
 
 \newpage
 
-## Appendix 11: Percent of Women Borrowers by MFI type
 
 
 ```{r, fig.cap = "Trends in the Percent of Female Borrowers by Legal Tradition", fig.height=5, fig.width=8}
