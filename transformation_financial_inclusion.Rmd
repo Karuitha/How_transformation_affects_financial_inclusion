@@ -129,9 +129,11 @@ tribble(~ Institution, ~ Country, ~ Year, ~ Converted_to,
 As noted earlier, research outcomes on the effects of the transformation of microfinance institutions are mixed. @morduch2019challenges argue that if commercial MFIs could sustainably achieve financial sustainability while also reaching the poor, NGOs would not exist. In that context, therefore, the most critical question relates to how the transformation of MFIs would affect their core mission of providing financial services to the financially excluded. The issue is vital due to the legitimacy that MFIs derive from serving the financially excluded. Besides, financial inclusion is central to alleviating poverty and achieving inclusive growth, an essential dimension of financial development. In this article, we use data from the Microfinance Information Exchange (MIX) to evaluate the ways that the transformation of MFIs affects financial inclusion in Africa.
 
 We capture the extent of financial inclusion in Africa by using three metrics:
-The percentage of female borrowers.
-Average loan balance per borrower.
-The ratio of the gross loan portfolio to total assets of each MFI [@d2017ngos]
+
+- The percentage of female borrowers.
+- Average loan balance per borrower.
+- The ratio of the gross loan portfolio to total assets of each MFI [@d2017ngos].
+
 The first two metrics proxy the depth of outreach, with more significant outreach to women indicating deeper outreach, given that women form a substantial proportion of the financially excluded population in Africa [@ayyagari2013financing]. A higher average loan balance per borrower, on the other hand, corresponds to a lower depth of outreach to any group of the financially excluded. The presumption is that financially excluded people usually borrow in smaller denominations that have drawn reservations from some researchers who argue poor people could progressively demand bigger loans as they get better off. Also, MFIs regularly use progressive lending where people who successfully pay off loans qualify for larger loan amounts. Finally, gross loans to assets capture the breadth of outreach, with higher ratios indicating more breadth.
 
 We have organised the rest of the article as follows. Section 1.1 highlights the results of the study. In section 2, we review the background literature on MFI transformation. In section 3, we describe the methodology and, in section 4, we present and discuss the results and close with concluding remarks in section 5. 
